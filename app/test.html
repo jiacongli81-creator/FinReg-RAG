@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>金融制度问答测试</title>
+  <style>
+    body { max-width: 980px; margin: 32px auto; padding: 0 20px; font-family: "Microsoft YaHei", sans-serif; color: #1f2937; background: #f6f7f9; }
+    h1 { margin-bottom: 6px; } .hint { color: #6b7280; }
+    section { background: white; padding: 20px; margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 8px; }
+    button { background: #2563eb; color: white; border: 0; border-radius: 5px; padding: 9px 16px; cursor: pointer; }
+    button.secondary { background: #4b5563; } input[type=file], textarea { margin: 10px 0; }
+    textarea { width: 100%; min-height: 90px; box-sizing: border-box; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; }
+    pre { white-space: pre-wrap; background: #f3f4f6; padding: 12px; border-radius: 5px; overflow: auto; }
+    table { border-collapse: collapse; width: 100%; } th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e5e7eb; }
+  </style>
+</head>
+<body>
+  <h1>金融制度知识问答测试</h1>
+  <p class="hint">这是后端开发阶段的临时测试页面，正式前端后续再开发。</p>
+
+  <section>
+    <h2>1. 查看已导入文档</h2>
+    <button class="secondary" onclick="loadDocuments()">刷新文档列表</button>
+    <div id="documents"></div>
+  </section>
+
+  <section>
+    <h2>2. 上传文档</h2>
+    <input id="file" type="file" accept=".pdf,.txt,.docx,.doc,.wps,.png,.jpg,.jpeg,.bmp,.tif,.tiff">
+    <button onclick="uploadFile()">上传并导入</button>
+    <pre id="uploadResult">尚未上传文件</pre>
+  </section>
+
+  <section>
+    <h2>3. 提交问题</h2>
+    <textarea id="question" placeholder="例如：证券交易规则主要规范什么内容？"></textarea>
+    <button onclick="askQuestion()">开始问答</button>
+    <pre id="answer">尚未提交问题</pre>
+  </section>
+
+  <script>
+    async function loadDocuments() {
+      const response = await fetch('/documents');
+      const docs = await response.json();
+      document.getElementById('documents').innerHTML = docs.length ?
+        '<table><tr><th>文件名</th><th>类型</th><th>切片数量</th><th>状态</th></tr>' +
+        docs.map(d => `<tr><td>${escapeHtml(d.filename)}</td><td>${d.file_type}</td><td>${d.chunk_count}</td><td>${d.status}</td></tr>`).join('') + '</table>' :
+        '<p>暂时没有已导入文档。</p>';
+    }
+    async function uploadFile() {
+      const file = document.getElementById('file').files[0];
+      if (!file) { alert('请先选择 PDF 或 TXT 文件'); return; }
+      const data = new FormData(); data.append('file', file);
+      const response = await fetch('/documents/upload', { method: 'POST', body: data });
+      document.getElementById('uploadResult').textContent = JSON.stringify(await response.json(), null, 2);
+      loadDocuments();
+    }
+    async function askQuestion() {
+      const question = document.getElementById('question').value.trim();
+      if (!question) { alert('请输入问题'); return; }
+      const response = await fetch('/query', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question, top_k: 5, only_valid: true}) });
+      const result = await response.json();
+      document.getElementById('answer').textContent = JSON.stringify(result, null, 2);
+    }
+    function escapeHtml(value) { return value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    loadDocuments();
+  </script>
+</body>
+</html>

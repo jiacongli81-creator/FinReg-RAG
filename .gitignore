@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/app.db
+data/*.db
+_doc_review/
