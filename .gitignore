@@ -1,4 +1,11 @@
 .env
+.venv/
+mineru_runtime/
+vendor/MinerU/mineru.egg-info/
+vendor/MinerU/.pytest_cache/
+vendor/MinerU/.zcode/
+vendor/MinerU/build/
+vendor/MinerU/dist/
 __pycache__/
 *.py[cod]
 .pytest_cache/

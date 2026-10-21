@@ -89,6 +89,17 @@ def list_documents() -> list[sqlite3.Row]:
         ).fetchall()
 
 
+def get_document_chunks(document_id: str) -> list[sqlite3.Row]:
+    with connect() as conn:
+        return conn.execute(
+            """SELECT id, document_id, content, page, section
+               FROM chunks
+               WHERE document_id = ?
+               ORDER BY COALESCE(page, 0), rowid""",
+            (document_id,),
+        ).fetchall()
+
+
 def get_chunks(only_valid: bool) -> list[sqlite3.Row]:
     sql = """SELECT c.*, d.title, d.filename, d.effective_date, d.validity
              FROM chunks c JOIN documents d ON d.id = c.document_id

@@ -9,9 +9,17 @@ from pypdf import PdfReader
 from ..config import settings
 from ..db import insert_chunks, insert_document, utc_now
 from .embeddings import embed
+from .mineru_parser import parse_with_mineru
 
 
-SUPPORTED = {".pdf", ".txt", ".docx", ".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff"}
+TEXT_EXTENSIONS = {".txt", ".text", ".md", ".markdown", ".rst", ".tex", ".csv", ".tsv"}
+IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp", ".tif", ".tiff", ".jp2"}
+MINERU_DOCUMENT_EXTENSIONS = {
+    ".pdf", ".doc", ".ppt", ".pptx", ".xls", ".xlsx", ".rtf",
+    ".odt", ".ods", ".odp", ".epub", ".ofd", ".html", ".htm",
+    ".shtml", ".mhtml", ".mht",
+}
+SUPPORTED = TEXT_EXTENSIONS | IMAGE_EXTENSIONS | MINERU_DOCUMENT_EXTENSIONS | {".docx"}
 DATE_PATTERN = re.compile(r"(?:20\d{2})[年./-](?:\d{1,2})[月./-](?:\d{1,2})日?")
 
 
@@ -23,22 +31,18 @@ def _normalize(text: str) -> str:
 
 
 def _extract_pages(path: Path) -> list[tuple[int, str]]:
-    if path.suffix.lower() == ".txt":
+    suffix = path.suffix.lower()
+    if suffix in TEXT_EXTENSIONS:
         return [(1, path.read_text(encoding="utf-8", errors="ignore"))]
-    if path.suffix.lower() == ".docx":
+    if suffix == ".docx":
         document = Document(str(path))
         parts = [paragraph.text for paragraph in document.paragraphs if paragraph.text.strip()]
         for table in document.tables:
             for row in table.rows:
                 parts.append(" | ".join(cell.text.strip() for cell in row.cells))
         return [(1, "\n".join(parts))]
-    if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff"}:
-        try:
-            import pytesseract
-            from PIL import Image
-        except ImportError as exc:
-            raise ValueError("图片需要安装 OCR 依赖 pytesseract 和 Tesseract 引擎") from exc
-        return [(1, pytesseract.image_to_string(Image.open(path), lang="chi_sim+eng"))]
+    if suffix in IMAGE_EXTENSIONS or suffix in MINERU_DOCUMENT_EXTENSIONS:
+        return parse_with_mineru(path)
     reader = PdfReader(str(path))
     return [(index + 1, page.extract_text() or "") for index, page in enumerate(reader.pages)]
 

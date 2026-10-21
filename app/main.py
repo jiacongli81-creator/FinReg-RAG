@@ -6,9 +6,16 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import HTMLResponse
 
 from .config import settings
-from .db import init_db, list_documents
-from .schemas import DirectoryIngestResponse, DocumentResponse, QueryRequest, QueryResponse
+from .db import get_document_chunks, init_db, list_documents
+from .schemas import (
+    DirectoryIngestResponse,
+    DocumentContentResponse,
+    DocumentResponse,
+    QueryRequest,
+    QueryResponse,
+)
 from .services.ingestion import SUPPORTED, ingest_file
+from .services.mineru_parser import mineru_status
 from .services.retrieval import query
 
 
@@ -29,7 +36,12 @@ def test_page() -> HTMLResponse:
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "database": str(settings.database_path), "llm_provider": settings.llm_provider}
+    return {
+        "status": "ok",
+        "database": str(settings.database_path),
+        "llm_provider": settings.llm_provider,
+        "mineru": mineru_status(),
+    }
 
 
 def _response(row) -> DocumentResponse:
@@ -40,6 +52,14 @@ def _response(row) -> DocumentResponse:
 @app.get("/documents", response_model=list[DocumentResponse])
 def documents() -> list[DocumentResponse]:
     return [_response(row) for row in list_documents()]
+
+
+@app.get("/documents/{document_id}/content", response_model=DocumentContentResponse)
+def document_content(document_id: str) -> DocumentContentResponse:
+    chunks = [dict(row) for row in get_document_chunks(document_id)]
+    if not chunks:
+        raise HTTPException(status_code=404, detail="没有找到该文档的识别内容")
+    return DocumentContentResponse(document_id=document_id, chunks=chunks)
 
 
 @app.post("/documents/upload", response_model=DocumentResponse)
@@ -57,7 +77,8 @@ async def upload_document(file: UploadFile = File(...)) -> DocumentResponse:
 
 @app.post("/documents/ingest-directory", response_model=DirectoryIngestResponse)
 def ingest_directory() -> DirectoryIngestResponse:
-    files = [path for path in settings.raw_data_dir.rglob("*") if path.is_file()]
+    input_dirs = [settings.raw_data_dir, settings.converted_data_dir]
+    files = [path for directory in input_dirs for path in directory.rglob("*") if path.is_file()]
     results = []
     errors = []
     for path in files:

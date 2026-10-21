@@ -41,6 +41,18 @@ class DocumentResponse(BaseModel):
     error: str | None = None
 
 
+class DocumentContentItem(BaseModel):
+    id: str
+    page: int | None = None
+    section: str | None = None
+    content: str
+
+
+class DocumentContentResponse(BaseModel):
+    document_id: str
+    chunks: list[DocumentContentItem]
+
+
 class DirectoryIngestResponse(BaseModel):
     processed: int
     succeeded: int
