@@ -111,6 +111,23 @@ def get_chunks(only_valid: bool) -> list[sqlite3.Row]:
         return conn.execute(sql, params).fetchall()
 
 
+def get_ready_chunks_for_embedding() -> list[sqlite3.Row]:
+    with connect() as conn:
+        return conn.execute(
+            """SELECT c.id, c.content FROM chunks c
+               JOIN documents d ON d.id = c.document_id
+               WHERE d.status = 'ready' ORDER BY c.rowid"""
+        ).fetchall()
+
+
+def update_chunk_embeddings(embeddings: dict[str, list[float]]) -> None:
+    with connect() as conn:
+        conn.executemany(
+            "UPDATE chunks SET embedding = ? WHERE id = ?",
+            [(json.dumps(vector, ensure_ascii=False), chunk_id) for chunk_id, vector in embeddings.items()],
+        )
+
+
 def save_history(question: str, answer: str, sources: list[dict[str, Any]]) -> None:
     with connect() as conn:
         conn.execute(

@@ -40,6 +40,8 @@ def health() -> dict:
         "status": "ok",
         "database": str(settings.database_path),
         "llm_provider": settings.llm_provider,
+        "embedding_provider": settings.embedding_provider,
+        "embedding_model": settings.embedding_model,
         "mineru": mineru_status(),
     }
 

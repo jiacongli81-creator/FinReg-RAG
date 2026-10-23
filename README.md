@@ -45,9 +45,24 @@ PDF、扫描 PDF 和图片由本仓库 `vendor/MinerU` 的 basic 模型识别。
 
 ## 当前运行模式
 
-默认使用 SQLite 和本地哈希向量检索，LLM 使用可运行的摘录式兜底回答。这样可以在没有外部模型和数据库服务的情况下验证完整后端链路。
+语义检索由本机 Ollama 的 `shaw/dmeta-embedding-zh:latest` 生成向量，关键词检索使用 jieba，二者通过倒数排名融合（RRF）合并候选片段。LLM 默认使用摘录式兜底回答；可通过下方设置接入兼容 OpenAI Chat Completions 的 Qwen API。问答来源中的 `score` 是融合排序分数，不是答案准确率。
 
-正式接入模型时，在 `.env` 中设置：
+首次切换嵌入模型或已有片段仍使用旧向量时，先启动 Ollama 并确认 `ollama list` 中有该模型，再运行：
+
+```powershell
+ollama serve
+```
+
+在另一个 PowerShell 窗口运行向量重建。脚本会先生成并校验全部片段向量，再备份 `data/app.db` 到 `data/backups`，最后一次性更新向量；失败时不会改写数据库。文档文本和 OCR 结果不会重新处理。
+
+```powershell
+cd D:\信雅达rag
+.\.venv\Scripts\python.exe .\scripts\rebuild_embeddings.py
+```
+
+此后新增文档会在导入时自动生成 Ollama 向量；运行服务和导入文档前需确保 Ollama 已启动。
+
+在 `.env` 中配置 Qwen API：
 
 ```text
 LLM_PROVIDER=openai_compatible

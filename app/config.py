@@ -22,6 +22,10 @@ class Settings:
     llm_base_url: str = os.getenv("LLM_BASE_URL", "")
     llm_api_key: str = os.getenv("LLM_API_KEY", "")
     llm_model: str = os.getenv("LLM_MODEL", "")
+    embedding_provider: str = os.getenv("EMBEDDING_PROVIDER", "ollama")
+    embedding_base_url: str = os.getenv("EMBEDDING_BASE_URL", "http://127.0.0.1:11434")
+    embedding_model: str = os.getenv("EMBEDDING_MODEL", "shaw/dmeta-embedding-zh:latest")
+    embedding_timeout_seconds: int = int(os.getenv("EMBEDDING_TIMEOUT_SECONDS", "120"))
     mineru_enabled: bool = os.getenv("MINERU_ENABLED", "true").lower() in {"1", "true", "yes", "on"}
     mineru_python: Path = Path(os.getenv("MINERU_PYTHON", str(ROOT_DIR / "mineru_runtime" / ".venv" / "Scripts" / "python.exe")))
     mineru_home: Path = Path(os.getenv("MINERU_HOME", str(ROOT_DIR / "mineru_runtime" / ".mineru")))
