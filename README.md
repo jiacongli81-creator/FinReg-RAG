@@ -2,6 +2,18 @@
 
 ## 启动
 
+### 数据库存储
+
+默认使用 SQLite 的 `data/app.db`。要使用 MySQL，在 `.env` 设置 `DATABASE_BACKEND=mysql`、`MYSQL_HOST`、`MYSQL_PORT` 和 `MYSQL_DATABASE`。项目从 `MYSQL_CREDENTIALS` 指定的 JSON 文件读取 `app_user` 和 `app_password`；默认路径为 `mineru_runtime/mysql/credentials.json`，此文件必须自行配置并保密。目标账号需要有目标数据库的建表和读写权限。MySQL 服务必须先启动。
+
+从现有 SQLite 迁移到空的 MySQL 数据库，可运行：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\migrate_sqlite_to_mysql.py --snapshot D:\路径\sqlite-snapshot.db
+```
+
+迁移前请停止项目写入。脚本先创建 SQLite 快照，再逐行核对文档、片段和历史记录；目标表非空时不会覆盖数据。成功后设置 `DATABASE_BACKEND=mysql` 并重启服务。向量暂存在 MySQL 文本字段中，检索仍由 Python 计算。重建向量前，MySQL 模式会备份片段 ID 与原向量。
+
 在 Windows PowerShell 中进入项目根目录。先准备可用的 Python 3.12，再在 D 盘克隆本仓库。首次安装运行：
 
 ```powershell

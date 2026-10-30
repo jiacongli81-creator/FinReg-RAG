@@ -63,12 +63,21 @@ def main() -> int:
     database = settings.database_path
     backup_dir = database.parent / "backups"
     backup_dir.mkdir(parents=True, exist_ok=True)
-    backup_path = backup_dir / f"{database.stem}-before-ollama-{datetime.now():%Y%m%d-%H%M%S}{database.suffix}"
-    with sqlite3.connect(database) as source, sqlite3.connect(backup_path) as backup:
-        source.backup(backup)
+    if settings.database_backend == 'mysql':
+        from app.mysql_db import connect
+        backup_path = backup_dir / f"mysql-embeddings-before-ollama-{datetime.now():%Y%m%d-%H%M%S}.json"
+        with connect() as source:
+            cursor = source.cursor()
+            cursor.execute('SELECT id, embedding FROM chunks ORDER BY id')
+            backup_path.write_text(json.dumps(cursor.fetchall(), ensure_ascii=False), encoding='utf-8')
+            cursor.close()
+    else:
+        backup_path = backup_dir / f"{database.stem}-before-ollama-{datetime.now():%Y%m%d-%H%M%S}{database.suffix}"
+        with sqlite3.connect(database) as source, sqlite3.connect(backup_path) as backup:
+            source.backup(backup)
     update_chunk_embeddings(vectors)
     print(f"Updated {len(vectors)} vectors ({next(iter(dimensions))} dimensions).")
-    print(f"Database backup: {backup_path}")
+    print(f"Backup: {backup_path}")
     return 0
 
 

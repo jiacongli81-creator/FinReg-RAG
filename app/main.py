@@ -38,7 +38,8 @@ def test_page() -> HTMLResponse:
 def health() -> dict:
     return {
         "status": "ok",
-        "database": str(settings.database_path),
+        "database": str(settings.database_path) if settings.database_backend == "sqlite" else f"mysql://{settings.mysql_host}:{settings.mysql_port}/{settings.mysql_database}",
+        "database_backend": settings.database_backend,
         "llm_provider": settings.llm_provider,
         "embedding_provider": settings.embedding_provider,
         "embedding_model": settings.embedding_model,
