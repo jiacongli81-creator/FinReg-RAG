@@ -23,7 +23,7 @@ class Settings:
     chunk_size: int = int(os.getenv("CHUNK_SIZE", "800"))
     chunk_overlap: int = int(os.getenv("CHUNK_OVERLAP", "120"))
     retrieval_top_k: int = int(os.getenv("RETRIEVAL_TOP_K", "5"))
-    rerank_enabled: bool = os.getenv("RERANK_ENABLED", "false").lower() in {"1", "true", "yes", "on"}
+    rerank_enabled: bool = os.getenv("RERANK_ENABLED", "true").lower() in {"1", "true", "yes", "on"}
     rerank_model: str = os.getenv("RERANK_MODEL", "BAAI/bge-reranker-v2-m3-int8")
     rerank_cache_dir: Path = Path(os.getenv("RERANK_CACHE_DIR", str(ROOT_DIR / "mineru_runtime" / "reranker")))
     llm_provider: str = os.getenv("LLM_PROVIDER", "mock")

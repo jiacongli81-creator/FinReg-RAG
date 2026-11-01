@@ -57,7 +57,7 @@ PDF、扫描 PDF 和图片由本仓库 `vendor/MinerU` 的 basic 模型识别。
 
 ## 当前运行模式
 
-语义检索由本机 Ollama 的 `shaw/dmeta-embedding-zh:latest` 生成向量，关键词检索使用 jieba，二者通过倒数排名融合（RRF）合并候选片段。可在 `.env` 中设置 `RERANK_ENABLED=true`，启用 BGE 交叉编码器对“问题＋候选片段原文”重新打分；首次使用会下载模型到 `mineru_runtime/reranker`。LLM 默认使用摘录式兜底回答；可通过下方设置接入兼容 OpenAI Chat Completions 的 Qwen API。问答来源中的 `score` 是当前排序模型的分数，不是答案准确率。
+语义检索由本机 Ollama 的 `shaw/dmeta-embedding-zh:latest` 生成向量，关键词检索使用 jieba，二者通过倒数排名融合（RRF）合并候选片段。默认启用 BGE 交叉编码器对“问题＋候选片段原文”重新打分；首次使用会下载模型到 `mineru_runtime/reranker`。如需使用原 RRF 排序，可在 `.env` 中设置 `RERANK_ENABLED=false`。LLM 默认使用摘录式兜底回答；可通过下方设置接入兼容 OpenAI Chat Completions 的 Qwen API。问答来源中的 `score` 是当前排序模型的分数，不是答案准确率。
 
 首次切换嵌入模型或已有片段仍使用旧向量时，先启动 Ollama 并确认 `ollama list` 中有该模型，再运行：
 
