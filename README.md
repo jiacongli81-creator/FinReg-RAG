@@ -138,3 +138,7 @@ powershell -ExecutionPolicy Bypass -File scripts\convert_legacy_office.ps1
 ```
 
 转换报告位于 `data/conversion_report.csv`，转换后的文件位于 `data/converted`。然后在中文测试页点击“批量导入”对应的接口，或在 `/docs` 中执行 `POST /documents/ingest-directory`，系统会递归读取 `data/raw` 和 `data/converted`。`.wps` 是否能转换取决于本机 Word 对该文件的兼容性；失败文件会记录在报告中。
+
+## 版本分支
+
+发布新版本时新建对应的版本分支并推送该分支，不直接推送到 `main`。当前版本分支为 `1.0`。
