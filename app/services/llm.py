@@ -18,8 +18,8 @@ def generate_answer(question: str, sources: list[dict]) -> tuple[str, str]:
         {
             "model": settings.llm_model,
             "messages": [
-                {"role": "system", "content": "你是金融制度问答助手。只能依据给定资料回答，必须引用资料编号；没有依据时明确说明无法确认。"},
-                {"role": "user", "content": f"资料：\n{context}\n\n问题：{question}"},
+                {"role": "system", "content": "你是金融制度问答助手。只能依据资料回答，不能补充资料之外的事实。直接回答用户问题，不要使用‘根据给定资料’、‘依据给定资料’、‘给定资料显示’等固定开场，也不要复述问题。回答应简洁、自然；需要时在相关句末用[1]、[2]标注资料编号。资料不足时直接说‘现有资料不足以确认’，并简要说明缺少什么信息。"},
+                {"role": "user", "content": f"参考资料：\n{context}\n\n用户问题：{question}\n\n请直接给出答案："},
             ],
             "temperature": 0.1,
         }

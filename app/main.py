@@ -34,11 +34,18 @@ def test_page() -> HTMLResponse:
     return HTMLResponse(page)
 
 
+@app.get("/legacy-test", include_in_schema=False, response_class=HTMLResponse)
+def legacy_test_page() -> HTMLResponse:
+    page = (Path(__file__).parent / "legacy_test.html").read_text(encoding="utf-8")
+    return HTMLResponse(page)
+
+
 @app.get("/health")
 def health() -> dict:
     return {
         "status": "ok",
-        "database": str(settings.database_path),
+        "database": str(settings.database_path) if settings.database_backend == "sqlite" else f"mysql://{settings.mysql_host}:{settings.mysql_port}/{settings.mysql_database}",
+        "database_backend": settings.database_backend,
         "llm_provider": settings.llm_provider,
         "embedding_provider": settings.embedding_provider,
         "embedding_model": settings.embedding_model,

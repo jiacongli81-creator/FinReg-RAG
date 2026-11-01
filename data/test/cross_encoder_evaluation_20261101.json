@@ -1,0 +1,2752 @@
+{
+  "input": "data\\test\\finance_qa_40.json",
+  "evaluated_at": "2026-11-01T22:48:01.357439+08:00",
+  "database_backend": "mysql",
+  "embedding_model": "shaw/dmeta-embedding-zh:latest",
+  "rerank_model": "BAAI/bge-reranker-v2-m3-int8",
+  "top_k": 5,
+  "candidate_k_per_method": 50,
+  "eligible_chunk_count": 1894,
+  "method": "Both methods use the same semantic Top 50 and keyword Top 50 candidates. Baseline uses equal-weight RRF; cross encoder deduplicates identical content and scores each (question, chunk content) pair. Gold evidence is used only for judging, never for scoring.",
+  "summary": {
+    "case_count": 40,
+    "candidate_pool_evidence_hit": "40/40",
+    "keyword_evidence_hit_at_k": "39/40",
+    "baseline_evidence_hit_at_k": "35/40",
+    "cross_encoder_evidence_hit_at_k": "39/40",
+    "delta_percentage_points": 10.0,
+    "gained_ids": [
+      "qa-08",
+      "qa-22",
+      "qa-23",
+      "qa-26",
+      "qa-28"
+    ],
+    "lost_ids": [
+      "qa-02"
+    ]
+  },
+  "cases": [
+    {
+      "id": "qa-01",
+      "question": "制定《中华人民共和国银行业监督管理法》的目的是什么？",
+      "source": "银行业公开监管办法.txt（正文标题：中华人民共和国银行业监督管理法）",
+      "evidence": "为了加强对银行业的监督管理，规范监督管理行为，防范和化解银行业风险，保护存款人和其他客户的合法权益，促进银行业健康发展，制定本法。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 79,
+      "unique_candidate_count": 58,
+      "elapsed_ms": 27512,
+      "baseline": [
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "f758410c-961f-4866-b614-e7e6b927d25f",
+          "title": "银行业公开监管办法",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "title": "银行业公开监管办法",
+          "score": 0.028543
+        },
+        {
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.028485
+        },
+        {
+          "chunk_id": "1a2b1663-131b-4ccb-a819-2f104df88630",
+          "title": "银行业公开监管办法",
+          "score": 0.028139
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 2.579822
+        },
+        {
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.83049
+        },
+        {
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "title": "银行业公开监管办法",
+          "score": 0.55261
+        },
+        {
+          "chunk_id": "b7527aaf-f8c2-492c-a76b-f274ea33ecae",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.379093
+        },
+        {
+          "chunk_id": "62ad7da7-0001-4664-b193-8fef21474c29",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.315067
+        }
+      ]
+    },
+    {
+      "id": "qa-02",
+      "question": "哪个机构负责全国银行业金融机构及其业务活动的监督管理？",
+      "source": "银行业公开监管办法.txt，第二条",
+      "evidence": "国务院银行业监督管理机构负责对全国银行业金融机构及其业务活动监督管理的工作。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 5,
+      "cross_encoder_evidence_rank_at_k": null,
+      "cross_encoder_evidence_rank_in_pool": 6,
+      "candidate_count": 70,
+      "unique_candidate_count": 57,
+      "elapsed_ms": 19294,
+      "baseline": [
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 0.031746
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.031319
+        },
+        {
+          "chunk_id": "54d741b6-d5c2-4890-bc12-78509e9b8deb",
+          "title": "银行业公开监管办法",
+          "score": 0.03125
+        },
+        {
+          "chunk_id": "233f1c0e-92af-4a88-9875-18374e6ef5cc",
+          "title": "银行业公开监管办法",
+          "score": 0.030835
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.030679
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 4.383986
+        },
+        {
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": 3.557448
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 3.35331
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 2.866505
+        },
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 2.821231
+        }
+      ]
+    },
+    {
+      "id": "qa-03",
+      "question": "本法所称的银行业金融机构包括哪些机构？",
+      "source": "银行业公开监管办法.txt，第二条",
+      "evidence": "本法所称银行业金融机构，是指在中华人民共和国境内设立的商业银行、城市信用合作社、农村信用合作社等吸收公众存款的金融机构以及政策性银行。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 76,
+      "unique_candidate_count": 64,
+      "elapsed_ms": 19560,
+      "baseline": [
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.031778
+        },
+        {
+          "chunk_id": "f758410c-961f-4866-b614-e7e6b927d25f",
+          "title": "银行业公开监管办法",
+          "score": 0.031281
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.030478
+        },
+        {
+          "chunk_id": "233f1c0e-92af-4a88-9875-18374e6ef5cc",
+          "title": "银行业公开监管办法",
+          "score": 0.030018
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.028083
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "49d4b462-c3ae-4f83-8291-4c7b26eebcd1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 4.511978
+        },
+        {
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.595352
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 1.615227
+        },
+        {
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "title": "银行业公开监管办法",
+          "score": 0.825302
+        },
+        {
+          "chunk_id": "62ad7da7-0001-4664-b193-8fef21474c29",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.012489
+        }
+      ]
+    },
+    {
+      "id": "qa-04",
+      "question": "银行业监督管理的目标是什么？",
+      "source": "银行业公开监管办法.txt，第三条",
+      "evidence": "银行业监督管理的目标是促进银行业的合法、稳健运行，维护公众对银行业的信心。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 2,
+      "cross_encoder_evidence_rank_in_pool": 2,
+      "candidate_count": 66,
+      "unique_candidate_count": 54,
+      "elapsed_ms": 17560,
+      "baseline": [
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "f758410c-961f-4866-b614-e7e6b927d25f",
+          "title": "银行业公开监管办法",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.031746
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.03125
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 0.03031
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": 3.151709
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 2.301446
+        },
+        {
+          "chunk_id": "e49f4aa0-7061-4aa7-9abe-6d3fc1e8d5e1",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": 0.65616
+        },
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.10783
+        },
+        {
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.005098
+        }
+      ]
+    },
+    {
+      "id": "qa-05",
+      "question": "银行业监督管理机构实施监管时应遵循哪些原则？",
+      "source": "银行业公开监管办法.txt，第四条",
+      "evidence": "银行业监督管理机构对银行业实施监督管理，应当遵循依法、公开、公正和效率的原则。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 69,
+      "unique_candidate_count": 55,
+      "elapsed_ms": 20669,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "e683bac9-1ddd-4500-9a33-512ffb21aa75",
+          "title": "银行业公开监管办法",
+          "score": 0.030777
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.030366
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 6.388899
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 1.942132
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 1.593796
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 0.959904
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.917195
+        }
+      ]
+    },
+    {
+      "id": "qa-06",
+      "question": "哪些主体不得干涉银行业监督管理机构依法履行职责？",
+      "source": "银行业公开监管办法.txt，第五条",
+      "evidence": "地方政府、各级政府部门、社会团体和个人不得干涉。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 73,
+      "unique_candidate_count": 54,
+      "elapsed_ms": 20188,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "f758410c-961f-4866-b614-e7e6b927d25f",
+          "title": "银行业公开监管办法",
+          "score": 0.030777
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.03031
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 4.648742
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 1.125595
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": 0.297079
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": -0.144928
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": -0.420388
+        }
+      ]
+    },
+    {
+      "id": "qa-07",
+      "question": "国务院银行业监督管理机构应与哪些机构建立监督管理信息共享机制？",
+      "source": "银行业公开监管办法.txt，第六条",
+      "evidence": "国务院银行业监督管理机构应当和中国人民银行、国务院其他金融监督管理机构建立监督管理信息共享机制。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 79,
+      "unique_candidate_count": 60,
+      "elapsed_ms": 22598,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.030798
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 0.030769
+        },
+        {
+          "chunk_id": "233f1c0e-92af-4a88-9875-18374e6ef5cc",
+          "title": "银行业公开监管办法",
+          "score": 0.030331
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 6.495376
+        },
+        {
+          "chunk_id": "1f28b215-fd73-4098-9c6e-594e89d6ed60",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.630693
+        },
+        {
+          "chunk_id": "1193d800-6167-4453-a0a3-387ea912695d",
+          "title": "中华人民共和国证券法(2019修订)",
+          "score": 3.062978
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 1.660481
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 1.473261
+        }
+      ]
+    },
+    {
+      "id": "qa-08",
+      "question": "银行业跨境监管合作机制可以与谁建立？",
+      "source": "银行业公开监管办法.txt，第七条",
+      "evidence": "国务院银行业监督管理机构可以和其他国家或者地区的银行业监督管理机构建立监督管理合作机制，实施跨境监督管理。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": null,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 76,
+      "unique_candidate_count": 61,
+      "elapsed_ms": 24506,
+      "baseline": [
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.030077
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 0.029958
+        },
+        {
+          "chunk_id": "f758410c-961f-4866-b614-e7e6b927d25f",
+          "title": "银行业公开监管办法",
+          "score": 0.029631
+        },
+        {
+          "chunk_id": "e683bac9-1ddd-4500-9a33-512ffb21aa75",
+          "title": "银行业公开监管办法",
+          "score": 0.029514
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.02938
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 2.131074
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": -3.145647
+        },
+        {
+          "chunk_id": "c3e43f39-49e9-4776-9b76-4b7b427e23dd",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": -3.887824
+        },
+        {
+          "chunk_id": "492ec0a6-7646-4748-b1f1-520abf6e837a",
+          "title": "2016081709585941149",
+          "score": -3.954633
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": -4.536782
+        }
+      ]
+    },
+    {
+      "id": "qa-09",
+      "question": "国务院银行业监督管理机构可以基于什么需要设立派出机构，派出机构在什么范围内履职？",
+      "source": "银行业公开监管办法.txt，第八条",
+      "evidence": "国务院银行业监督管理机构根据履行职责的需要设立派出机构……派出机构在国务院银行业监督管理机构的授权范围内，履行监督管理职责。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 2,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 79,
+      "unique_candidate_count": 62,
+      "elapsed_ms": 24115,
+      "baseline": [
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "d47fabd9-8d4e-48b5-bc9f-80722599afdb",
+          "title": "银行业公开监管办法",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.030769
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 5.102178
+        },
+        {
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "title": "中华人民共和国证券法(2019修订)",
+          "score": 2.40789
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 1.302283
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.980484
+        },
+        {
+          "chunk_id": "48a88919-26dc-47c5-aebe-5d2fa75982a4",
+          "title": "14 附录",
+          "score": 0.738767
+        }
+      ]
+    },
+    {
+      "id": "qa-10",
+      "question": "从事银行业监督管理工作的人员应具备什么条件？",
+      "source": "银行业公开监管办法.txt，第九条",
+      "evidence": "银行业监督管理机构从事监督管理工作的人员，应当具备与其任职相适应的专业知识和业务工作经验。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 74,
+      "unique_candidate_count": 54,
+      "elapsed_ms": 20103,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "title": "银行业公开监管办法",
+          "score": 0.030798
+        },
+        {
+          "chunk_id": "f758410c-961f-4866-b614-e7e6b927d25f",
+          "title": "银行业公开监管办法",
+          "score": 0.030331
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.028986
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 2.835229
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": 0.585151
+        },
+        {
+          "chunk_id": "e21ef46f-aabf-4d1b-ba0b-0845aabfe2b2",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.266225
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": -0.431099
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": -0.805969
+        }
+      ]
+    },
+    {
+      "id": "qa-11",
+      "question": "银行业监督管理机构工作人员在利益和兼职方面受到什么约束？",
+      "source": "银行业公开监管办法.txt，第十条",
+      "evidence": "不得利用职务便利牟取不正当的利益，不得在金融机构等企业中兼任职务。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 3,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 73,
+      "unique_candidate_count": 52,
+      "elapsed_ms": 21374,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.030777
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.030092
+        },
+        {
+          "chunk_id": "d47fabd9-8d4e-48b5-bc9f-80722599afdb",
+          "title": "银行业公开监管办法",
+          "score": 0.029643
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.029206
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.736274
+        },
+        {
+          "chunk_id": "6438b799-0b11-46f2-946d-c2011cbee370",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.504866
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": -0.524589
+        },
+        {
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "title": "银行业公开监管办法",
+          "score": -0.560137
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": -1.473042
+        }
+      ]
+    },
+    {
+      "id": "qa-12",
+      "question": "银行业监督管理机构工作人员是否负有保密义务？",
+      "source": "银行业公开监管办法.txt，第十一条",
+      "evidence": "应当依法保守国家秘密，并有责任为其监督管理的银行业金融机构及当事人保守秘密。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 73,
+      "unique_candidate_count": 53,
+      "elapsed_ms": 20183,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.029214
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": 0.028814
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.028787
+        },
+        {
+          "chunk_id": "ecc89c1a-14a7-4a6e-a251-b3c139982432",
+          "title": "银行业公开监管办法",
+          "score": 0.028405
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.027799
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 3.676108
+        },
+        {
+          "chunk_id": "a8d39663-2e60-461c-aef6-c88c6e886e75",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 1.59335
+        },
+        {
+          "chunk_id": "2d1c458f-86f0-4bba-90cb-3a144fd5d394",
+          "title": "征信问答题2",
+          "score": 1.172199
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": 0.34598
+        },
+        {
+          "chunk_id": "a4eadebe-b9f2-45e2-a647-5d6b548cb773",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.27446
+        }
+      ]
+    },
+    {
+      "id": "qa-13",
+      "question": "银行业监督管理机构应公开什么，并建立哪些制度？",
+      "source": "银行业公开监管办法.txt，第十二条",
+      "evidence": "国务院银行业监督管理机构应当公开监督管理程序，建立监督管理责任制度和内部监督制度。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 75,
+      "unique_candidate_count": 56,
+      "elapsed_ms": 21604,
+      "baseline": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 0.030478
+        },
+        {
+          "chunk_id": "d071f3ea-2269-4c74-8da8-d94fb2e9d100",
+          "title": "银行业公开监管办法",
+          "score": 0.030018
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 0.028531
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 0.028372
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.028191
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 4.279768
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 3.448222
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 1.748086
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 1.500718
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 1.369882
+        }
+      ]
+    },
+    {
+      "id": "qa-14",
+      "question": "处置银行业金融机构风险、查处金融违法行为时，地方政府和有关部门应如何配合？",
+      "source": "银行业公开监管办法.txt，第十三条",
+      "evidence": "地方政府、各级有关部门应当予以配合和协助。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 74,
+      "unique_candidate_count": 62,
+      "elapsed_ms": 23818,
+      "baseline": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "233f1c0e-92af-4a88-9875-18374e6ef5cc",
+          "title": "银行业公开监管办法",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": 0.029857
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 0.029572
+        },
+        {
+          "chunk_id": "54d741b6-d5c2-4890-bc12-78509e9b8deb",
+          "title": "银行业公开监管办法",
+          "score": 0.029418
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 5.580658
+        },
+        {
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "title": "银行业公开监管办法",
+          "score": 3.61093
+        },
+        {
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "title": "银行业公开监管办法",
+          "score": -0.556295
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": -1.508867
+        },
+        {
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": -1.601312
+        }
+      ]
+    },
+    {
+      "id": "qa-15",
+      "question": "银行业金融机构的设立、变更、终止及业务范围由谁审批？",
+      "source": "银行业公开监管办法.txt，第十六条",
+      "evidence": "国务院银行业监督管理机构依照法律、行政法规规定的条件和程序，审查批准银行业金融机构的设立、变更、终止以及业务范围。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 80,
+      "unique_candidate_count": 61,
+      "elapsed_ms": 25130,
+      "baseline": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "233f1c0e-92af-4a88-9875-18374e6ef5cc",
+          "title": "银行业公开监管办法",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.029907
+        },
+        {
+          "chunk_id": "d47fabd9-8d4e-48b5-bc9f-80722599afdb",
+          "title": "银行业公开监管办法",
+          "score": 0.029462
+        },
+        {
+          "chunk_id": "1f9dee2a-f21b-4d4d-9caf-7c428b0fa2fa",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.028405
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 5.669901
+        },
+        {
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": 5.358495
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 3.783408
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": 2.345001
+        },
+        {
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "title": "银行业公开监管办法",
+          "score": 0.466123
+        }
+      ]
+    },
+    {
+      "id": "qa-16",
+      "question": "审查银行业金融机构的相关股东时，应审查哪些方面？",
+      "source": "银行业公开监管办法.txt，第十七条",
+      "evidence": "国务院银行业监督管理机构应当对股东的资金来源、财务状况、资本补充能力和诚信状况进行审查。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 89,
+      "unique_candidate_count": 63,
+      "elapsed_ms": 25908,
+      "baseline": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.031545
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": 0.031281
+        },
+        {
+          "chunk_id": "233f1c0e-92af-4a88-9875-18374e6ef5cc",
+          "title": "银行业公开监管办法",
+          "score": 0.031054
+        },
+        {
+          "chunk_id": "e683bac9-1ddd-4500-9a33-512ffb21aa75",
+          "title": "银行业公开监管办法",
+          "score": 0.030798
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.029572
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 1.163065
+        },
+        {
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "title": "银行业公开监管办法",
+          "score": 0.731954
+        },
+        {
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "title": "银行业公开监管办法",
+          "score": -0.048734
+        },
+        {
+          "chunk_id": "4dc1a7ec-37f8-4619-8308-9bf343bb9e34",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -2.059421
+        },
+        {
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "title": "银行业公开监管办法",
+          "score": -2.363635
+        }
+      ]
+    },
+    {
+      "id": "qa-17",
+      "question": "反洗钱义务主体分为哪两类？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "反洗钱义务主体包括两类：1、在中华人民共和国境内设立的金融机构……2、二是按照规定应当履行反洗钱义务的特定非金融机构。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 72,
+      "unique_candidate_count": 70,
+      "elapsed_ms": 28265,
+      "baseline": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030331
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029857
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 8.128876
+        },
+        {
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.913767
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.546757
+        },
+        {
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "title": "反洗钱法律法规",
+          "score": 0.535276
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.008848
+        }
+      ]
+    },
+    {
+      "id": "qa-18",
+      "question": "文档列举了哪些应履行反洗钱义务的金融机构？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "包括依法设立的从事金融业务的政策性银行、商业银行、信用合作社、邮政储汇机构、信托投资公司、证券公司……",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 74,
+      "unique_candidate_count": 73,
+      "elapsed_ms": 29845,
+      "baseline": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031746
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031514
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030777
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029877
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 4.963408
+        },
+        {
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.689174
+        },
+        {
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.329005
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.687521
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.562427
+        }
+      ]
+    },
+    {
+      "id": "qa-19",
+      "question": "国库是什么的简称？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国库是国家金库的简称。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 86,
+      "unique_candidate_count": 73,
+      "elapsed_ms": 33650,
+      "baseline": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 0.032522
+        },
+        {
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": 0.031054
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031025
+        },
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03101
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 5.011739
+        },
+        {
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 2.885386
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.27723
+        },
+        {
+          "chunk_id": "993e86fb-d061-43ab-b929-7530dc1d27ca",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.891248
+        },
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.186336
+        }
+      ]
+    },
+    {
+      "id": "qa-20",
+      "question": "国库在国家预算执行中处于什么地位？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "因此，国库是国家预算执行的重要组成部分。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 83,
+      "unique_candidate_count": 76,
+      "elapsed_ms": 29165,
+      "baseline": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031319
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031025
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03101
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 5.139879
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.139543
+        },
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": -0.109582
+        },
+        {
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": -0.580071
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.098677
+        }
+      ]
+    },
+    {
+      "id": "qa-21",
+      "question": "资料将哪些刑法规定列为打击洗钱犯罪的法律基础？",
+      "source": "金融知识/反洗钱法律法规.docx",
+      "evidence": "《刑法》第191条规定了“洗钱罪”的构成要件和刑罚，第312条……和第349条……也共同构成对洗钱犯罪进行刑事打击的法律基础。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 4,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 88,
+      "unique_candidate_count": 81,
+      "elapsed_ms": 28590,
+      "baseline": [
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031545
+        },
+        {
+          "chunk_id": "444f7dd9-c80e-46b2-a85e-dbd33734f5bd",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031054
+        },
+        {
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029958
+        },
+        {
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "title": "反洗钱法律法规",
+          "score": 0.029551
+        },
+        {
+          "chunk_id": "b2a0eac1-168b-4ff3-8294-28cbc9e539a0",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.026334
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "title": "反洗钱法律法规",
+          "score": 4.237997
+        },
+        {
+          "chunk_id": "b2a0eac1-168b-4ff3-8294-28cbc9e539a0",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.75408
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.436104
+        },
+        {
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.019563
+        },
+        {
+          "chunk_id": "ae00f75a-f6ee-4bb8-852f-df6e7e439906",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": -0.03102
+        }
+      ]
+    },
+    {
+      "id": "qa-22",
+      "question": "资料提到，《反洗钱法》主要规定了哪些内容？",
+      "source": "金融知识/反洗钱法律法规.docx",
+      "evidence": "前者规定了我国反洗钱制度的基本内容，包括金融机构和特定非金融机构反洗钱义务的内容，以及中国人民银行和其他相关部门的反洗钱监督管理职责。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": null,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 75,
+      "unique_candidate_count": 68,
+      "elapsed_ms": 24010,
+      "baseline": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 0.032522
+        },
+        {
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031514
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031498
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030798
+        },
+        {
+          "chunk_id": "444f7dd9-c80e-46b2-a85e-dbd33734f5bd",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03009
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "title": "反洗钱法律法规",
+          "score": 3.603362
+        },
+        {
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.303869
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.006782
+        },
+        {
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.927085
+        },
+        {
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.791118
+        }
+      ]
+    },
+    {
+      "id": "qa-23",
+      "question": "资料列出的反洗钱部门规章和规范性文件涉及哪些内容？",
+      "source": "金融知识/反洗钱法律法规.docx",
+      "evidence": "《金融机构客户身份识别和客户身份资料及交易记录保存管理办法》、《金融机构大额交易和可疑交易报告管理办法》……《涉及恐怖活动资产冻结管理办法》等",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": null,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 79,
+      "unique_candidate_count": 59,
+      "elapsed_ms": 19361,
+      "baseline": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031054
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030679
+        },
+        {
+          "chunk_id": "10f77213-dd0b-4012-8159-7fb080fc2d26",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.02885
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.027971
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "title": "反洗钱法律法规",
+          "score": 3.701787
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.83196
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.536538
+        },
+        {
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.940373
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.835524
+        }
+      ]
+    },
+    {
+      "id": "qa-24",
+      "question": "按《反洗钱义务》文档，金融机构在反洗钱工作中应坚持哪三项基本原则？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "金融机构在反洗钱实际工作中还必须坚持三项基本原则，即合法审慎原则、保密原则和与司法机关、行政执法机关全面合作原则。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 77,
+      "unique_candidate_count": 72,
+      "elapsed_ms": 23692,
+      "baseline": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031025
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029851
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 7.885904
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.732752
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.435689
+        },
+        {
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.211362
+        },
+        {
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.866522
+        }
+      ]
+    },
+    {
+      "id": "qa-25",
+      "question": "文档列举了哪些金融机构属于反洗钱义务主体？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "包括依法设立的从事金融业务的政策性银行、商业银行、信用合作社、邮政储汇机构、信托投资公司、证券公司、期货经纪公司、保险公司……",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 76,
+      "unique_candidate_count": 75,
+      "elapsed_ms": 26371,
+      "baseline": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031498
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030777
+        },
+        {
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03031
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 5.454466
+        },
+        {
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.750542
+        },
+        {
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "title": "反洗钱法律法规",
+          "score": 1.261721
+        },
+        {
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.026067
+        },
+        {
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.723659
+        }
+      ]
+    },
+    {
+      "id": "qa-26",
+      "question": "特定非金融机构的范围由谁制定？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "特定非金融机构的范围由国务院反洗钱行政主管部门会同国务院有关部门另行制定。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": null,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 94,
+      "unique_candidate_count": 80,
+      "elapsed_ms": 26458,
+      "baseline": [
+        {
+          "chunk_id": "f28a2e7a-5491-45a7-9b58-648d74c4011f",
+          "title": "02 货币：金融机构家族的“老大哥”",
+          "score": 0.029139
+        },
+        {
+          "chunk_id": "f963d88d-b8bb-4138-ae97-da23775c7811",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.025463
+        },
+        {
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "title": "银行业公开监管办法",
+          "score": 0.024387
+        },
+        {
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "title": "中华人民共和国人民币管理条例",
+          "score": 0.024322
+        },
+        {
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.024297
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "title": "反洗钱义务",
+          "score": 3.582074
+        },
+        {
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.303531
+        },
+        {
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.528689
+        },
+        {
+          "chunk_id": "05d17127-b957-4e75-818f-a60ce5b7037e",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -2.13497
+        },
+        {
+          "chunk_id": "b2b23d31-b695-42e7-8643-c39a94aebd79",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -2.900494
+        }
+      ]
+    },
+    {
+      "id": "qa-27",
+      "question": "按《洗钱交易介绍》举例，单笔或当日累计达到多少金额的现金业务可能涉及大额交易报告？",
+      "source": "金融知识/洗钱交易介绍.docx",
+      "evidence": "例如单笔或当日累计20万以上的现金存取、现金兑换、现金汇款等……",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 87,
+      "unique_candidate_count": 65,
+      "elapsed_ms": 23718,
+      "baseline": [
+        {
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "title": "洗钱交易介绍",
+          "score": 0.032522
+        },
+        {
+          "chunk_id": "6c31b3aa-dc5d-459c-807b-4f8982a5bc81",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031778
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031498
+        },
+        {
+          "chunk_id": "7187ba07-c784-4cd6-866c-70a450a0af70",
+          "title": "洗钱渠道介绍",
+          "score": 0.030214
+        },
+        {
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029851
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "title": "洗钱交易介绍",
+          "score": 5.662622
+        },
+        {
+          "chunk_id": "6c31b3aa-dc5d-459c-807b-4f8982a5bc81",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 3.064593
+        },
+        {
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.441387
+        },
+        {
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.283
+        },
+        {
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.256655
+        }
+      ]
+    },
+    {
+      "id": "qa-28",
+      "question": "文档举例说明，哪种账户资金流动情况可能被视为可疑？",
+      "source": "金融知识/洗钱交易介绍.docx",
+      "evidence": "银行帐户资金短期内分散转入、集中转出且与客户身份或经营业务明显不符。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": null,
+      "baseline_evidence_rank_at_k": null,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 90,
+      "unique_candidate_count": 79,
+      "elapsed_ms": 30187,
+      "baseline": [
+        {
+          "chunk_id": "25571084-babc-4479-99bf-77e812c02a61",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03101
+        },
+        {
+          "chunk_id": "fa648343-a477-4685-b187-3969d349b96e",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029643
+        },
+        {
+          "chunk_id": "4dff112d-3a22-4750-8c91-20060d4ee211",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 0.027444
+        },
+        {
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.027271
+        },
+        {
+          "chunk_id": "10f77213-dd0b-4012-8159-7fb080fc2d26",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.026036
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "title": "洗钱交易介绍",
+          "score": -0.912439
+        },
+        {
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.4487
+        },
+        {
+          "chunk_id": "25571084-babc-4479-99bf-77e812c02a61",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.552547
+        },
+        {
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -2.611774
+        },
+        {
+          "chunk_id": "7ad7bf2c-111d-4721-a507-6b91fb48b331",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -3.00474
+        }
+      ]
+    },
+    {
+      "id": "qa-29",
+      "question": "文档列举了哪些洗钱渠道？请举出三种。",
+      "source": "金融知识/洗钱渠道介绍.docx",
+      "evidence": "1、现金走私；2、将大额现金分散存入银行；……9、利用地下钱庄和民间借贷转移犯罪收入。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 69,
+      "unique_candidate_count": 65,
+      "elapsed_ms": 23107,
+      "baseline": [
+        {
+          "chunk_id": "7187ba07-c784-4cd6-866c-70a450a0af70",
+          "title": "洗钱渠道介绍",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "98e30349-cbd7-429d-9681-ce421cd33999",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030835
+        },
+        {
+          "chunk_id": "a67e06a1-f000-4ff8-9d5e-7cdeb9929b8a",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 0.030769
+        },
+        {
+          "chunk_id": "444f7dd9-c80e-46b2-a85e-dbd33734f5bd",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030159
+        },
+        {
+          "chunk_id": "2b6d2bb1-7184-4d9b-b818-e91d015cd1bc",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 0.029437
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "7187ba07-c784-4cd6-866c-70a450a0af70",
+          "title": "洗钱渠道介绍",
+          "score": 3.164208
+        },
+        {
+          "chunk_id": "98e30349-cbd7-429d-9681-ce421cd33999",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.017078
+        },
+        {
+          "chunk_id": "37612f39-584a-4a43-b953-a5acbea2e057",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.111569
+        },
+        {
+          "chunk_id": "444f7dd9-c80e-46b2-a85e-dbd33734f5bd",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.27442
+        },
+        {
+          "chunk_id": "25571084-babc-4479-99bf-77e812c02a61",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.36099
+        }
+      ]
+    },
+    {
+      "id": "qa-30",
+      "question": "在 ATM 旁看到要求提供密码或转账的“紧急通知”，资料建议怎样处理？",
+      "source": "金融知识/支付与银行卡知识/银行卡系列知识之二：银行卡欺诈的常见手段.txt",
+      "evidence": "千万不要轻信“紧急通知”和“公告”……要求您提供密码信息，绝对不是银行的行为。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 85,
+      "unique_candidate_count": 81,
+      "elapsed_ms": 30999,
+      "baseline": [
+        {
+          "chunk_id": "368755d6-15dc-4d86-850f-dc6574cbd89e",
+          "title": "银行卡系列知识之二：银行卡欺诈的常见手段",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "4dff112d-3a22-4750-8c91-20060d4ee211",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 0.03009
+        },
+        {
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029828
+        },
+        {
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 0.027972
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "368755d6-15dc-4d86-850f-dc6574cbd89e",
+          "title": "银行卡系列知识之二：银行卡欺诈的常见手段",
+          "score": 4.127611
+        },
+        {
+          "chunk_id": "d8c98fec-c094-481e-b2fd-b56a7c91d68f",
+          "title": "征信权益 你我共同维护(1)(2)",
+          "score": -0.53973
+        },
+        {
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.818572
+        },
+        {
+          "chunk_id": "4dff112d-3a22-4750-8c91-20060d4ee211",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": -2.786582
+        },
+        {
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "title": "金融网络安全知识手册",
+          "score": -3.896151
+        }
+      ]
+    },
+    {
+      "id": "qa-31",
+      "question": "为避免银行卡磁条受损，资料建议怎样放置银行卡？",
+      "source": "金融知识/支付与银行卡知识/银行卡系列知识之一：怎样保管银行卡.txt",
+      "evidence": "银行卡最好放在带硬皮的钱夹里，并防止尖锐物品磨损、刮伤磁条或扭曲折坏；多张银行卡不要紧贴一起存放……",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 79,
+      "unique_candidate_count": 73,
+      "elapsed_ms": 30524,
+      "baseline": [
+        {
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "title": "银行卡系列知识之一：怎样保管银行卡",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 0.030798
+        },
+        {
+          "chunk_id": "368755d6-15dc-4d86-850f-dc6574cbd89e",
+          "title": "银行卡系列知识之二：银行卡欺诈的常见手段",
+          "score": 0.029469
+        },
+        {
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029083
+        },
+        {
+          "chunk_id": "c21ca3fb-f5c4-4b8a-9cba-62c740740a6e",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.028039
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "title": "银行卡系列知识之一：怎样保管银行卡",
+          "score": 3.965149
+        },
+        {
+          "chunk_id": "5219ebdf-e539-4000-8d15-98953d2c86e6",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": -1.237838
+        },
+        {
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -2.880446
+        },
+        {
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": -3.347977
+        },
+        {
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -3.371997
+        }
+      ]
+    },
+    {
+      "id": "qa-32",
+      "question": "银行卡丢失后，资料建议尽快办理什么手续？临时挂失和正式挂失分别是什么？",
+      "source": "金融知识/支付与银行卡知识/银行卡知识系列之三：银行卡挂失.txt",
+      "evidence": "挂失一般分为临时挂失和正式挂失。临时挂失一般是指电话口头挂失……正式挂失是指书面挂失，您可到发卡银行指定网点办理。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 73,
+      "unique_candidate_count": 69,
+      "elapsed_ms": 28991,
+      "baseline": [
+        {
+          "chunk_id": "dbec7432-9d01-4266-9d68-6ff142bd96bc",
+          "title": "银行卡知识系列之三：银行卡挂失",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "1a84b036-a849-4b36-9d42-018f13fd37c3",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031746
+        },
+        {
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "title": "银行卡系列知识之一：怎样保管银行卡",
+          "score": 0.03125
+        },
+        {
+          "chunk_id": "0b3e5cf1-b198-4a02-818a-2e0a9730b30c",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 0.030769
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "dbec7432-9d01-4266-9d68-6ff142bd96bc",
+          "title": "银行卡知识系列之三：银行卡挂失",
+          "score": 6.050843
+        },
+        {
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.333781
+        },
+        {
+          "chunk_id": "0b3e5cf1-b198-4a02-818a-2e0a9730b30c",
+          "title": "06 走进银行：享受便捷的现代生活",
+          "score": 1.690777
+        },
+        {
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.237356
+        },
+        {
+          "chunk_id": "da457da7-280d-4d8c-803b-da8d29efa5cc",
+          "title": "09 服务“三农”：为了希望的田野",
+          "score": 0.751302
+        }
+      ]
+    },
+    {
+      "id": "qa-33",
+      "question": "国库是什么的简称，主要负责办理什么？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国库是国家金库的简称，是负责办理国家预算资金收纳、支出的机关。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 78,
+      "unique_candidate_count": 69,
+      "elapsed_ms": 27566,
+      "baseline": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030777
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030777
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 5.374803
+        },
+        {
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 2.227587
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.602491
+        },
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": 0.043676
+        },
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.981616
+        }
+      ]
+    },
+    {
+      "id": "qa-34",
+      "question": "国家预算收入和预算支出分别如何通过国库办理？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国家的一切预算收入必须全部缴入国库……国家的一切预算支出，由国库统一办理拨付。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 2,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 84,
+      "unique_candidate_count": 78,
+      "elapsed_ms": 29678,
+      "baseline": [
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032522
+        },
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 0.032018
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "title": "13 金融服务：春风化雨，润物无声",
+          "score": 0.030579
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 2.173142
+        },
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.966583
+        },
+        {
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.935389
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.718115
+        },
+        {
+          "chunk_id": "962c6fc5-2273-4924-ae28-8e18974d49b8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.994765
+        }
+      ]
+    },
+    {
+      "id": "qa-35",
+      "question": "国库对不符合规定的凭证有什么权限？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国库对不符合规定的凭证，有权拒绝受理。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 2,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 96,
+      "unique_candidate_count": 72,
+      "elapsed_ms": 27745,
+      "baseline": [
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031778
+        },
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": 0.031545
+        },
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 0.024884
+        },
+        {
+          "chunk_id": "962c6fc5-2273-4924-ae28-8e18974d49b8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.021012
+        },
+        {
+          "chunk_id": "301c0862-f7ae-42ca-b004-18a48eac58dd",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.016129
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "title": "国库知识介绍",
+          "score": 5.867128
+        },
+        {
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "title": "国库知识介绍",
+          "score": 0.532024
+        },
+        {
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -2.584265
+        },
+        {
+          "chunk_id": "426ad0b6-e614-4a62-bcee-6b0f0dc7d7d8",
+          "title": "2016081709580747859",
+          "score": -2.83196
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -3.298758
+        }
+      ]
+    },
+    {
+      "id": "qa-36",
+      "question": "什么是国债？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "国债，又称国家公债，是国家以其信用为基础……通过向社会筹集资金所形成的债权债务关系。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 78,
+      "unique_candidate_count": 76,
+      "elapsed_ms": 29496,
+      "baseline": [
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 0.032787
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031754
+        },
+        {
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03101
+        },
+        {
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030579
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 5.863228
+        },
+        {
+          "chunk_id": "667872a1-f44f-4db3-bc31-a8ca1e74e30e",
+          "title": "03 货币：证券市场：风云变幻的“大舞台”",
+          "score": 3.895417
+        },
+        {
+          "chunk_id": "8a7e2a75-bcf8-4c0b-93ae-6430ce5227fd",
+          "title": "03 货币：证券市场：风云变幻的“大舞台”",
+          "score": 1.930414
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.714849
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 1.559619
+        }
+      ]
+    },
+    {
+      "id": "qa-37",
+      "question": "资料所说的我国国债由谁代表中央政府发行？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "我国的国债专指财政部代表中央政府发行的国家公债。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 2,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 78,
+      "unique_candidate_count": 75,
+      "elapsed_ms": 30590,
+      "baseline": [
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 0.030092
+        },
+        {
+          "chunk_id": "667872a1-f44f-4db3-bc31-a8ca1e74e30e",
+          "title": "03 货币：证券市场：风云变幻的“大舞台”",
+          "score": 0.029958
+        },
+        {
+          "chunk_id": "aee2be51-ca3d-4ae2-b95e-dd25e1baf5a8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.029828
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.02971
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 3.439423
+        },
+        {
+          "chunk_id": "8a7e2a75-bcf8-4c0b-93ae-6430ce5227fd",
+          "title": "03 货币：证券市场：风云变幻的“大舞台”",
+          "score": -0.139643
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.530386
+        },
+        {
+          "chunk_id": "667872a1-f44f-4db3-bc31-a8ca1e74e30e",
+          "title": "03 货币：证券市场：风云变幻的“大舞台”",
+          "score": -1.195578
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.878172
+        }
+      ]
+    },
+    {
+      "id": "qa-38",
+      "question": "资料列举的国债种类有哪些？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "其种类有凭证式国债、无记名（实物）国债、记账式国债三种。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 3,
+      "cross_encoder_evidence_rank_at_k": 3,
+      "cross_encoder_evidence_rank_in_pool": 3,
+      "candidate_count": 79,
+      "unique_candidate_count": 73,
+      "elapsed_ms": 29126,
+      "baseline": [
+        {
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031778
+        },
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 0.031319
+        },
+        {
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.030159
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.492334
+        },
+        {
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.470231
+        },
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 0.268346
+        },
+        {
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.064278
+        },
+        {
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.158182
+        }
+      ]
+    },
+    {
+      "id": "qa-39",
+      "question": "凭证式国债如何发行，其债权证明是什么？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "国家采取不印刷实物券，而用填制国库券收款凭证的方式发行……以国债收款凭单的形式来作为债权证明。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 5,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 75,
+      "unique_candidate_count": 61,
+      "elapsed_ms": 25080,
+      "baseline": [
+        {
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032002
+        },
+        {
+          "chunk_id": "aee2be51-ca3d-4ae2-b95e-dd25e1baf5a8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031545
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031514
+        },
+        {
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031258
+        },
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 0.030886
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 2.961795
+        },
+        {
+          "chunk_id": "aee2be51-ca3d-4ae2-b95e-dd25e1baf5a8",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.899371
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.83234
+        },
+        {
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.794953
+        },
+        {
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.895485
+        }
+      ]
+    },
+    {
+      "id": "qa-40",
+      "question": "记账式国债如何记录债权，是否可以上市交易？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "以电脑记账方式记录债权，并可以上市交易的债券。",
+      "candidate_pool_has_evidence": true,
+      "keyword_evidence_rank_at_k": 1,
+      "baseline_evidence_rank_at_k": 3,
+      "cross_encoder_evidence_rank_at_k": 1,
+      "cross_encoder_evidence_rank_in_pool": 1,
+      "candidate_count": 87,
+      "unique_candidate_count": 57,
+      "elapsed_ms": 23612,
+      "baseline": [
+        {
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032266
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.032258
+        },
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 0.032018
+        },
+        {
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.031025
+        },
+        {
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.03101
+        }
+      ],
+      "cross_encoder": [
+        {
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "title": "国债知识介绍",
+          "score": 2.634194
+        },
+        {
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 2.480657
+        },
+        {
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "title": "金融知识普及读本(2014版本)",
+          "score": 0.198359
+        },
+        {
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -0.664201
+        },
+        {
+          "chunk_id": "0b12e8fa-b92c-4c7b-b0f5-daa371c21533",
+          "title": "金融知识普及读本(2014版本)",
+          "score": -1.059877
+        }
+      ]
+    }
+  ],
+  "complete": true
+}

@@ -2,6 +2,18 @@
 
 ## 启动
 
+### 数据库存储
+
+默认继续使用本地 SQLite 数据库 `data/app.db`。如需切换到 MySQL，先在 `.env` 中设置 `DATABASE_BACKEND=mysql`、`MYSQL_HOST`、`MYSQL_PORT` 和 `MYSQL_DATABASE`。数据库账号从 `MYSQL_CREDENTIALS` 指定的 JSON 文件读取，默认位置为 `mineru_runtime/mysql/credentials.json`；格式为 `{"app_user":"账号","app_password":"密码"}`。该目录不受 Git 跟踪。账号需具有目标库建表和读写权限，MySQL 服务需先启动。本机 MySQL 8.0.44 使用 3306 端口。
+
+从现有 SQLite 数据迁移到**空的** MySQL 数据库前，先停止项目写入，再执行：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\migrate_sqlite_to_mysql.py --snapshot data\backups\sqlite-before-mysql.db
+```
+
+脚本先生成 SQLite 快照，再逐表复制并校验；目标表非空时拒绝覆盖。迁移完成后，将 `DATABASE_BACKEND=mysql` 写入 `.env` 并重启服务。向量保存在 MySQL 文本字段中，检索仍在 Python 中计算。原测试页保留在 `/legacy-test`，新知识工作台位于 `/test`。
+
 在 Windows PowerShell 中进入项目根目录。先准备可用的 Python 3.12，再在 D 盘克隆本仓库。首次安装运行：
 
 ```powershell
@@ -45,7 +57,7 @@ PDF、扫描 PDF 和图片由本仓库 `vendor/MinerU` 的 basic 模型识别。
 
 ## 当前运行模式
 
-语义检索由本机 Ollama 的 `shaw/dmeta-embedding-zh:latest` 生成向量，关键词检索使用 jieba，二者通过倒数排名融合（RRF）合并候选片段。LLM 默认使用摘录式兜底回答；可通过下方设置接入兼容 OpenAI Chat Completions 的 Qwen API。问答来源中的 `score` 是融合排序分数，不是答案准确率。
+语义检索由本机 Ollama 的 `shaw/dmeta-embedding-zh:latest` 生成向量，关键词检索使用 jieba，二者通过倒数排名融合（RRF）合并候选片段。可在 `.env` 中设置 `RERANK_ENABLED=true`，启用 BGE 交叉编码器对“问题＋候选片段原文”重新打分；首次使用会下载模型到 `mineru_runtime/reranker`。LLM 默认使用摘录式兜底回答；可通过下方设置接入兼容 OpenAI Chat Completions 的 Qwen API。问答来源中的 `score` 是当前排序模型的分数，不是答案准确率。
 
 首次切换嵌入模型或已有片段仍使用旧向量时，先启动 Ollama 并确认 `ollama list` 中有该模型，再运行：
 
@@ -71,7 +83,51 @@ LLM_API_KEY=模型密钥
 LLM_MODEL=模型名称
 ```
 
-后续可以将存储层替换为 MySQL 和 Milvus，而不改变前端调用的 API。
+当前支持 SQLite 和 MySQL 存储；向量仍由 Python 在检索时计算。
+
+## 检索评测
+
+运行当前 40 道带标准答案、原文证据和来源标注的问答评测集：
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\evaluate_retrieval.py --input .\data\test\finance_qa_40.json --output-dir .\data\test --cases-output .\data\test\finance_qa_40_cases_parsed.json --top-k 5
+```
+
+脚本会比较语义检索、关键词检索和混合检索，并输出答案关键词覆盖率及目标来源命中率。报告保存在 `data/test/retrieval_evaluation_<时间>.json`。这些指标用于检查检索证据覆盖，不等同于模型生成答案的正确率。
+
+启动 API 后，还可以将同一批 40 题逐题发送到 `/query`，检查实际回答、接口成功数及返回来源：
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\evaluate_api.py --input .\data\test\finance_qa_40.json --base-url http://127.0.0.1:8000 --top-k 5
+```
+
+报告保存在 `data/test/api_evaluation_<时间>.json`。核心指标 `evidence_hit_at_k` 检查每题标注的证据文字是否出现在同一个返回片段的 `content` 中；遇到 `……` 时要求省略号前后的原文依次匹配。来源文件名命中率与证据片段命中率分开报告。答案词覆盖率和字面完全匹配仅是辅助诊断，证据命中率也不直接等同于生成答案的语义正确率。
+
+对已有评测报告，可直接用其中的 `chunk_id` 从当前数据库读取对应片段并核对证据，无须重新请求 `/query`：
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\evaluate_api.py --from-report .\data\test\api_evaluation_20261026-131201.json --input .\data\test\finance_qa_40.json --top-k 5
+```
+
+离线复核结果保存在 `data/test/api_evidence_evaluation_<时间>.json`；若数据库中的片段已被替换，脚本会提示缺失的 `chunk_id`。
+
+比较原始混合检索与关键词加权 RRF 重排的证据命中率：
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\evaluate_rerank.py --input .\data\test\finance_qa_40.json --top-k 5 --candidate-k 50
+```
+
+报告保存在 `data/test/rerank_evaluation_<时间>.json`，同时列出语义、关键词、原混合检索及重排后的命中数、改善和退步题号。该脚本比较的是规则式关键词加权 RRF。
+
+比较原始 RRF 与真正的交叉编码器重排：
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\evaluate_cross_encoder.py --input .\data\test\finance_qa_40.json --top-k 5
+```
+
+该脚本对相同的语义 Top 50、关键词 Top 50 候选进行“问题＋片段”联合打分，检查最终 Top 5 的 `source` 是否包含标注证据；证据不参与打分。报告保存在 `data/test/cross_encoder_evaluation_<时间>.json`。模型默认是 `BAAI/bge-reranker-v2-m3-int8`，约 0.57 GB，首次运行需要下载。40 题是探索性评测集，不能据此推断新题表现。
+
+2026-11-01 的本机评测中，原 RRF 命中 35/40，交叉编码器命中 39/40；单题平均耗时约 25 秒。新方法已找回 qa-08、qa-22、qa-23、qa-26、qa-28，qa-02 从命中变为未命中。完整逐题结果见 `data/test/cross_encoder_evaluation_20261101.json`。
 
 ## 旧版 Word 和 WPS 转换
 

@@ -27,6 +27,43 @@ STOP_TERMS = {"一个", "什么", "哪些", "我国", "中国", "进行", "可�
 
 
 def parse_dataset(path: Path) -> list[dict[str, object]]:
+    if path.suffix.lower() == ".json":
+        payload = json.loads(path.read_text(encoding="utf-8-sig"))
+        if not isinstance(payload, list):
+            raise ValueError("JSON evaluation dataset must be an array of cases")
+        cases: list[dict[str, object]] = []
+        seen_ids: set[str] = set()
+        for index, item in enumerate(payload, 1):
+            if not isinstance(item, dict):
+                raise ValueError(f"JSON case {index} must be an object")
+            case = dict(item)
+            case_id = str(case.get("id", f"qa-{index}"))
+            question = str(case.get("question", "")).strip()
+            gold = str(case.get("gold_answer", "")).strip()
+            case_type = str(case.get("type", "short_answer"))
+            if not question or not gold:
+                raise ValueError(f"JSON case {case_id} must include question and gold_answer")
+            if case_type not in {"short_answer", "multiple_choice"}:
+                raise ValueError(f"JSON case {case_id} has unsupported type: {case_type}")
+            if case_id in seen_ids:
+                raise ValueError(f"Duplicate JSON case id: {case_id}")
+            seen_ids.add(case_id)
+            case["id"] = case_id
+            case["type"] = case_type
+            case["question"] = question
+            case["gold_answer"] = gold
+            case["gold_answer_terms"] = list(case.get("gold_answer_terms") or [])
+            if case_type == "short_answer" and not case["gold_answer_terms"]:
+                case["gold_answer_terms"] = sorted(
+                    {term for term in keywords(gold) if len(term) > 1 and term not in STOP_TERMS}
+                )
+            case["answer_letter"] = case.get("answer_letter")
+            case["options"] = case.get("options") or {}
+            cases.append(case)
+        if not cases:
+            raise ValueError("JSON evaluation dataset is empty")
+        return cases
+
     raw = path.read_text(encoding="utf-8-sig")
     starts = list(QUESTION_START.finditer(raw))
     cases: list[dict[str, object]] = []
@@ -67,6 +104,21 @@ def normalized(text: str) -> str:
     return "".join(char for char in unicodedata.normalize("NFKC", text).lower() if char.isalnum())
 
 
+def expected_source_hit(case: dict[str, object], ranked: list[tuple[float, object]]) -> bool | None:
+    source = str(case.get("source", "")).strip()
+    if not source:
+        return None
+    source_hint = source.split("，", 1)[0].split("(", 1)[0].split("（", 1)[0]
+    filename = Path(source_hint.replace("\\", "/")).name
+    expected = normalized(Path(filename).stem)
+    if not expected:
+        return None
+    return any(
+        expected in normalized(str(row["title"])) or expected in normalized(str(row["filename"]))
+        for _, row in ranked
+    )
+
+
 def retrieve(rows: list, question: str, top_k: int) -> dict[str, list[tuple[float, object]]]:
     query_vector = embed(question)
     semantic = [(cosine(query_vector, json.loads(row["embedding"])), row) for row in rows]
@@ -98,6 +150,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=PROJECT_ROOT / "data" / "test" / "评测集.txt")
     parser.add_argument("--output-dir", type=Path, default=PROJECT_ROOT / "data" / "test")
+    parser.add_argument("--cases-output", type=Path, help="Write parsed cases here without replacing another dataset")
     parser.add_argument("--top-k", type=int, default=5)
     args = parser.parse_args()
 
@@ -113,7 +166,13 @@ def main() -> int:
 
     summaries: dict[str, dict[str, object]] = {}
     for mode in ("semantic", "keyword", "hybrid"):
-        summaries[mode] = {"multiple_choice": Counter(), "short_answer_coverage_sum": 0.0, "short_answer_count": 0}
+        summaries[mode] = {
+            "multiple_choice": Counter(),
+            "short_answer_coverage_sum": 0.0,
+            "short_answer_count": 0,
+            "source_hit_count": 0,
+            "source_count": 0,
+        }
 
     details = []
     for case in cases:
@@ -123,7 +182,11 @@ def main() -> int:
         detail["results"] = {}
         for mode, ranked in ranked_by_mode.items():
             coverage, exact_hit = answer_coverage(case, ranked)
+            source_hit = expected_source_hit(case, ranked)
             mode_summary = summaries[mode]
+            if source_hit is not None:
+                mode_summary["source_count"] += 1
+                mode_summary["source_hit_count"] += int(source_hit)
             if case["type"] == "multiple_choice":
                 mode_summary["multiple_choice"]["total"] += 1
                 mode_summary["multiple_choice"]["answer_hit"] += int(bool(exact_hit))
@@ -133,6 +196,7 @@ def main() -> int:
             detail["results"][mode] = {
                 "answer_coverage_at_k": round(coverage, 4),
                 "exact_answer_hit_at_k": exact_hit,
+                "expected_source_hit_at_k": source_hit,
                 "sources": [
                     {"title": row["title"], "page": row["page"], "chunk_id": row["id"], "score": round(score, 6), "content_preview": row["content"][:180]}
                     for score, row in ranked
@@ -149,11 +213,14 @@ def main() -> int:
             "multiple_choice_hit_rate_at_k": round(mc["answer_hit"] / mc["total"], 4) if mc["total"] else None,
             "short_answer_mean_gold_term_coverage_at_k": round(values["short_answer_coverage_sum"] / qa_count, 4) if qa_count else None,
             "short_answer_count": qa_count,
+            "expected_source_hit_at_k": f"{values['source_hit_count']}/{values['source_count']}",
+            "expected_source_hit_rate_at_k": round(values["source_hit_count"] / values["source_count"], 4) if values["source_count"] else None,
         }
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    cases_path = args.output_dir / "evaluation_cases.json"
+    cases_path = args.cases_output or args.output_dir / f"evaluation_cases_{timestamp}.json"
+    cases_path.parent.mkdir(parents=True, exist_ok=True)
     report_path = args.output_dir / f"retrieval_evaluation_{timestamp}.json"
     cases_path.write_text(json.dumps(cases, ensure_ascii=False, indent=2), encoding="utf-8")
     report = {
@@ -165,7 +232,7 @@ def main() -> int:
         "eligible_chunk_count": len(rows),
         "case_count": len(cases),
         "top_k": args.top_k,
-        "metrics_note": "Gold documents/chunks were not annotated in the source set. Multiple-choice answer hit and short-answer gold-term coverage are answer-evidence proxy metrics, not labeled Recall@K or answer correctness.",
+        "metrics_note": "Short-answer gold-term coverage measures whether answer terms appear in retrieved text. Expected-source hit compares annotated source filenames with retrieved document titles/filenames. These are evidence-retrieval proxy metrics, not chunk-level Recall@K or generated-answer correctness.",
         "summary": summary_out,
         "cases": details,
     }
@@ -174,7 +241,11 @@ def main() -> int:
     print(f"Parsed cases: {len(cases)} (multiple-choice={sum(c['type'] == 'multiple_choice' for c in cases)}, short-answer={sum(c['type'] == 'short_answer' for c in cases)})")
     print(f"Chunks evaluated: {len(rows)}; embedding dimensions: {next(iter(dimensions))}; top_k={args.top_k}")
     for mode, metrics in summary_out.items():
-        print(f"{mode}: MC answer hit {metrics['multiple_choice_answer_hit_at_k']} ({metrics['multiple_choice_hit_rate_at_k']}), QA mean answer-term coverage {metrics['short_answer_mean_gold_term_coverage_at_k']}")
+        print(
+            f"{mode}: MC answer hit {metrics['multiple_choice_answer_hit_at_k']} ({metrics['multiple_choice_hit_rate_at_k']}), "
+            f"QA mean answer-term coverage {metrics['short_answer_mean_gold_term_coverage_at_k']}, "
+            f"expected source hit {metrics['expected_source_hit_at_k']} ({metrics['expected_source_hit_rate_at_k']})"
+        )
     print(f"Structured cases: {cases_path}")
     print(f"Detailed report: {report_path}")
     return 0

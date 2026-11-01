@@ -134,3 +134,11 @@ def save_history(question: str, answer: str, sources: list[dict[str, Any]]) -> N
             "INSERT INTO qa_history (question, answer, sources, created_at) VALUES (?, ?, ?, ?)",
             (question, answer, json.dumps(sources, ensure_ascii=False), utc_now()),
         )
+
+
+if settings.database_backend == "mysql":
+    from .mysql_db import (connect, init_db, insert_document, insert_chunks, list_documents,
+                           get_document_chunks, get_chunks, get_ready_chunks_for_embedding,
+                           update_chunk_embeddings, save_history)
+elif settings.database_backend != "sqlite":
+    raise ValueError(f"Unsupported database backend: {settings.database_backend}")

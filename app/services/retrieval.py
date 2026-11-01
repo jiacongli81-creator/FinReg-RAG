@@ -5,6 +5,7 @@ from ..db import get_chunks, save_history
 from .embeddings import cosine, embed
 from .keywords import rank_keywords
 from .llm import generate_answer
+from .reranker import rerank_candidates
 
 
 def query(question: str, top_k: int | None, only_valid: bool) -> tuple[str, str, list[dict]]:
@@ -23,7 +24,10 @@ def query(question: str, top_k: int | None, only_valid: bool) -> tuple[str, str,
         for rank, (_, row) in enumerate(candidates, start=1):
             old_score = fused[row["id"]][0] if row["id"] in fused else 0.0
             fused[row["id"]] = (old_score + 1 / (60 + rank), row)
-    selected = sorted(fused.values(), key=lambda item: (-item[0], item[1]["id"]))[: top_k or settings.retrieval_top_k]
+    ranked = sorted(fused.values(), key=lambda item: (-item[0], item[1]["id"]))
+    if settings.rerank_enabled:
+        ranked = rerank_candidates(question, ranked)
+    selected = ranked[: top_k or settings.retrieval_top_k]
     sources = [
         {
             "document_id": row["document_id"],

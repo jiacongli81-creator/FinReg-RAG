@@ -15,5 +15,8 @@ data/backups/
 data/conversion_report.csv
 data/test/evaluation_cases.json
 data/test/retrieval_evaluation_*.json
+data/test/api_evaluation_*.json
+data/test/api_evidence_evaluation_*.json
+data/test/rerank_evaluation_*.json
 data/raw/金融知识/征信宣传/征信条例.pdf
 _doc_review/
