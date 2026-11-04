@@ -7,7 +7,9 @@ from .config import settings
 
 @contextmanager
 def connect():
-    credentials = json.loads(settings.mysql_credentials.read_text(encoding='utf-8'))
+    credentials = ({'app_user': settings.mysql_user, 'app_password': settings.mysql_password}
+                   if settings.mysql_user else
+                   json.loads(settings.mysql_credentials.read_text(encoding='utf-8')))
     conn = mysql.connector.connect(host=settings.mysql_host, port=settings.mysql_port,
         user=credentials['app_user'], password=credentials['app_password'],
         database=settings.mysql_database, charset='utf8mb4', connection_timeout=10)
@@ -67,6 +69,10 @@ def get_chunks(only_valid):
     sql="SELECT c.*,d.title,d.filename,d.effective_date,d.validity FROM chunks c JOIN documents d ON d.id=c.document_id WHERE d.status='ready'"
     return _execute(sql+(" AND d.validity IN ('valid','unknown')" if only_valid else ''))
 
+def get_search_chunks(only_valid):
+    sql="SELECT c.id,c.document_id,c.content,c.page,c.section,d.title,d.effective_date,d.validity FROM chunks c JOIN documents d ON d.id=c.document_id WHERE d.status='ready'"
+    return _execute(sql+(" AND d.validity IN ('valid','unknown')" if only_valid else ''))
+
 def get_ready_chunks_for_embedding():
     return _execute("SELECT c.id,c.content FROM chunks c JOIN documents d ON d.id=c.document_id WHERE d.status='ready' ORDER BY c.id")
 
@@ -74,4 +80,10 @@ def update_chunk_embeddings(embeddings):
     if embeddings: _execute('UPDATE chunks SET embedding=%s WHERE id=%s',[(json.dumps(v,ensure_ascii=False),k) for k,v in embeddings.items()],True)
 
 def save_history(question,answer,sources):
-    _execute('INSERT INTO qa_history (question,answer,sources,created_at) VALUES (%s,%s,%s,%s)',(question,answer,json.dumps(sources,ensure_ascii=False),datetime.now(timezone.utc).isoformat()))
+    with connect() as conn:
+        cur=conn.cursor()
+        cur.execute('INSERT INTO qa_history (question,answer,sources,created_at) VALUES (%s,%s,%s,%s)',
+                    (question,answer,json.dumps(sources,ensure_ascii=False),datetime.now(timezone.utc).isoformat()))
+        result=int(cur.lastrowid)
+        cur.close()
+        return result

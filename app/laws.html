@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>条文关联查询 · FinReg</title>
+  <style>
+    :root{font-family:Inter,"Microsoft YaHei",sans-serif;color:#193349;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}
+    main{max-width:1100px;margin:0 auto;padding:30px 22px 80px}a{color:#087e76}h1{font-size:25px;margin:8px 0}h2{font-size:17px;margin:0 0 14px}.sub,.muted{color:#718693;line-height:1.7;font-size:13px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.card{background:white;border:1px solid #e1e9ed;border-radius:11px;padding:22px;margin:16px 0}.controls{display:flex;gap:10px;flex-wrap:wrap}select,input,button{font:inherit;border:1px solid #d5e2e5;border-radius:7px;padding:10px 12px;background:#fff;color:#193349}select{min-width:260px;max-width:100%}input{flex:1;min-width:180px}button{cursor:pointer;background:#119c90;border-color:#119c90;color:#fff;font-weight:700}button:hover{background:#0c8077}.article{border:1px solid #e3ebee;border-radius:8px;padding:16px;margin:12px 0}.article h3{font-size:15px;margin:0 0 5px}.article p{white-space:pre-wrap;line-height:1.85;font-size:13px;margin:10px 0}.article .meta{font-size:12px;color:#78909a}.link{background:none;border:0;color:#087e76;padding:4px 0;font-weight:600}.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}@media(max-width:700px){.related{grid-template-columns:1fr}.top{display:block}}
+  </style>
+</head>
+<body><main>
+  <div class="top"><div><a href="/test">← 返回工作台</a><h1>条文关联查询</h1><div class="sub">查询完整条文，以及同一版本中明确引用它的条文和它引用的条文。</div></div></div>
+  <section class="card"><h2>查找条文</h2><form id="form" class="controls"><select id="law"><option value="">全部法规</option></select><input id="query" placeholder="条号或关键词；留空可浏览全部条文"><button>查询</button></form><p id="status" class="muted">正在加载法规目录…</p></section>
+  <section class="card"><h2>查询结果</h2><div id="results" class="muted">选择法规并输入条号或关键词，也可留空浏览全部。</div><button id="more" hidden>加载更多条文</button></section>
+  <section class="card" id="detailCard" hidden><h2>条文及关联</h2><div id="detail"></div></section>
+</main><script>
+const $=s=>document.querySelector(s);const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path){const response=await fetch(path);const data=await response.json();if(!response.ok)throw Error(data.detail||'查询失败');return data}
+function lawMeta(a){return `${esc(a.title||'')} · ${esc(a.version_note||'')} · <a href="${esc(a.source_url)}" target="_blank" rel="noopener noreferrer">官方原文 ↗</a>`}
+function card(a,button=true){return `<div class="article"><h3>${esc(a.article_label)} ${esc(a.chapter||'')}</h3><div class="meta">${a.title?lawMeta(a):''}</div><p>${esc(a.content)}</p>${button?`<button class="link" data-id="${esc(a.id)}">查看关联 →</button>`:''}</div>`}
+async function show(id){$('#detailCard').hidden=false;$('#detail').textContent='正在读取条文关联…';try{const a=await api('/laws/articles/'+encodeURIComponent(id));const section=(items,empty)=>items.length?items.map(x=>card({...x,title:x.title||a.title,version_note:x.version_note||a.version_note,source_url:x.source_url||a.source_url})).join(''):`<p class="muted">${empty}</p>`;$('#detail').innerHTML=card(a,false)+`<div class="related"><div><h2>本条引用的条文（${a.references.length}）</h2>${section(a.references,'没有检测到同一法规内的明确条号引用。')}</div><div><h2>引用本条的条文（${a.referenced_by.length}）</h2>${section(a.referenced_by,'没有检测到其他条文明确引用本条。')}</div></div><h2>文本相近条文（自动推荐）</h2><p class="muted">按条文措辞计算相似度，仅供发现线索，不代表法律引用或效力关系。</p>${section(a.similar_articles,'没有找到足够相近的条文。')}`;$('#detailCard').scrollIntoView({behavior:'smooth'})}catch(err){$('#detail').textContent=err.message}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)show(b.dataset.id)});
+let offset=0;const pageSize=30;
+async function loadArticles(reset){if(reset){offset=0;$('#results').textContent='正在查询…';$('#detailCard').hidden=true}$('#more').hidden=true;try{const params=new URLSearchParams({query:$('#query').value.trim(),limit:String(pageSize),offset:String(offset)});if($('#law').value)params.set('law_id',$('#law').value);const rows=await api('/laws/articles?'+params);if(reset)$('#results').innerHTML='';$('#results').insertAdjacentHTML('beforeend',rows.length?rows.map(a=>card(a)).join(''):offset===0?'没有找到匹配条文。请核对法规、版本和条号。':'');offset+=rows.length;$('#more').hidden=rows.length<pageSize;$('#status').textContent=`已显示 ${offset} 条结果` }catch(err){$('#results').textContent=err.message}}
+$('#form').addEventListener('submit',e=>{e.preventDefault();loadArticles(true)});$('#more').addEventListener('click',()=>loadArticles(false));
+api('/laws').then(laws=>{$('#law').innerHTML='<option value="">全部法规</option>'+laws.map(l=>`<option value="${esc(l.id)}">${esc(l.title)}（${l.article_count} 条）</option>`).join('');$('#status').textContent=`已收录 ${laws.length} 部法规；各版本以来源页面为准。`}).catch(err=>$('#status').textContent=err.message);
+</script></body></html>

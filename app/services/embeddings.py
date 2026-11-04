@@ -23,7 +23,8 @@ def _tokens(text: str) -> list[str]:
 
 def embed(text: str) -> list[float]:
     if settings.embedding_provider == "ollama":
-        payload = json.dumps({"model": settings.embedding_model, "input": text}).encode("utf-8")
+        payload = json.dumps({"model": settings.embedding_model, "input": text,
+                              "keep_alive": settings.embedding_keep_alive}).encode("utf-8")
         request = urllib.request.Request(
             settings.embedding_base_url.rstrip("/") + "/api/embed",
             data=payload,

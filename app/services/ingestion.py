@@ -10,6 +10,7 @@ from ..config import settings
 from ..db import insert_chunks, insert_document, utc_now
 from .embeddings import embed
 from .mineru_parser import parse_with_mineru
+from .vector_store import upsert_vectors
 
 
 TEXT_EXTENSIONS = {".txt", ".text", ".md", ".markdown", ".rst", ".tex", ".csv", ".tsv"}
@@ -85,6 +86,10 @@ def ingest_file(path: Path) -> dict[str, Any]:
             raise ValueError("没有提取到文字；这可能是扫描版 PDF，需要安装 OCR 引擎")
         for chunk in chunks:
             chunk.update(document_id=document_id, embedding=embed(chunk["content"]))
+        if settings.vector_backend == "milvus":
+            for chunk in chunks:
+                chunk["validity"] = validity
+            upsert_vectors(chunks)
         insert_document(
             {
                 "id": document_id,

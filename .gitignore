@@ -1,4 +1,6 @@
 .env
+docker/*.env
+docker-data/
 .venv/
 mineru_runtime/
 vendor/MinerU/mineru.egg-info/
@@ -20,3 +22,4 @@ data/test/api_evidence_evaluation_*.json
 data/test/rerank_evaluation_*.json
 data/raw/金融知识/征信宣传/征信条例.pdf
 _doc_review/
+.ppt-build/

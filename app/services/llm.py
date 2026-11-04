@@ -1,7 +1,39 @@
 import json
+import re
 import urllib.request
 
 from ..config import settings
+from .keywords import keywords
+
+
+def generate_fast_answer(question: str, sources: list[dict]) -> tuple[str, str]:
+    """Return short, cited source excerpts without a remote generation request."""
+    if not sources:
+        return "没有检索到足够的制度依据，暂时无法确认答案。", "low"
+    query_terms = set(keywords(question))
+    candidates = []
+    for source_index, source in enumerate(sources, start=1):
+        sentences = re.split(r"(?<=[。！？；])|\n+", source["content"])
+        for position, sentence in enumerate(sentences):
+            sentence = sentence.strip()
+            if len(sentence) < 8:
+                continue
+            overlap = len(query_terms & set(keywords(sentence)))
+            candidates.append((overlap, source_index, position, sentence))
+    if not candidates:
+        return "没有检索到足够的制度依据，暂时无法确认答案。", "low"
+    candidates.sort(key=lambda item: (-item[0], item[1], item[2]))
+    selected = []
+    seen = set()
+    for overlap, source_index, _, sentence in candidates:
+        excerpt = sentence[:220] + ("…" if len(sentence) > 220 else "")
+        if excerpt in seen:
+            continue
+        seen.add(excerpt)
+        selected.append(f"{excerpt}[{source_index}]")
+        if len(selected) == 2:
+            break
+    return "相关依据摘录：\n" + "\n".join(selected), "medium" if candidates[0][0] else "low"
 
 
 def generate_answer(question: str, sources: list[dict]) -> tuple[str, str]:

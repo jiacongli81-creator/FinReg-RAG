@@ -1,0 +1,6481 @@
+{
+  "complete": true,
+  "evaluated_at": "2026-11-02T13:24:22.132402+08:00",
+  "candidate_n_per_method": 20,
+  "max_k": 10,
+  "embedding_model": "shaw/dmeta-embedding-zh:latest",
+  "rerank_model": "BAAI/bge-reranker-v2-m3-int8",
+  "rerank_batch_size": 16,
+  "eligible_chunk_count": 1894,
+  "method": "Current pipeline, with semantic Top N and keyword Top N fused by equal-weight RRF, exact-content deduplication, and cross-encoder reranking. A hit requires annotated evidence inside one returned chunk. Gold evidence never influences retrieval or ranking.",
+  "summary": {
+    "case_count": 100,
+    "candidate_pool_evidence_hits": 100,
+    "mean_unique_candidate_count": 25.9,
+    "mean_elapsed_ms": 8419,
+    "curve": [
+      {
+        "k": 1,
+        "old_40_hits": 37,
+        "new_60_hits": 52,
+        "total_hits": 89
+      },
+      {
+        "k": 2,
+        "old_40_hits": 38,
+        "new_60_hits": 56,
+        "total_hits": 94
+      },
+      {
+        "k": 3,
+        "old_40_hits": 39,
+        "new_60_hits": 58,
+        "total_hits": 97
+      },
+      {
+        "k": 4,
+        "old_40_hits": 40,
+        "new_60_hits": 59,
+        "total_hits": 99
+      },
+      {
+        "k": 5,
+        "old_40_hits": 40,
+        "new_60_hits": 59,
+        "total_hits": 99
+      },
+      {
+        "k": 6,
+        "old_40_hits": 40,
+        "new_60_hits": 59,
+        "total_hits": 99
+      },
+      {
+        "k": 7,
+        "old_40_hits": 40,
+        "new_60_hits": 60,
+        "total_hits": 100
+      },
+      {
+        "k": 8,
+        "old_40_hits": 40,
+        "new_60_hits": 60,
+        "total_hits": 100
+      },
+      {
+        "k": 9,
+        "old_40_hits": 40,
+        "new_60_hits": 60,
+        "total_hits": 100
+      },
+      {
+        "k": 10,
+        "old_40_hits": 40,
+        "new_60_hits": 60,
+        "total_hits": 100
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "qa-01",
+      "cohort": "old_40",
+      "question": "制定《中华人民共和国银行业监督管理法》的目的是什么？",
+      "source": "银行业公开监管办法.txt（正文标题：中华人民共和国银行业监督管理法）",
+      "evidence": "为了加强对银行业的监督管理，规范监督管理行为，防范和化解银行业风险，保护存款人和其他客户的合法权益，促进银行业健康发展，制定本法。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 35,
+      "unique_candidate_count": 22,
+      "elapsed_ms": 12475,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": 2.300341
+        },
+        {
+          "rank": 2,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 0.637881
+        },
+        {
+          "rank": 3,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": 0.58776
+        },
+        {
+          "rank": 4,
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "score": 0.256127
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": 0.214799
+        },
+        {
+          "rank": 6,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 0.144196
+        },
+        {
+          "rank": 7,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -0.314096
+        },
+        {
+          "rank": 8,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -0.595616
+        },
+        {
+          "rank": 9,
+          "chunk_id": "4dc1a7ec-37f8-4619-8308-9bf343bb9e34",
+          "score": -1.020218
+        },
+        {
+          "rank": 10,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": -1.048847
+        }
+      ]
+    },
+    {
+      "id": "qa-02",
+      "cohort": "old_40",
+      "question": "哪个机构负责全国银行业金融机构及其业务活动的监督管理？",
+      "source": "银行业公开监管办法.txt，第二条",
+      "evidence": "国务院银行业监督管理机构负责对全国银行业金融机构及其业务活动监督管理的工作。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 4,
+      "candidate_count": 27,
+      "unique_candidate_count": 18,
+      "elapsed_ms": 5022,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 4.409826
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": 3.775374
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": 3.333969
+        },
+        {
+          "rank": 4,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": 3.136138
+        },
+        {
+          "rank": 5,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": 2.724765
+        },
+        {
+          "rank": 6,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 2.62722
+        },
+        {
+          "rank": 7,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": 1.599442
+        },
+        {
+          "rank": 8,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": 1.488227
+        },
+        {
+          "rank": 9,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 1.479836
+        },
+        {
+          "rank": 10,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": 0.604922
+        }
+      ]
+    },
+    {
+      "id": "qa-03",
+      "cohort": "old_40",
+      "question": "本法所称的银行业金融机构包括哪些机构？",
+      "source": "银行业公开监管办法.txt，第二条",
+      "evidence": "本法所称银行业金融机构，是指在中华人民共和国境内设立的商业银行、城市信用合作社、农村信用合作社等吸收公众存款的金融机构以及政策性银行。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 6855,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "49d4b462-c3ae-4f83-8291-4c7b26eebcd1",
+          "score": 4.193947
+        },
+        {
+          "rank": 2,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": 1.62441
+        },
+        {
+          "rank": 3,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": 0.321504
+        },
+        {
+          "rank": 4,
+          "chunk_id": "15e1a6ea-b243-4836-b09b-646c50c88b67",
+          "score": -0.132552
+        },
+        {
+          "rank": 5,
+          "chunk_id": "343ca307-ea5e-4a34-a7d1-97342c04fdc0",
+          "score": -0.323532
+        },
+        {
+          "rank": 6,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -1.22787
+        },
+        {
+          "rank": 7,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -1.260776
+        },
+        {
+          "rank": 8,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": -1.314183
+        },
+        {
+          "rank": 9,
+          "chunk_id": "93d4c266-81be-48d1-9795-6aa7ebaaf483",
+          "score": -1.402973
+        },
+        {
+          "rank": 10,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -1.931079
+        }
+      ]
+    },
+    {
+      "id": "qa-04",
+      "cohort": "old_40",
+      "question": "银行业监督管理的目标是什么？",
+      "source": "银行业公开监管办法.txt，第三条",
+      "evidence": "银行业监督管理的目标是促进银行业的合法、稳健运行，维护公众对银行业的信心。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 2,
+      "candidate_count": 28,
+      "unique_candidate_count": 18,
+      "elapsed_ms": 5080,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": 3.318786
+        },
+        {
+          "rank": 2,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": 2.573158
+        },
+        {
+          "rank": 3,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 0.31647
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e49f4aa0-7061-4aa7-9abe-6d3fc1e8d5e1",
+          "score": 0.180697
+        },
+        {
+          "rank": 5,
+          "chunk_id": "f5adb217-ed6e-419f-8c75-265abd88da80",
+          "score": 0.030866
+        },
+        {
+          "rank": 6,
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "score": -0.213169
+        },
+        {
+          "rank": 7,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -0.251908
+        },
+        {
+          "rank": 8,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -0.337188
+        },
+        {
+          "rank": 9,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -1.043706
+        },
+        {
+          "rank": 10,
+          "chunk_id": "8cc14773-2b2b-420c-8600-8bbff6bc091e",
+          "score": -1.321024
+        }
+      ]
+    },
+    {
+      "id": "qa-05",
+      "cohort": "old_40",
+      "question": "银行业监督管理机构实施监管时应遵循哪些原则？",
+      "source": "银行业公开监管办法.txt，第四条",
+      "evidence": "银行业监督管理机构对银行业实施监督管理，应当遵循依法、公开、公正和效率的原则。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 26,
+      "unique_candidate_count": 16,
+      "elapsed_ms": 4654,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 6.486738
+        },
+        {
+          "rank": 2,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": 1.860483
+        },
+        {
+          "rank": 3,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 1.662982
+        },
+        {
+          "rank": 4,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": 0.801301
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": 0.788544
+        },
+        {
+          "rank": 6,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": 0.737678
+        },
+        {
+          "rank": 7,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 0.468773
+        },
+        {
+          "rank": 8,
+          "chunk_id": "e49f4aa0-7061-4aa7-9abe-6d3fc1e8d5e1",
+          "score": 0.250422
+        },
+        {
+          "rank": 9,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": -0.665732
+        },
+        {
+          "rank": 10,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -0.848025
+        }
+      ]
+    },
+    {
+      "id": "qa-06",
+      "cohort": "old_40",
+      "question": "哪些主体不得干涉银行业监督管理机构依法履行职责？",
+      "source": "银行业公开监管办法.txt，第五条",
+      "evidence": "地方政府、各级政府部门、社会团体和个人不得干涉。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 29,
+      "unique_candidate_count": 18,
+      "elapsed_ms": 5632,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 4.693799
+        },
+        {
+          "rank": 2,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 0.853925
+        },
+        {
+          "rank": 3,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": 0.077261
+        },
+        {
+          "rank": 4,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 0.045448
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -0.381256
+        },
+        {
+          "rank": 6,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -0.513791
+        },
+        {
+          "rank": 7,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -0.76198
+        },
+        {
+          "rank": 8,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": -0.937586
+        },
+        {
+          "rank": 9,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -1.141509
+        },
+        {
+          "rank": 10,
+          "chunk_id": "1193d800-6167-4453-a0a3-387ea912695d",
+          "score": -1.611991
+        }
+      ]
+    },
+    {
+      "id": "qa-07",
+      "cohort": "old_40",
+      "question": "国务院银行业监督管理机构应与哪些机构建立监督管理信息共享机制？",
+      "source": "银行业公开监管办法.txt，第六条",
+      "evidence": "国务院银行业监督管理机构应当和中国人民银行、国务院其他金融监督管理机构建立监督管理信息共享机制。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 17,
+      "elapsed_ms": 4912,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 6.523887
+        },
+        {
+          "rank": 2,
+          "chunk_id": "1f28b215-fd73-4098-9c6e-594e89d6ed60",
+          "score": 4.213445
+        },
+        {
+          "rank": 3,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 1.705666
+        },
+        {
+          "rank": 4,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": 1.618829
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": 1.34796
+        },
+        {
+          "rank": 6,
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "score": 0.11296
+        },
+        {
+          "rank": 7,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -0.37198
+        },
+        {
+          "rank": 8,
+          "chunk_id": "4dc1a7ec-37f8-4619-8308-9bf343bb9e34",
+          "score": -1.070958
+        },
+        {
+          "rank": 9,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -1.347725
+        },
+        {
+          "rank": 10,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": -1.508431
+        }
+      ]
+    },
+    {
+      "id": "qa-08",
+      "cohort": "old_40",
+      "question": "银行业跨境监管合作机制可以与谁建立？",
+      "source": "银行业公开监管办法.txt，第七条",
+      "evidence": "国务院银行业监督管理机构可以和其他国家或者地区的银行业监督管理机构建立监督管理合作机制，实施跨境监督管理。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 31,
+      "unique_candidate_count": 20,
+      "elapsed_ms": 5951,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 2.010472
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -3.727531
+        },
+        {
+          "rank": 3,
+          "chunk_id": "0cefef6b-6ec9-4097-bb37-04aa5b99d20b",
+          "score": -4.693445
+        },
+        {
+          "rank": 4,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -4.749998
+        },
+        {
+          "rank": 5,
+          "chunk_id": "3bf925cc-dc7d-420a-87b8-b93051e62812",
+          "score": -4.995561
+        },
+        {
+          "rank": 6,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": -5.218579
+        },
+        {
+          "rank": 7,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": -5.431893
+        },
+        {
+          "rank": 8,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -5.513366
+        },
+        {
+          "rank": 9,
+          "chunk_id": "d2be5846-f7a4-409f-8405-ef8bf8cb0df4",
+          "score": -5.902654
+        },
+        {
+          "rank": 10,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": -5.984588
+        }
+      ]
+    },
+    {
+      "id": "qa-09",
+      "cohort": "old_40",
+      "question": "国务院银行业监督管理机构可以基于什么需要设立派出机构，派出机构在什么范围内履职？",
+      "source": "银行业公开监管办法.txt，第八条",
+      "evidence": "国务院银行业监督管理机构根据履行职责的需要设立派出机构……派出机构在国务院银行业监督管理机构的授权范围内，履行监督管理职责。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 17,
+      "elapsed_ms": 5031,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 5.040933
+        },
+        {
+          "rank": 2,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": 2.433862
+        },
+        {
+          "rank": 3,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": 0.989869
+        },
+        {
+          "rank": 4,
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "score": 0.87584
+        },
+        {
+          "rank": 5,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -0.084029
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -0.243075
+        },
+        {
+          "rank": 7,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -0.340665
+        },
+        {
+          "rank": 8,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -0.526221
+        },
+        {
+          "rank": 9,
+          "chunk_id": "7ae36bdb-243e-40e7-8bb2-8871d8259c43",
+          "score": -0.774495
+        },
+        {
+          "rank": 10,
+          "chunk_id": "4dc1a7ec-37f8-4619-8308-9bf343bb9e34",
+          "score": -0.86891
+        }
+      ]
+    },
+    {
+      "id": "qa-10",
+      "cohort": "old_40",
+      "question": "从事银行业监督管理工作的人员应具备什么条件？",
+      "source": "银行业公开监管办法.txt，第九条",
+      "evidence": "银行业监督管理机构从事监督管理工作的人员，应当具备与其任职相适应的专业知识和业务工作经验。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 17,
+      "elapsed_ms": 5084,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 3.13995
+        },
+        {
+          "rank": 2,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 0.925609
+        },
+        {
+          "rank": 3,
+          "chunk_id": "e21ef46f-aabf-4d1b-ba0b-0845aabfe2b2",
+          "score": -0.462684
+        },
+        {
+          "rank": 4,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -0.598495
+        },
+        {
+          "rank": 5,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -0.83002
+        },
+        {
+          "rank": 6,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": -0.986725
+        },
+        {
+          "rank": 7,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -0.997016
+        },
+        {
+          "rank": 8,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -1.291971
+        },
+        {
+          "rank": 9,
+          "chunk_id": "4dc1a7ec-37f8-4619-8308-9bf343bb9e34",
+          "score": -1.864701
+        },
+        {
+          "rank": 10,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -2.176652
+        }
+      ]
+    },
+    {
+      "id": "qa-11",
+      "cohort": "old_40",
+      "question": "银行业监督管理机构工作人员在利益和兼职方面受到什么约束？",
+      "source": "银行业公开监管办法.txt，第十条",
+      "evidence": "不得利用职务便利牟取不正当的利益，不得在金融机构等企业中兼任职务。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 26,
+      "unique_candidate_count": 17,
+      "elapsed_ms": 5341,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 0.827741
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6438b799-0b11-46f2-946d-c2011cbee370",
+          "score": -0.575266
+        },
+        {
+          "rank": 3,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": -0.681986
+        },
+        {
+          "rank": 4,
+          "chunk_id": "133fd88a-6c80-4055-bfbf-957f9d6b2115",
+          "score": -0.832286
+        },
+        {
+          "rank": 5,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -1.67391
+        },
+        {
+          "rank": 6,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -1.730273
+        },
+        {
+          "rank": 7,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -1.735669
+        },
+        {
+          "rank": 8,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -1.812015
+        },
+        {
+          "rank": 9,
+          "chunk_id": "343ca307-ea5e-4a34-a7d1-97342c04fdc0",
+          "score": -2.391263
+        },
+        {
+          "rank": 10,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -2.403521
+        }
+      ]
+    },
+    {
+      "id": "qa-12",
+      "cohort": "old_40",
+      "question": "银行业监督管理机构工作人员是否负有保密义务？",
+      "source": "银行业公开监管办法.txt，第十一条",
+      "evidence": "应当依法保守国家秘密，并有责任为其监督管理的银行业金融机构及当事人保守秘密。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 31,
+      "unique_candidate_count": 19,
+      "elapsed_ms": 5831,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 3.511222
+        },
+        {
+          "rank": 2,
+          "chunk_id": "a8d39663-2e60-461c-aef6-c88c6e886e75",
+          "score": 1.631513
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2d1c458f-86f0-4bba-90cb-3a144fd5d394",
+          "score": 1.479988
+        },
+        {
+          "rank": 4,
+          "chunk_id": "a4eadebe-b9f2-45e2-a647-5d6b548cb773",
+          "score": 0.290341
+        },
+        {
+          "rank": 5,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 0.184442
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -0.516266
+        },
+        {
+          "rank": 7,
+          "chunk_id": "ccf2d40f-deba-42f2-a81d-f2be03a6347d",
+          "score": -0.645693
+        },
+        {
+          "rank": 8,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -0.78398
+        },
+        {
+          "rank": 9,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -0.806441
+        },
+        {
+          "rank": 10,
+          "chunk_id": "ba3e1bfd-0064-4081-947e-5a036b7fbbec",
+          "score": -1.059706
+        }
+      ]
+    },
+    {
+      "id": "qa-13",
+      "cohort": "old_40",
+      "question": "银行业监督管理机构应公开什么，并建立哪些制度？",
+      "source": "银行业公开监管办法.txt，第十二条",
+      "evidence": "国务院银行业监督管理机构应当公开监督管理程序，建立监督管理责任制度和内部监督制度。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 15,
+      "elapsed_ms": 4353,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 4.186133
+        },
+        {
+          "rank": 2,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": 3.369551
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": 2.077749
+        },
+        {
+          "rank": 4,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 1.451182
+        },
+        {
+          "rank": 5,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": 1.319441
+        },
+        {
+          "rank": 6,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 0.784384
+        },
+        {
+          "rank": 7,
+          "chunk_id": "4df4e0ab-dcec-4c86-b090-1fd4e6f8762d",
+          "score": 0.500688
+        },
+        {
+          "rank": 8,
+          "chunk_id": "9443c4b7-f72f-44e0-a503-3753ff1ee0e6",
+          "score": -0.390528
+        },
+        {
+          "rank": 9,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -0.478588
+        },
+        {
+          "rank": 10,
+          "chunk_id": "52927ca9-0835-4d85-a71e-7bf3a6cf504b",
+          "score": -0.875028
+        }
+      ]
+    },
+    {
+      "id": "qa-14",
+      "cohort": "old_40",
+      "question": "处置银行业金融机构风险、查处金融违法行为时，地方政府和有关部门应如何配合？",
+      "source": "银行业公开监管办法.txt，第十三条",
+      "evidence": "地方政府、各级有关部门应当予以配合和协助。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 29,
+      "unique_candidate_count": 19,
+      "elapsed_ms": 5551,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 5.823548
+        },
+        {
+          "rank": 2,
+          "chunk_id": "8f63b57f-b058-461d-8e07-c64c59b930ad",
+          "score": 3.278049
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -0.477599
+        },
+        {
+          "rank": 4,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -1.497249
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": -1.515969
+        },
+        {
+          "rank": 6,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": -1.940014
+        },
+        {
+          "rank": 7,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -2.147386
+        },
+        {
+          "rank": 8,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -2.1578
+        },
+        {
+          "rank": 9,
+          "chunk_id": "e49f4aa0-7061-4aa7-9abe-6d3fc1e8d5e1",
+          "score": -2.266244
+        },
+        {
+          "rank": 10,
+          "chunk_id": "52b25d8c-d44d-417c-95cc-4a8ef71b062d",
+          "score": -2.691229
+        }
+      ]
+    },
+    {
+      "id": "qa-15",
+      "cohort": "old_40",
+      "question": "银行业金融机构的设立、变更、终止及业务范围由谁审批？",
+      "source": "银行业公开监管办法.txt，第十六条",
+      "evidence": "国务院银行业监督管理机构依照法律、行政法规规定的条件和程序，审查批准银行业金融机构的设立、变更、终止以及业务范围。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 35,
+      "unique_candidate_count": 23,
+      "elapsed_ms": 7039,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 5.804108
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": 5.304081
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": 4.076825
+        },
+        {
+          "rank": 4,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": 2.261043
+        },
+        {
+          "rank": 5,
+          "chunk_id": "1f9dee2a-f21b-4d4d-9caf-7c428b0fa2fa",
+          "score": 0.457143
+        },
+        {
+          "rank": 6,
+          "chunk_id": "343ca307-ea5e-4a34-a7d1-97342c04fdc0",
+          "score": 0.147763
+        },
+        {
+          "rank": 7,
+          "chunk_id": "ca891a14-f1e0-4b0b-831a-243dad50ae07",
+          "score": -0.164029
+        },
+        {
+          "rank": 8,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": -0.177358
+        },
+        {
+          "rank": 9,
+          "chunk_id": "e21ef46f-aabf-4d1b-ba0b-0845aabfe2b2",
+          "score": -0.36092
+        },
+        {
+          "rank": 10,
+          "chunk_id": "00901078-8175-49fe-8f77-f7deaeff5695",
+          "score": -1.027408
+        }
+      ]
+    },
+    {
+      "id": "qa-16",
+      "cohort": "old_40",
+      "question": "审查银行业金融机构的相关股东时，应审查哪些方面？",
+      "source": "银行业公开监管办法.txt，第十七条",
+      "evidence": "国务院银行业监督管理机构应当对股东的资金来源、财务状况、资本补充能力和诚信状况进行审查。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 20,
+      "elapsed_ms": 5800,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": 1.333932
+        },
+        {
+          "rank": 2,
+          "chunk_id": "017f8efe-85ee-4ea3-b95b-79c101ccd99e",
+          "score": 0.594199
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": 0.007455
+        },
+        {
+          "rank": 4,
+          "chunk_id": "791e78f3-ad2c-4284-b958-b5f4926aa3b6",
+          "score": -2.117013
+        },
+        {
+          "rank": 5,
+          "chunk_id": "769cefe6-cf6b-408c-9885-7f70805e35be",
+          "score": -2.440023
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2f9d55df-70ed-4e53-ac4e-1e9cbac99311",
+          "score": -2.534543
+        },
+        {
+          "rank": 7,
+          "chunk_id": "b405a5a4-d5e5-4701-8df3-c329902bc8a0",
+          "score": -2.996342
+        },
+        {
+          "rank": 8,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": -3.024789
+        },
+        {
+          "rank": 9,
+          "chunk_id": "343ca307-ea5e-4a34-a7d1-97342c04fdc0",
+          "score": -3.376746
+        },
+        {
+          "rank": 10,
+          "chunk_id": "ba3e1bfd-0064-4081-947e-5a036b7fbbec",
+          "score": -3.953981
+        }
+      ]
+    },
+    {
+      "id": "qa-17",
+      "cohort": "old_40",
+      "question": "反洗钱义务主体分为哪两类？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "反洗钱义务主体包括两类：1、在中华人民共和国境内设立的金融机构……2、二是按照规定应当履行反洗钱义务的特定非金融机构。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 24,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 7303,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "score": 8.146533
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": 0.914648
+        },
+        {
+          "rank": 3,
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "score": 0.32967
+        },
+        {
+          "rank": 4,
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "score": 0.194901
+        },
+        {
+          "rank": 5,
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "score": 0.062281
+        },
+        {
+          "rank": 6,
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "score": -0.053228
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": -0.20636
+        },
+        {
+          "rank": 8,
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "score": -0.35954
+        },
+        {
+          "rank": 9,
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "score": -0.764687
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c08add7b-50e1-4f99-a6de-69e3b6fddadd",
+          "score": -1.036809
+        }
+      ]
+    },
+    {
+      "id": "qa-18",
+      "cohort": "old_40",
+      "question": "文档列举了哪些应履行反洗钱义务的金融机构？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "包括依法设立的从事金融业务的政策性银行、商业银行、信用合作社、邮政储汇机构、信托投资公司、证券公司……",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 24,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 7316,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "score": 4.866575
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": 3.222706
+        },
+        {
+          "rank": 3,
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "score": 2.494879
+        },
+        {
+          "rank": 4,
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "score": 1.846939
+        },
+        {
+          "rank": 5,
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "score": 1.615234
+        },
+        {
+          "rank": 6,
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "score": 1.59694
+        },
+        {
+          "rank": 7,
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "score": 1.589922
+        },
+        {
+          "rank": 8,
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "score": 1.147918
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": 1.13824
+        },
+        {
+          "rank": 10,
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "score": 1.016169
+        }
+      ]
+    },
+    {
+      "id": "qa-19",
+      "cohort": "old_40",
+      "question": "国库是什么的简称？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国库是国家金库的简称。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 11321,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "score": 5.314819
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "score": 2.822187
+        },
+        {
+          "rank": 3,
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "score": 0.574045
+        },
+        {
+          "rank": 4,
+          "chunk_id": "993e86fb-d061-43ab-b929-7530dc1d27ca",
+          "score": -0.738706
+        },
+        {
+          "rank": 5,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": -1.079458
+        },
+        {
+          "rank": 6,
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "score": -1.411541
+        },
+        {
+          "rank": 7,
+          "chunk_id": "962c6fc5-2273-4924-ae28-8e18974d49b8",
+          "score": -1.503266
+        },
+        {
+          "rank": 8,
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "score": -1.539264
+        },
+        {
+          "rank": 9,
+          "chunk_id": "b223be7d-ef16-4108-a62f-2045c0621835",
+          "score": -1.982753
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b41db495-c81f-479b-9f52-a27c5d3ad876",
+          "score": -2.197289
+        }
+      ]
+    },
+    {
+      "id": "qa-20",
+      "cohort": "old_40",
+      "question": "国库在国家预算执行中处于什么地位？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "因此，国库是国家预算执行的重要组成部分。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 10598,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "score": 5.019426
+        },
+        {
+          "rank": 2,
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "score": 2.557052
+        },
+        {
+          "rank": 3,
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "score": -0.370954
+        },
+        {
+          "rank": 4,
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "score": -0.77339
+        },
+        {
+          "rank": 5,
+          "chunk_id": "962c6fc5-2273-4924-ae28-8e18974d49b8",
+          "score": -1.214193
+        },
+        {
+          "rank": 6,
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "score": -1.234652
+        },
+        {
+          "rank": 7,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": -1.463225
+        },
+        {
+          "rank": 8,
+          "chunk_id": "993e86fb-d061-43ab-b929-7530dc1d27ca",
+          "score": -2.352712
+        },
+        {
+          "rank": 9,
+          "chunk_id": "b223be7d-ef16-4108-a62f-2045c0621835",
+          "score": -2.612288
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c0d625db-ef9f-4c45-b738-35c90764a01e",
+          "score": -3.432983
+        }
+      ]
+    },
+    {
+      "id": "qa-21",
+      "cohort": "old_40",
+      "question": "资料将哪些刑法规定列为打击洗钱犯罪的法律基础？",
+      "source": "金融知识/反洗钱法律法规.docx",
+      "evidence": "《刑法》第191条规定了“洗钱罪”的构成要件和刑罚，第312条……和第349条……也共同构成对洗钱犯罪进行刑事打击的法律基础。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 35,
+      "unique_candidate_count": 35,
+      "elapsed_ms": 11122,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "score": 4.01846
+        },
+        {
+          "rank": 2,
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "score": 0.812973
+        },
+        {
+          "rank": 3,
+          "chunk_id": "b2a0eac1-168b-4ff3-8294-28cbc9e539a0",
+          "score": 0.532126
+        },
+        {
+          "rank": 4,
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "score": 0.264632
+        },
+        {
+          "rank": 5,
+          "chunk_id": "ae00f75a-f6ee-4bb8-852f-df6e7e439906",
+          "score": 0.106862
+        },
+        {
+          "rank": 6,
+          "chunk_id": "444f7dd9-c80e-46b2-a85e-dbd33734f5bd",
+          "score": -0.56619
+        },
+        {
+          "rank": 7,
+          "chunk_id": "b166ea18-cdc2-4dc5-8c77-45b49d520e84",
+          "score": -0.626464
+        },
+        {
+          "rank": 8,
+          "chunk_id": "37612f39-584a-4a43-b953-a5acbea2e057",
+          "score": -0.816772
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": -0.821909
+        },
+        {
+          "rank": 10,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": -0.924562
+        }
+      ]
+    },
+    {
+      "id": "qa-22",
+      "cohort": "old_40",
+      "question": "资料提到，《反洗钱法》主要规定了哪些内容？",
+      "source": "金融知识/反洗钱法律法规.docx",
+      "evidence": "前者规定了我国反洗钱制度的基本内容，包括金融机构和特定非金融机构反洗钱义务的内容，以及中国人民银行和其他相关部门的反洗钱监督管理职责。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 25,
+      "unique_candidate_count": 25,
+      "elapsed_ms": 7735,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "score": 3.761388
+        },
+        {
+          "rank": 2,
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "score": 3.500844
+        },
+        {
+          "rank": 3,
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "score": 3.274335
+        },
+        {
+          "rank": 4,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": 2.695619
+        },
+        {
+          "rank": 5,
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "score": 2.683006
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": 2.668177
+        },
+        {
+          "rank": 7,
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "score": 2.340998
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b166ea18-cdc2-4dc5-8c77-45b49d520e84",
+          "score": 2.241432
+        },
+        {
+          "rank": 9,
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "score": 2.109784
+        },
+        {
+          "rank": 10,
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "score": 2.091221
+        }
+      ]
+    },
+    {
+      "id": "qa-23",
+      "cohort": "old_40",
+      "question": "资料列出的反洗钱部门规章和规范性文件涉及哪些内容？",
+      "source": "金融知识/反洗钱法律法规.docx",
+      "evidence": "《金融机构客户身份识别和客户身份资料及交易记录保存管理办法》、《金融机构大额交易和可疑交易报告管理办法》……《涉及恐怖活动资产冻结管理办法》等",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 25,
+      "elapsed_ms": 7619,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "score": 3.604189
+        },
+        {
+          "rank": 2,
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "score": 1.826907
+        },
+        {
+          "rank": 3,
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "score": 1.269063
+        },
+        {
+          "rank": 4,
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "score": 0.532593
+        },
+        {
+          "rank": 5,
+          "chunk_id": "a4eadebe-b9f2-45e2-a647-5d6b548cb773",
+          "score": 0.346693
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": 0.129907
+        },
+        {
+          "rank": 7,
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "score": 0.02292
+        },
+        {
+          "rank": 8,
+          "chunk_id": "10f77213-dd0b-4012-8159-7fb080fc2d26",
+          "score": -0.08509
+        },
+        {
+          "rank": 9,
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "score": -0.256441
+        },
+        {
+          "rank": 10,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": -0.54311
+        }
+      ]
+    },
+    {
+      "id": "qa-24",
+      "cohort": "old_40",
+      "question": "按《反洗钱义务》文档，金融机构在反洗钱工作中应坚持哪三项基本原则？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "金融机构在反洗钱实际工作中还必须坚持三项基本原则，即合法审慎原则、保密原则和与司法机关、行政执法机关全面合作原则。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 25,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 7504,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "score": 7.979133
+        },
+        {
+          "rank": 2,
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "score": 2.620091
+        },
+        {
+          "rank": 3,
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "score": 2.274875
+        },
+        {
+          "rank": 4,
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "score": 2.147466
+        },
+        {
+          "rank": 5,
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "score": 2.092099
+        },
+        {
+          "rank": 6,
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "score": 1.899969
+        },
+        {
+          "rank": 7,
+          "chunk_id": "10f77213-dd0b-4012-8159-7fb080fc2d26",
+          "score": 1.834178
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": 1.710093
+        },
+        {
+          "rank": 9,
+          "chunk_id": "41e75fa0-4a63-418d-97b6-0c64a07c494e",
+          "score": 1.665669
+        },
+        {
+          "rank": 10,
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "score": 1.644323
+        }
+      ]
+    },
+    {
+      "id": "qa-25",
+      "cohort": "old_40",
+      "question": "文档列举了哪些金融机构属于反洗钱义务主体？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "包括依法设立的从事金融业务的政策性银行、商业银行、信用合作社、邮政储汇机构、信托投资公司、证券公司、期货经纪公司、保险公司……",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 24,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 7250,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "score": 5.415691
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": 3.077248
+        },
+        {
+          "rank": 3,
+          "chunk_id": "95fe7c6b-3c65-455f-8d21-bd61e5703105",
+          "score": 1.238701
+        },
+        {
+          "rank": 4,
+          "chunk_id": "5d363135-6341-4bf3-8275-a216d886123e",
+          "score": 0.964459
+        },
+        {
+          "rank": 5,
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "score": 0.907716
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": 0.473415
+        },
+        {
+          "rank": 7,
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "score": 0.284454
+        },
+        {
+          "rank": 8,
+          "chunk_id": "f1388228-4615-40ee-8361-1ee40ee0add1",
+          "score": 0.108136
+        },
+        {
+          "rank": 9,
+          "chunk_id": "ae00f75a-f6ee-4bb8-852f-df6e7e439906",
+          "score": -0.013104
+        },
+        {
+          "rank": 10,
+          "chunk_id": "60dad116-7b3d-4a0b-9062-ccdf09c95ce4",
+          "score": -0.223427
+        }
+      ]
+    },
+    {
+      "id": "qa-26",
+      "cohort": "old_40",
+      "question": "特定非金融机构的范围由谁制定？",
+      "source": "金融知识/反洗钱义务.docx",
+      "evidence": "特定非金融机构的范围由国务院反洗钱行政主管部门会同国务院有关部门另行制定。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 39,
+      "unique_candidate_count": 32,
+      "elapsed_ms": 10089,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "score": 3.33112
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2c682aa9-c91b-4101-bdc9-7d281a495d46",
+          "score": 2.911036
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c5c24c1f-206a-4006-83cc-040a6c01e991",
+          "score": -1.911411
+        },
+        {
+          "rank": 4,
+          "chunk_id": "05d17127-b957-4e75-818f-a60ce5b7037e",
+          "score": -2.122967
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c0f378a5-5687-4ccb-bf76-a58bec1402f2",
+          "score": -3.277865
+        },
+        {
+          "rank": 6,
+          "chunk_id": "b2b23d31-b695-42e7-8643-c39a94aebd79",
+          "score": -3.342894
+        },
+        {
+          "rank": 7,
+          "chunk_id": "93d4c266-81be-48d1-9795-6aa7ebaaf483",
+          "score": -3.994139
+        },
+        {
+          "rank": 8,
+          "chunk_id": "057a3a5a-5d02-4e64-8104-92c3b431bdc7",
+          "score": -4.651244
+        },
+        {
+          "rank": 9,
+          "chunk_id": "e1a2e2f5-73c2-400a-a20d-f23cdc4bae43",
+          "score": -4.695502
+        },
+        {
+          "rank": 10,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": -4.915468
+        }
+      ]
+    },
+    {
+      "id": "qa-27",
+      "cohort": "old_40",
+      "question": "按《洗钱交易介绍》举例，单笔或当日累计达到多少金额的现金业务可能涉及大额交易报告？",
+      "source": "金融知识/洗钱交易介绍.docx",
+      "evidence": "例如单笔或当日累计20万以上的现金存取、现金兑换、现金汇款等……",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 27,
+      "elapsed_ms": 9101,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "score": 5.552445
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6c31b3aa-dc5d-459c-807b-4f8982a5bc81",
+          "score": 3.223585
+        },
+        {
+          "rank": 3,
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "score": 1.350912
+        },
+        {
+          "rank": 4,
+          "chunk_id": "9f43c966-697f-4713-8f32-c2e2ec30adc2",
+          "score": 0.368633
+        },
+        {
+          "rank": 5,
+          "chunk_id": "27fae154-4b47-4130-9efa-dfd628ee891a",
+          "score": 0.08979
+        },
+        {
+          "rank": 6,
+          "chunk_id": "fa648343-a477-4685-b187-3969d349b96e",
+          "score": 0.089546
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c08add7b-50e1-4f99-a6de-69e3b6fddadd",
+          "score": -0.454372
+        },
+        {
+          "rank": 8,
+          "chunk_id": "10f77213-dd0b-4012-8159-7fb080fc2d26",
+          "score": -0.649326
+        },
+        {
+          "rank": 9,
+          "chunk_id": "25571084-babc-4479-99bf-77e812c02a61",
+          "score": -0.773923
+        },
+        {
+          "rank": 10,
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "score": -0.868019
+        }
+      ]
+    },
+    {
+      "id": "qa-28",
+      "cohort": "old_40",
+      "question": "文档举例说明，哪种账户资金流动情况可能被视为可疑？",
+      "source": "金融知识/洗钱交易介绍.docx",
+      "evidence": "银行帐户资金短期内分散转入、集中转出且与客户身份或经营业务明显不符。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 37,
+      "unique_candidate_count": 34,
+      "elapsed_ms": 11593,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "score": -0.667367
+        },
+        {
+          "rank": 2,
+          "chunk_id": "25571084-babc-4479-99bf-77e812c02a61",
+          "score": -1.204573
+        },
+        {
+          "rank": 3,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -1.822523
+        },
+        {
+          "rank": 4,
+          "chunk_id": "74f7dfbd-11db-4476-b701-3bbe832b5c5d",
+          "score": -3.057561
+        },
+        {
+          "rank": 5,
+          "chunk_id": "7ad7bf2c-111d-4721-a507-6b91fb48b331",
+          "score": -3.357447
+        },
+        {
+          "rank": 6,
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "score": -3.596547
+        },
+        {
+          "rank": 7,
+          "chunk_id": "10f77213-dd0b-4012-8159-7fb080fc2d26",
+          "score": -3.80285
+        },
+        {
+          "rank": 8,
+          "chunk_id": "e58f6705-8827-4dd6-9ed9-2161c9fb5537",
+          "score": -3.939233
+        },
+        {
+          "rank": 9,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": -4.337774
+        },
+        {
+          "rank": 10,
+          "chunk_id": "abf52d7e-4e04-4955-86b9-e096b5569bac",
+          "score": -4.341486
+        }
+      ]
+    },
+    {
+      "id": "qa-29",
+      "cohort": "old_40",
+      "question": "文档列举了哪些洗钱渠道？请举出三种。",
+      "source": "金融知识/洗钱渠道介绍.docx",
+      "evidence": "1、现金走私；2、将大额现金分散存入银行；……9、利用地下钱庄和民间借贷转移犯罪收入。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 26,
+      "unique_candidate_count": 26,
+      "elapsed_ms": 8603,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7187ba07-c784-4cd6-866c-70a450a0af70",
+          "score": 2.949907
+        },
+        {
+          "rank": 2,
+          "chunk_id": "37612f39-584a-4a43-b953-a5acbea2e057",
+          "score": 0.410339
+        },
+        {
+          "rank": 3,
+          "chunk_id": "98e30349-cbd7-429d-9681-ce421cd33999",
+          "score": 0.350807
+        },
+        {
+          "rank": 4,
+          "chunk_id": "444f7dd9-c80e-46b2-a85e-dbd33734f5bd",
+          "score": -0.340457
+        },
+        {
+          "rank": 5,
+          "chunk_id": "9b74afb3-2503-4db0-8fb8-8fb123f81a7c",
+          "score": -1.762814
+        },
+        {
+          "rank": 6,
+          "chunk_id": "fa648343-a477-4685-b187-3969d349b96e",
+          "score": -1.765961
+        },
+        {
+          "rank": 7,
+          "chunk_id": "a67e06a1-f000-4ff8-9d5e-7cdeb9929b8a",
+          "score": -1.848897
+        },
+        {
+          "rank": 8,
+          "chunk_id": "010324b5-ab26-40b3-872a-1fa1468fe170",
+          "score": -1.879603
+        },
+        {
+          "rank": 9,
+          "chunk_id": "7e7f5b4f-1014-4fab-8ca9-73d8de5d672b",
+          "score": -2.403795
+        },
+        {
+          "rank": 10,
+          "chunk_id": "347a6c3e-3d21-4096-8aa3-1c17f98035e7",
+          "score": -2.985309
+        }
+      ]
+    },
+    {
+      "id": "qa-30",
+      "cohort": "old_40",
+      "question": "在 ATM 旁看到要求提供密码或转账的“紧急通知”，资料建议怎样处理？",
+      "source": "金融知识/支付与银行卡知识/银行卡系列知识之二：银行卡欺诈的常见手段.txt",
+      "evidence": "千万不要轻信“紧急通知”和“公告”……要求您提供密码信息，绝对不是银行的行为。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 10965,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "368755d6-15dc-4d86-850f-dc6574cbd89e",
+          "score": 4.183408
+        },
+        {
+          "rank": 2,
+          "chunk_id": "d8c98fec-c094-481e-b2fd-b56a7c91d68f",
+          "score": -0.77795
+        },
+        {
+          "rank": 3,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -0.951933
+        },
+        {
+          "rank": 4,
+          "chunk_id": "4dff112d-3a22-4750-8c91-20060d4ee211",
+          "score": -2.323646
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": -4.04355
+        },
+        {
+          "rank": 6,
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "score": -4.094725
+        },
+        {
+          "rank": 7,
+          "chunk_id": "823589d1-79ef-4964-b51b-fcfd5231e20b",
+          "score": -4.560746
+        },
+        {
+          "rank": 8,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": -4.7255
+        },
+        {
+          "rank": 9,
+          "chunk_id": "e76fdbbb-d9e3-4f9b-82ff-3d2681970c5c",
+          "score": -5.213412
+        },
+        {
+          "rank": 10,
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "score": -5.238661
+        }
+      ]
+    },
+    {
+      "id": "qa-31",
+      "cohort": "old_40",
+      "question": "为避免银行卡磁条受损，资料建议怎样放置银行卡？",
+      "source": "金融知识/支付与银行卡知识/银行卡系列知识之一：怎样保管银行卡.txt",
+      "evidence": "银行卡最好放在带硬皮的钱夹里，并防止尖锐物品磨损、刮伤磁条或扭曲折坏；多张银行卡不要紧贴一起存放……",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 28,
+      "elapsed_ms": 9348,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "score": 3.953097
+        },
+        {
+          "rank": 2,
+          "chunk_id": "5219ebdf-e539-4000-8d15-98953d2c86e6",
+          "score": -1.213857
+        },
+        {
+          "rank": 3,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": -2.901024
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "score": -3.385661
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "score": -3.502144
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c21ca3fb-f5c4-4b8a-9cba-62c740740a6e",
+          "score": -3.9389
+        },
+        {
+          "rank": 7,
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "score": -3.995883
+        },
+        {
+          "rank": 8,
+          "chunk_id": "368755d6-15dc-4d86-850f-dc6574cbd89e",
+          "score": -4.079541
+        },
+        {
+          "rank": 9,
+          "chunk_id": "dbec7432-9d01-4266-9d68-6ff142bd96bc",
+          "score": -4.179343
+        },
+        {
+          "rank": 10,
+          "chunk_id": "0b3e5cf1-b198-4a02-818a-2e0a9730b30c",
+          "score": -4.223591
+        }
+      ]
+    },
+    {
+      "id": "qa-32",
+      "cohort": "old_40",
+      "question": "银行卡丢失后，资料建议尽快办理什么手续？临时挂失和正式挂失分别是什么？",
+      "source": "金融知识/支付与银行卡知识/银行卡知识系列之三：银行卡挂失.txt",
+      "evidence": "挂失一般分为临时挂失和正式挂失。临时挂失一般是指电话口头挂失……正式挂失是指书面挂失，您可到发卡银行指定网点办理。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 29,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 10336,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "dbec7432-9d01-4266-9d68-6ff142bd96bc",
+          "score": 5.653149
+        },
+        {
+          "rank": 2,
+          "chunk_id": "0b3e5cf1-b198-4a02-818a-2e0a9730b30c",
+          "score": 2.012743
+        },
+        {
+          "rank": 3,
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "score": 1.881582
+        },
+        {
+          "rank": 4,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": 1.104221
+        },
+        {
+          "rank": 5,
+          "chunk_id": "da457da7-280d-4d8c-803b-da8d29efa5cc",
+          "score": 0.661042
+        },
+        {
+          "rank": 6,
+          "chunk_id": "1a84b036-a849-4b36-9d42-018f13fd37c3",
+          "score": 0.144394
+        },
+        {
+          "rank": 7,
+          "chunk_id": "1c9887ae-85ff-4473-9d20-76eec36c62da",
+          "score": -0.521265
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c21ca3fb-f5c4-4b8a-9cba-62c740740a6e",
+          "score": -0.581793
+        },
+        {
+          "rank": 9,
+          "chunk_id": "7221e221-6b73-4f4f-87e7-8211d34178c2",
+          "score": -0.749726
+        },
+        {
+          "rank": 10,
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "score": -1.155186
+        }
+      ]
+    },
+    {
+      "id": "qa-33",
+      "cohort": "old_40",
+      "question": "国库是什么的简称，主要负责办理什么？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国库是国家金库的简称，是负责办理国家预算资金收纳、支出的机关。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 31,
+      "elapsed_ms": 11789,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "score": 5.305401
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "score": 2.568983
+        },
+        {
+          "rank": 3,
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "score": 1.518859
+        },
+        {
+          "rank": 4,
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "score": -0.117794
+        },
+        {
+          "rank": 5,
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "score": -0.940074
+        },
+        {
+          "rank": 6,
+          "chunk_id": "962c6fc5-2273-4924-ae28-8e18974d49b8",
+          "score": -1.317933
+        },
+        {
+          "rank": 7,
+          "chunk_id": "b223be7d-ef16-4108-a62f-2045c0621835",
+          "score": -1.64044
+        },
+        {
+          "rank": 8,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": -1.748165
+        },
+        {
+          "rank": 9,
+          "chunk_id": "993e86fb-d061-43ab-b929-7530dc1d27ca",
+          "score": -1.824453
+        },
+        {
+          "rank": 10,
+          "chunk_id": "2ccefe35-f80d-4ccc-875a-9c32b4c69d15",
+          "score": -2.025925
+        }
+      ]
+    },
+    {
+      "id": "qa-34",
+      "cohort": "old_40",
+      "question": "国家预算收入和预算支出分别如何通过国库办理？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国家的一切预算收入必须全部缴入国库……国家的一切预算支出，由国库统一办理拨付。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 10372,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "score": 2.247867
+        },
+        {
+          "rank": 2,
+          "chunk_id": "a739da88-6439-4eb4-aede-82e9a44c2d86",
+          "score": 1.233207
+        },
+        {
+          "rank": 3,
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "score": 0.784471
+        },
+        {
+          "rank": 4,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": 0.593733
+        },
+        {
+          "rank": 5,
+          "chunk_id": "962c6fc5-2273-4924-ae28-8e18974d49b8",
+          "score": -1.149553
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2b671fba-1925-4098-994d-36124d97ef00",
+          "score": -1.617137
+        },
+        {
+          "rank": 7,
+          "chunk_id": "27a9fde8-a779-466f-b27d-2ac3ed43b59d",
+          "score": -2.258106
+        },
+        {
+          "rank": 8,
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "score": -2.312336
+        },
+        {
+          "rank": 9,
+          "chunk_id": "993e86fb-d061-43ab-b929-7530dc1d27ca",
+          "score": -2.518067
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b223be7d-ef16-4108-a62f-2045c0621835",
+          "score": -3.698968
+        }
+      ]
+    },
+    {
+      "id": "qa-35",
+      "cohort": "old_40",
+      "question": "国库对不符合规定的凭证有什么权限？",
+      "source": "金融知识/国库知识介绍.docx",
+      "evidence": "国库对不符合规定的凭证，有权拒绝受理。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 38,
+      "unique_candidate_count": 27,
+      "elapsed_ms": 8530,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "score": 5.512329
+        },
+        {
+          "rank": 2,
+          "chunk_id": "06dba809-c4a6-47c2-8536-d4dbab271afe",
+          "score": 0.191894
+        },
+        {
+          "rank": 3,
+          "chunk_id": "87732926-cc58-4919-a61f-db607e37cb53",
+          "score": -2.846512
+        },
+        {
+          "rank": 4,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": -3.414183
+        },
+        {
+          "rank": 5,
+          "chunk_id": "3d1cba2e-760a-42e5-829b-642af7111430",
+          "score": -4.606818
+        },
+        {
+          "rank": 6,
+          "chunk_id": "6bd85bf0-6092-44c3-a85c-5614e633461c",
+          "score": -4.934535
+        },
+        {
+          "rank": 7,
+          "chunk_id": "301c0862-f7ae-42ca-b004-18a48eac58dd",
+          "score": -4.945771
+        },
+        {
+          "rank": 8,
+          "chunk_id": "38846e68-b706-466a-a3ef-59c352bcb490",
+          "score": -5.076663
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3c6be4f3-c085-491c-8443-513cbc428a8e",
+          "score": -5.367301
+        },
+        {
+          "rank": 10,
+          "chunk_id": "a2ee0910-3558-4a11-8d20-35955e8c4686",
+          "score": -5.656016
+        }
+      ]
+    },
+    {
+      "id": "qa-36",
+      "cohort": "old_40",
+      "question": "什么是国债？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "国债，又称国家公债，是国家以其信用为基础……通过向社会筹集资金所形成的债权债务关系。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 25,
+      "unique_candidate_count": 25,
+      "elapsed_ms": 8906,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "score": 6.1394
+        },
+        {
+          "rank": 2,
+          "chunk_id": "667872a1-f44f-4db3-bc31-a8ca1e74e30e",
+          "score": 3.881688
+        },
+        {
+          "rank": 3,
+          "chunk_id": "8a7e2a75-bcf8-4c0b-93ae-6430ce5227fd",
+          "score": 1.996718
+        },
+        {
+          "rank": 4,
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "score": 1.763131
+        },
+        {
+          "rank": 5,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": 1.463796
+        },
+        {
+          "rank": 6,
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "score": 0.372459
+        },
+        {
+          "rank": 7,
+          "chunk_id": "e58f6705-8827-4dd6-9ed9-2161c9fb5537",
+          "score": -0.132633
+        },
+        {
+          "rank": 8,
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "score": -0.753899
+        },
+        {
+          "rank": 9,
+          "chunk_id": "36eaccd5-825a-4595-94cd-7e7b81c9059e",
+          "score": -1.003387
+        },
+        {
+          "rank": 10,
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "score": -1.051383
+        }
+      ]
+    },
+    {
+      "id": "qa-37",
+      "cohort": "old_40",
+      "question": "资料所说的我国国债由谁代表中央政府发行？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "我国的国债专指财政部代表中央政府发行的国家公债。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 32,
+      "elapsed_ms": 12205,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "score": 3.749394
+        },
+        {
+          "rank": 2,
+          "chunk_id": "8a7e2a75-bcf8-4c0b-93ae-6430ce5227fd",
+          "score": 0.124808
+        },
+        {
+          "rank": 3,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": -0.47914
+        },
+        {
+          "rank": 4,
+          "chunk_id": "667872a1-f44f-4db3-bc31-a8ca1e74e30e",
+          "score": -0.873321
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "score": -2.035151
+        },
+        {
+          "rank": 6,
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "score": -2.074875
+        },
+        {
+          "rank": 7,
+          "chunk_id": "36eaccd5-825a-4595-94cd-7e7b81c9059e",
+          "score": -2.802444
+        },
+        {
+          "rank": 8,
+          "chunk_id": "07b6bc27-5a28-4df9-9158-462ee636a18d",
+          "score": -2.857518
+        },
+        {
+          "rank": 9,
+          "chunk_id": "aee2be51-ca3d-4ae2-b95e-dd25e1baf5a8",
+          "score": -2.971155
+        },
+        {
+          "rank": 10,
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "score": -3.166285
+        }
+      ]
+    },
+    {
+      "id": "qa-38",
+      "cohort": "old_40",
+      "question": "资料列举的国债种类有哪些？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "其种类有凭证式国债、无记名（实物）国债、记账式国债三种。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 3,
+      "candidate_count": 27,
+      "unique_candidate_count": 27,
+      "elapsed_ms": 10216,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "score": 0.724541
+        },
+        {
+          "rank": 2,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": 0.217088
+        },
+        {
+          "rank": 3,
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "score": 0.18072
+        },
+        {
+          "rank": 4,
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "score": 0.134118
+        },
+        {
+          "rank": 5,
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "score": -0.264824
+        },
+        {
+          "rank": 6,
+          "chunk_id": "36eaccd5-825a-4595-94cd-7e7b81c9059e",
+          "score": -0.361645
+        },
+        {
+          "rank": 7,
+          "chunk_id": "667872a1-f44f-4db3-bc31-a8ca1e74e30e",
+          "score": -1.936725
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6e421f3a-9ebc-4e56-995e-2a4cf435d74c",
+          "score": -2.35653
+        },
+        {
+          "rank": 9,
+          "chunk_id": "0b12e8fa-b92c-4c7b-b0f5-daa371c21533",
+          "score": -2.375328
+        },
+        {
+          "rank": 10,
+          "chunk_id": "8a7e2a75-bcf8-4c0b-93ae-6430ce5227fd",
+          "score": -2.39421
+        }
+      ]
+    },
+    {
+      "id": "qa-39",
+      "cohort": "old_40",
+      "question": "凭证式国债如何发行，其债权证明是什么？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "国家采取不印刷实物券，而用填制国库券收款凭证的方式发行……以国债收款凭单的形式来作为债权证明。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 25,
+      "elapsed_ms": 9015,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "score": 3.01614
+        },
+        {
+          "rank": 2,
+          "chunk_id": "aee2be51-ca3d-4ae2-b95e-dd25e1baf5a8",
+          "score": 2.862688
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "score": 0.98476
+        },
+        {
+          "rank": 4,
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "score": 0.689533
+        },
+        {
+          "rank": 5,
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "score": -0.371739
+        },
+        {
+          "rank": 6,
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "score": -0.990026
+        },
+        {
+          "rank": 7,
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "score": -1.010234
+        },
+        {
+          "rank": 8,
+          "chunk_id": "f66c411e-1c2b-44a0-8fc7-836e27d1eeab",
+          "score": -1.205495
+        },
+        {
+          "rank": 9,
+          "chunk_id": "905d1f2e-9e66-467b-a95f-69a54078f874",
+          "score": -1.782862
+        },
+        {
+          "rank": 10,
+          "chunk_id": "0b12e8fa-b92c-4c7b-b0f5-daa371c21533",
+          "score": -2.381546
+        }
+      ]
+    },
+    {
+      "id": "qa-40",
+      "cohort": "old_40",
+      "question": "记账式国债如何记录债权，是否可以上市交易？",
+      "source": "金融知识/国债知识介绍.docx",
+      "evidence": "以电脑记账方式记录债权，并可以上市交易的债券。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 28,
+      "elapsed_ms": 10673,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "83a5453c-1a00-4fa0-a75b-51dd3c71524a",
+          "score": 2.831275
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "score": 2.198127
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ef349b55-c817-44e4-959d-3f947ad8e28a",
+          "score": 0.207235
+        },
+        {
+          "rank": 4,
+          "chunk_id": "7138fa03-b080-46a7-9d6b-35ddd525c22c",
+          "score": -0.807893
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0b12e8fa-b92c-4c7b-b0f5-daa371c21533",
+          "score": -1.210019
+        },
+        {
+          "rank": 6,
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "score": -1.57932
+        },
+        {
+          "rank": 7,
+          "chunk_id": "b0406f62-bb87-4e25-888b-496451274cca",
+          "score": -2.195408
+        },
+        {
+          "rank": 8,
+          "chunk_id": "e58f6705-8827-4dd6-9ed9-2161c9fb5537",
+          "score": -2.234252
+        },
+        {
+          "rank": 9,
+          "chunk_id": "190b8070-cda4-436b-857b-6b4b68ff0d6f",
+          "score": -2.366352
+        },
+        {
+          "rank": 10,
+          "chunk_id": "ca891a14-f1e0-4b0b-831a-243dad50ae07",
+          "score": -2.580729
+        }
+      ]
+    },
+    {
+      "id": "qa-41",
+      "cohort": "new_60",
+      "question": "《证券法》要求证券发行、交易活动的当事人遵守哪些原则？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "证券发行、交易活动的当事人具有平等的法律地位，应当遵守自愿、有偿、诚实信用的原则。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 17,
+      "elapsed_ms": 5021,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "0939e852-8f9f-4570-8978-aa94ecc00af1",
+          "score": 5.213377
+        },
+        {
+          "rank": 2,
+          "chunk_id": "96d6fdd1-84cd-4e52-a931-58a0c4eca9d3",
+          "score": 1.508644
+        },
+        {
+          "rank": 3,
+          "chunk_id": "b68c0049-3172-429c-ae56-e92ee567ab31",
+          "score": 1.247476
+        },
+        {
+          "rank": 4,
+          "chunk_id": "a19c4666-6a2e-4814-bd4f-89be78a15ed2",
+          "score": 0.946489
+        },
+        {
+          "rank": 5,
+          "chunk_id": "6af3a83a-43c1-4c19-b91a-4112c703f01a",
+          "score": 0.656082
+        },
+        {
+          "rank": 6,
+          "chunk_id": "55ffa247-fb04-486f-9904-b8717d291d0d",
+          "score": 0.32105
+        },
+        {
+          "rank": 7,
+          "chunk_id": "5fc35ac6-2578-4f40-8dab-01ceab5e1972",
+          "score": 0.027296
+        },
+        {
+          "rank": 8,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": -0.494291
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3d1cba2e-760a-42e5-829b-642af7111430",
+          "score": -0.756428
+        },
+        {
+          "rank": 10,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": -0.796981
+        }
+      ]
+    },
+    {
+      "id": "qa-42",
+      "cohort": "new_60",
+      "question": "申请公开发行股票并依法采取承销方式时，发行人应聘请谁担任保荐人？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "发行人申请公开发行股票、可转换为股票的公司债券，依法采取承销方式的，或者公开发行法律、行政法规规定实行保荐制度的其他证券的，应当聘请证券公司担任保荐人。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 29,
+      "unique_candidate_count": 16,
+      "elapsed_ms": 4917,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": 4.539553
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": 1.557396
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6af3a83a-43c1-4c19-b91a-4112c703f01a",
+          "score": 1.124421
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": 0.651646
+        },
+        {
+          "rank": 5,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": -0.121505
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c41a8c35-72be-40d0-8749-64754b74593e",
+          "score": -1.232444
+        },
+        {
+          "rank": 7,
+          "chunk_id": "6f9074cc-3d3b-4422-b9b9-f3bcdc9275a5",
+          "score": -1.407137
+        },
+        {
+          "rank": 8,
+          "chunk_id": "140721f2-6807-446c-bb03-2b3375938377",
+          "score": -1.64883
+        },
+        {
+          "rank": 9,
+          "chunk_id": "6ddf412d-c32c-4eb5-b2de-cb29cb38cfbd",
+          "score": -2.284814
+        },
+        {
+          "rank": 10,
+          "chunk_id": "4019bea9-d3b7-4c6d-93b3-fe8f9899b562",
+          "score": -2.730334
+        }
+      ]
+    },
+    {
+      "id": "qa-43",
+      "cohort": "new_60",
+      "question": "《证券法》要求保荐人如何核查发行人的申请文件和信息披露资料？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "保荐人应当遵守业务规则和行业规范，诚实守信，勤勉尽责，对发行人的申请文件和信息披露资料进行审慎核查，督导发行人规范运作。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 26,
+      "unique_candidate_count": 13,
+      "elapsed_ms": 4082,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": 3.07917
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": 1.200753
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6ddf412d-c32c-4eb5-b2de-cb29cb38cfbd",
+          "score": -0.027519
+        },
+        {
+          "rank": 4,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": -0.313943
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": -0.348277
+        },
+        {
+          "rank": 6,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": -0.420704
+        },
+        {
+          "rank": 7,
+          "chunk_id": "452c76ba-372d-4da1-9097-10852d46dfed",
+          "score": -0.701927
+        },
+        {
+          "rank": 8,
+          "chunk_id": "140721f2-6807-446c-bb03-2b3375938377",
+          "score": -1.27725
+        },
+        {
+          "rank": 9,
+          "chunk_id": "55ffa247-fb04-486f-9904-b8717d291d0d",
+          "score": -1.307971
+        },
+        {
+          "rank": 10,
+          "chunk_id": "6f9074cc-3d3b-4422-b9b9-f3bcdc9275a5",
+          "score": -2.18942
+        }
+      ]
+    },
+    {
+      "id": "qa-44",
+      "cohort": "new_60",
+      "question": "募集资金用途被擅自改变且未纠正或未经股东大会认可时，公司能否公开发行新股？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "擅自改变用途，未作纠正的，或者未经股东大会认可的，不得公开发行新股。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 20,
+      "elapsed_ms": 6224,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": 6.280476
+        },
+        {
+          "rank": 2,
+          "chunk_id": "4019bea9-d3b7-4c6d-93b3-fe8f9899b562",
+          "score": 1.240373
+        },
+        {
+          "rank": 3,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": -0.573448
+        },
+        {
+          "rank": 4,
+          "chunk_id": "9c99a9c6-2786-4c55-801a-c64b8b17dbfe",
+          "score": -1.188508
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c41a8c35-72be-40d0-8749-64754b74593e",
+          "score": -2.441657
+        },
+        {
+          "rank": 6,
+          "chunk_id": "6bc86cfb-ee40-48c4-9866-bc5bfca94c7e",
+          "score": -2.711431
+        },
+        {
+          "rank": 7,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": -2.980736
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b187e645-0272-4021-a886-3feb64633643",
+          "score": -3.649957
+        },
+        {
+          "rank": 9,
+          "chunk_id": "140721f2-6807-446c-bb03-2b3375938377",
+          "score": -3.781003
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b35d6c0e-322d-4052-943c-afdcb236c703",
+          "score": -4.033163
+        }
+      ]
+    },
+    {
+      "id": "qa-45",
+      "cohort": "new_60",
+      "question": "公开发行公司债券筹集的资金不得用于哪些用途？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "公开发行公司债券筹集的资金，不得用于弥补亏损和非生产性支出。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 21,
+      "elapsed_ms": 6697,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": 4.768821
+        },
+        {
+          "rank": 2,
+          "chunk_id": "c41a8c35-72be-40d0-8749-64754b74593e",
+          "score": -0.089815
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": -0.577823
+        },
+        {
+          "rank": 4,
+          "chunk_id": "6bc86cfb-ee40-48c4-9866-bc5bfca94c7e",
+          "score": -1.331196
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b1fce41c-7d6b-44b0-9958-21768e123164",
+          "score": -2.598701
+        },
+        {
+          "rank": 6,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": -2.941156
+        },
+        {
+          "rank": 7,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": -3.177706
+        },
+        {
+          "rank": 8,
+          "chunk_id": "4a5bf688-e294-4702-868e-97095657ee3d",
+          "score": -3.392998
+        },
+        {
+          "rank": 9,
+          "chunk_id": "0939e852-8f9f-4570-8978-aa94ecc00af1",
+          "score": -3.615227
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b35d6c0e-322d-4052-943c-afdcb236c703",
+          "score": -3.622374
+        }
+      ]
+    },
+    {
+      "id": "qa-46",
+      "cohort": "new_60",
+      "question": "证券发行申请文件应披露哪些投资者所需的信息，内容须符合什么要求？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "发行人报送的证券发行申请文件，应当充分披露投资者作出价值判断和投资决策所必需的信息，内容应当真实、准确、完整。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 14,
+      "elapsed_ms": 4406,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": 3.451099
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": 2.341105
+        },
+        {
+          "rank": 3,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": 2.254756
+        },
+        {
+          "rank": 4,
+          "chunk_id": "6ddf412d-c32c-4eb5-b2de-cb29cb38cfbd",
+          "score": 0.542095
+        },
+        {
+          "rank": 5,
+          "chunk_id": "6b8b77ba-0522-4f00-874a-6582ffdbfade",
+          "score": 0.459577
+        },
+        {
+          "rank": 6,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": 0.217762
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3c6be4f3-c085-491c-8443-513cbc428a8e",
+          "score": 0.067906
+        },
+        {
+          "rank": 8,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": -0.21842
+        },
+        {
+          "rank": 9,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": -0.58328
+        },
+        {
+          "rank": 10,
+          "chunk_id": "263dec34-a87a-456e-bfb2-49f8581ce8c7",
+          "score": -0.786026
+        }
+      ]
+    },
+    {
+      "id": "qa-47",
+      "cohort": "new_60",
+      "question": "受理证券发行申请文件后，监管机构原则上应在多长时间内作出注册决定？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "国务院证券监督管理机构或者国务院授权的部门应当自受理证券发行申请文件之日起三个月内，依照法定条件和法定程序作出予以注册或者不予注册的决定，发行人根据要求补充、修改发行申请文件的时间不计算在内。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 20,
+      "elapsed_ms": 6325,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": 4.479883
+        },
+        {
+          "rank": 2,
+          "chunk_id": "0a56ee0a-d463-424c-9a11-88e5f7a5d055",
+          "score": 1.894284
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ad9e2876-66b9-408a-9536-542a78d9789f",
+          "score": -0.196829
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": -2.071586
+        },
+        {
+          "rank": 5,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": -2.397378
+        },
+        {
+          "rank": 6,
+          "chunk_id": "a94684a9-8346-424f-8315-42ffc6a2b7a9",
+          "score": -2.484146
+        },
+        {
+          "rank": 7,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": -2.856761
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": -3.397462
+        },
+        {
+          "rank": 9,
+          "chunk_id": "263dec34-a87a-456e-bfb2-49f8581ce8c7",
+          "score": -3.457909
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b68c0049-3172-429c-ae56-e92ee567ab31",
+          "score": -3.658223
+        }
+      ]
+    },
+    {
+      "id": "qa-48",
+      "cohort": "new_60",
+      "question": "证券发行申请注册后，发行人在公开发行前应怎样处理募集文件？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "证券发行申请经注册后，发行人应当依照法律、行政法规的规定，在证券公开发行前公告公开发行募集文件，并将该文件置备于指定场所供公众查阅。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 26,
+      "unique_candidate_count": 14,
+      "elapsed_ms": 4339,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": 5.514584
+        },
+        {
+          "rank": 2,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": 1.372768
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6839bb2a-4206-4aee-b969-6e3f96693b10",
+          "score": 0.814573
+        },
+        {
+          "rank": 4,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": 0.586932
+        },
+        {
+          "rank": 5,
+          "chunk_id": "6f9074cc-3d3b-4422-b9b9-f3bcdc9275a5",
+          "score": -0.908683
+        },
+        {
+          "rank": 6,
+          "chunk_id": "140721f2-6807-446c-bb03-2b3375938377",
+          "score": -0.961363
+        },
+        {
+          "rank": 7,
+          "chunk_id": "9c99a9c6-2786-4c55-801a-c64b8b17dbfe",
+          "score": -1.245013
+        },
+        {
+          "rank": 8,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": -1.280663
+        },
+        {
+          "rank": 9,
+          "chunk_id": "b35d6c0e-322d-4052-943c-afdcb236c703",
+          "score": -1.334665
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c41a8c35-72be-40d0-8749-64754b74593e",
+          "score": -1.831742
+        }
+      ]
+    },
+    {
+      "id": "qa-49",
+      "cohort": "new_60",
+      "question": "证券发行信息依法公开前，知情人能否公开或泄露该信息？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "发行证券的信息依法公开前，任何知情人不得公开或者泄露该信息。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 36,
+      "unique_candidate_count": 18,
+      "elapsed_ms": 5420,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6ca41595-0d26-48bd-9f00-65d397840e45",
+          "score": 6.696152
+        },
+        {
+          "rank": 2,
+          "chunk_id": "16a367bb-cb85-46ee-92f4-4070322fe7e4",
+          "score": 4.569548
+        },
+        {
+          "rank": 3,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": 2.281799
+        },
+        {
+          "rank": 4,
+          "chunk_id": "6b8b77ba-0522-4f00-874a-6582ffdbfade",
+          "score": 1.057856
+        },
+        {
+          "rank": 5,
+          "chunk_id": "263dec34-a87a-456e-bfb2-49f8581ce8c7",
+          "score": 0.208137
+        },
+        {
+          "rank": 6,
+          "chunk_id": "9c99a9c6-2786-4c55-801a-c64b8b17dbfe",
+          "score": -0.157604
+        },
+        {
+          "rank": 7,
+          "chunk_id": "29960c8d-bf70-430b-9050-0ef5f02b0212",
+          "score": -0.516919
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b68c0049-3172-429c-ae56-e92ee567ab31",
+          "score": -0.660721
+        },
+        {
+          "rank": 9,
+          "chunk_id": "6ddf412d-c32c-4eb5-b2de-cb29cb38cfbd",
+          "score": -1.540865
+        },
+        {
+          "rank": 10,
+          "chunk_id": "5eb49c40-9117-42ca-b33c-d9710e271ff6",
+          "score": -2.135587
+        }
+      ]
+    },
+    {
+      "id": "qa-50",
+      "cohort": "new_60",
+      "question": "股票代销期限届满时，出售数量低于拟公开发行数量的多少会被认定为发行失败？",
+      "source": "中华人民共和国证券法(2019修订).pdf",
+      "evidence": "股票发行采用代销方式，代销期限届满，向投资者出售的股票数量未达到拟公开发行股票数量百分之七十的，为发行失败。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 20,
+      "elapsed_ms": 6449,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6af3a83a-43c1-4c19-b91a-4112c703f01a",
+          "score": 5.49264
+        },
+        {
+          "rank": 2,
+          "chunk_id": "b68c0049-3172-429c-ae56-e92ee567ab31",
+          "score": -2.76766
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6f9074cc-3d3b-4422-b9b9-f3bcdc9275a5",
+          "score": -2.829409
+        },
+        {
+          "rank": 4,
+          "chunk_id": "4019bea9-d3b7-4c6d-93b3-fe8f9899b562",
+          "score": -3.041447
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b9b66ea9-3472-4892-b4bd-373447e72787",
+          "score": -3.351568
+        },
+        {
+          "rank": 6,
+          "chunk_id": "04cb0e40-2e82-4168-bba4-e0e37650c1c4",
+          "score": -4.509498
+        },
+        {
+          "rank": 7,
+          "chunk_id": "6535f9b0-686e-436f-bbe4-03eb241b762e",
+          "score": -4.577086
+        },
+        {
+          "rank": 8,
+          "chunk_id": "0910e17b-2eda-415e-a6c5-b15be3b98a37",
+          "score": -4.900318
+        },
+        {
+          "rank": 9,
+          "chunk_id": "25af33d6-8533-46e2-af36-413f04888813",
+          "score": -5.062967
+        },
+        {
+          "rank": 10,
+          "chunk_id": "7004f3eb-ead7-4f68-871d-846f459d6103",
+          "score": -5.240832
+        }
+      ]
+    },
+    {
+      "id": "qa-51",
+      "cohort": "new_60",
+      "question": "按北交所交易规则，投资者买入证券后能否在买入当日卖出？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "投资者买入的证券，买入当日不得卖出，但实行回转交易的除外。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 18,
+      "elapsed_ms": 4335,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": 4.469024
+        },
+        {
+          "rank": 2,
+          "chunk_id": "b139737e-2cf2-4d2e-8c7b-b30ad41a19be",
+          "score": 3.525672
+        },
+        {
+          "rank": 3,
+          "chunk_id": "92bc3660-b2e0-427d-b77b-fd8613e36c48",
+          "score": 2.975705
+        },
+        {
+          "rank": 4,
+          "chunk_id": "352faa2e-04f3-49fc-b2dc-daad1df94034",
+          "score": 2.804165
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c546d636-db0e-4722-8333-666096cdd279",
+          "score": 1.210164
+        },
+        {
+          "rank": 6,
+          "chunk_id": "221c23be-e5df-4c6a-9470-1864ae8ce612",
+          "score": 0.993565
+        },
+        {
+          "rank": 7,
+          "chunk_id": "965f73ed-b6d2-432a-8c8d-93116067569b",
+          "score": 0.735987
+        },
+        {
+          "rank": 8,
+          "chunk_id": "ca5ad5a5-a9ac-4659-9216-5ce617e35583",
+          "score": 0.299708
+        },
+        {
+          "rank": 9,
+          "chunk_id": "52da7448-7614-44d7-b0ef-ff49e5729973",
+          "score": 0.110381
+        },
+        {
+          "rank": 10,
+          "chunk_id": "4bbdd1f4-b4f2-44c9-8723-b2029238edb9",
+          "score": -0.28017
+        }
+      ]
+    },
+    {
+      "id": "qa-52",
+      "cohort": "new_60",
+      "question": "北交所对程序化交易有什么报告要求？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "通过计算机程序自动生成或者下达交易指令进行程序化交易的，应当符合中国证监会的规定，并向本所报告，不得影响本所系统安全或者正常交易秩序。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 4,
+      "candidate_count": 40,
+      "unique_candidate_count": 22,
+      "elapsed_ms": 6233,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "066a2fbc-b130-4f38-96ed-f0aa057a886a",
+          "score": 0.767715
+        },
+        {
+          "rank": 2,
+          "chunk_id": "3a5b122f-5d8d-49ce-842b-269f494aa28e",
+          "score": -0.175649
+        },
+        {
+          "rank": 3,
+          "chunk_id": "b35d6c0e-322d-4052-943c-afdcb236c703",
+          "score": -0.968972
+        },
+        {
+          "rank": 4,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": -1.156388
+        },
+        {
+          "rank": 5,
+          "chunk_id": "22cd52b9-35fc-4872-b8c0-76445a976487",
+          "score": -1.463472
+        },
+        {
+          "rank": 6,
+          "chunk_id": "29960c8d-bf70-430b-9050-0ef5f02b0212",
+          "score": -2.413271
+        },
+        {
+          "rank": 7,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": -2.753396
+        },
+        {
+          "rank": 8,
+          "chunk_id": "31be6be6-7983-4930-a030-31ea0d4d4730",
+          "score": -2.788637
+        },
+        {
+          "rank": 9,
+          "chunk_id": "2907653c-8462-466b-8aea-6e8b24626e4a",
+          "score": -2.938964
+        },
+        {
+          "rank": 10,
+          "chunk_id": "0c22f970-dfaf-47e5-9921-f67d98da7745",
+          "score": -3.14165
+        }
+      ]
+    },
+    {
+      "id": "qa-53",
+      "cohort": "new_60",
+      "question": "按北交所规则，投资者买卖证券应怎样开立账户并与会员签订什么协议？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "投资者买卖证券，应当以实名方式开立证券账户和资金账户，与会员签订证券交易委托代理协议，并按相关规定签署风险揭示书。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 2,
+      "candidate_count": 29,
+      "unique_candidate_count": 15,
+      "elapsed_ms": 4135,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": 5.244448
+        },
+        {
+          "rank": 2,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": 3.676803
+        },
+        {
+          "rank": 3,
+          "chunk_id": "97be89d5-e79a-4ff6-86aa-43bc416680ae",
+          "score": 3.629526
+        },
+        {
+          "rank": 4,
+          "chunk_id": "35c54b66-fe5f-4d16-9439-fb0a5f8e0da7",
+          "score": 1.691282
+        },
+        {
+          "rank": 5,
+          "chunk_id": "00a17585-1005-450d-bdc8-c2c933a56298",
+          "score": 1.680173
+        },
+        {
+          "rank": 6,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": -0.303279
+        },
+        {
+          "rank": 7,
+          "chunk_id": "493d34f0-c7ac-4baf-9c50-1b3f5fd51d1e",
+          "score": -0.363766
+        },
+        {
+          "rank": 8,
+          "chunk_id": "07280a57-60e3-46af-96eb-65f50c9f1a6e",
+          "score": -0.565505
+        },
+        {
+          "rank": 9,
+          "chunk_id": "92bc3660-b2e0-427d-b77b-fd8613e36c48",
+          "score": -0.723379
+        },
+        {
+          "rank": 10,
+          "chunk_id": "2907653c-8462-466b-8aea-6e8b24626e4a",
+          "score": -1.032409
+        }
+      ]
+    },
+    {
+      "id": "qa-54",
+      "cohort": "new_60",
+      "question": "北交所规则允许投资者通过哪些方式自助委托会员买卖证券？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "投资者可以通过书面或电话、自助终端、互联网等自助委托方式委托会员买卖证券。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 15,
+      "elapsed_ms": 4115,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": 4.488161
+        },
+        {
+          "rank": 2,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": 3.533374
+        },
+        {
+          "rank": 3,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": 3.156228
+        },
+        {
+          "rank": 4,
+          "chunk_id": "97be89d5-e79a-4ff6-86aa-43bc416680ae",
+          "score": 2.963736
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2907653c-8462-466b-8aea-6e8b24626e4a",
+          "score": 2.235432
+        },
+        {
+          "rank": 6,
+          "chunk_id": "52da7448-7614-44d7-b0ef-ff49e5729973",
+          "score": 1.959412
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3c3e3e6d-2552-4647-99dc-00bea9d10dd1",
+          "score": 1.539545
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c2602b42-a35a-489a-8ea5-764e4af469b9",
+          "score": 1.406269
+        },
+        {
+          "rank": 9,
+          "chunk_id": "92bc3660-b2e0-427d-b77b-fd8613e36c48",
+          "score": 0.016603
+        },
+        {
+          "rank": 10,
+          "chunk_id": "08a3e622-7943-48b6-8259-7166c93fc650",
+          "score": -0.042313
+        }
+      ]
+    },
+    {
+      "id": "qa-55",
+      "cohort": "new_60",
+      "question": "按北交所规则，投资者可采用哪两种委托方式买卖证券？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "投资者可以采用限价委托和市价委托方式委托会员买卖证券，本所另有规定的除外。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 16,
+      "elapsed_ms": 4379,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": 4.316477
+        },
+        {
+          "rank": 2,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": 4.073726
+        },
+        {
+          "rank": 3,
+          "chunk_id": "52da7448-7614-44d7-b0ef-ff49e5729973",
+          "score": 2.760855
+        },
+        {
+          "rank": 4,
+          "chunk_id": "2907653c-8462-466b-8aea-6e8b24626e4a",
+          "score": 2.696285
+        },
+        {
+          "rank": 5,
+          "chunk_id": "97be89d5-e79a-4ff6-86aa-43bc416680ae",
+          "score": 2.052289
+        },
+        {
+          "rank": 6,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": 2.035195
+        },
+        {
+          "rank": 7,
+          "chunk_id": "92bc3660-b2e0-427d-b77b-fd8613e36c48",
+          "score": 0.894955
+        },
+        {
+          "rank": 8,
+          "chunk_id": "221c23be-e5df-4c6a-9470-1864ae8ce612",
+          "score": 0.413196
+        },
+        {
+          "rank": 9,
+          "chunk_id": "08a3e622-7943-48b6-8259-7166c93fc650",
+          "score": -0.066489
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c2602b42-a35a-489a-8ea5-764e4af469b9",
+          "score": -0.088363
+        }
+      ]
+    },
+    {
+      "id": "qa-56",
+      "cohort": "new_60",
+      "question": "北交所规则中的限价委托是什么意思？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "限价委托，是指投资者委托会员按其限定的价格买卖证券的指令。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 16,
+      "elapsed_ms": 3747,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": 3.326566
+        },
+        {
+          "rank": 2,
+          "chunk_id": "3c3e3e6d-2552-4647-99dc-00bea9d10dd1",
+          "score": 2.517578
+        },
+        {
+          "rank": 3,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": 2.3853
+        },
+        {
+          "rank": 4,
+          "chunk_id": "52da7448-7614-44d7-b0ef-ff49e5729973",
+          "score": 1.038604
+        },
+        {
+          "rank": 5,
+          "chunk_id": "1ca5746c-67ee-4fa3-bdd8-ce94ae007379",
+          "score": -0.907834
+        },
+        {
+          "rank": 6,
+          "chunk_id": "20808498-fa83-4677-b83a-617072921e34",
+          "score": -1.071729
+        },
+        {
+          "rank": 7,
+          "chunk_id": "5904ae85-f0a5-4e6c-9b28-bdd9e4402eb1",
+          "score": -1.096638
+        },
+        {
+          "rank": 8,
+          "chunk_id": "140d474c-e3f9-4c15-b66e-79c1f33c463f",
+          "score": -1.138675
+        },
+        {
+          "rank": 9,
+          "chunk_id": "21567d72-9826-4f8f-970a-0f21996e17c6",
+          "score": -1.779532
+        },
+        {
+          "rank": 10,
+          "chunk_id": "25636556-902b-4010-bba7-fa7c11b91805",
+          "score": -2.180588
+        }
+      ]
+    },
+    {
+      "id": "qa-57",
+      "cohort": "new_60",
+      "question": "会员向北交所申报投资者委托时，应遵循什么时间顺序？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "会员应当按照接受投资者委托的时间先后顺序及时向本所申报。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 31,
+      "unique_candidate_count": 16,
+      "elapsed_ms": 4247,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "52da7448-7614-44d7-b0ef-ff49e5729973",
+          "score": 3.738408
+        },
+        {
+          "rank": 2,
+          "chunk_id": "5904ae85-f0a5-4e6c-9b28-bdd9e4402eb1",
+          "score": 3.272326
+        },
+        {
+          "rank": 3,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": 2.24075
+        },
+        {
+          "rank": 4,
+          "chunk_id": "25636556-902b-4010-bba7-fa7c11b91805",
+          "score": 1.524871
+        },
+        {
+          "rank": 5,
+          "chunk_id": "3c3e3e6d-2552-4647-99dc-00bea9d10dd1",
+          "score": 0.848663
+        },
+        {
+          "rank": 6,
+          "chunk_id": "352faa2e-04f3-49fc-b2dc-daad1df94034",
+          "score": 0.462674
+        },
+        {
+          "rank": 7,
+          "chunk_id": "92bc3660-b2e0-427d-b77b-fd8613e36c48",
+          "score": 0.27568
+        },
+        {
+          "rank": 8,
+          "chunk_id": "08a3e622-7943-48b6-8259-7166c93fc650",
+          "score": -0.042483
+        },
+        {
+          "rank": 9,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": -0.566089
+        },
+        {
+          "rank": 10,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": -1.003929
+        }
+      ]
+    },
+    {
+      "id": "qa-58",
+      "cohort": "new_60",
+      "question": "北交所规则中的买入保护限价和卖出保护限价分别是什么？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "买入保护限价是指投资者能够接受的最高买价，卖出保护限价是指投资者能够接受的最低卖价。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 2,
+      "candidate_count": 28,
+      "unique_candidate_count": 14,
+      "elapsed_ms": 3720,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7b7ed0ca-52c1-49e4-ac5e-b5cbf6b14b45",
+          "score": 4.522982
+        },
+        {
+          "rank": 2,
+          "chunk_id": "21567d72-9826-4f8f-970a-0f21996e17c6",
+          "score": 3.579691
+        },
+        {
+          "rank": 3,
+          "chunk_id": "508cb101-7833-45d0-b0bd-f288b80e49dc",
+          "score": 0.083207
+        },
+        {
+          "rank": 4,
+          "chunk_id": "6046d643-0df6-411c-9556-3e8a3408c175",
+          "score": -0.187894
+        },
+        {
+          "rank": 5,
+          "chunk_id": "15c35a87-5b69-45ab-b1d7-4788e8095c22",
+          "score": -0.556883
+        },
+        {
+          "rank": 6,
+          "chunk_id": "7777f913-5617-46ee-8e83-9347fa783956",
+          "score": -0.712546
+        },
+        {
+          "rank": 7,
+          "chunk_id": "7004f3eb-ead7-4f68-871d-846f459d6103",
+          "score": -0.916577
+        },
+        {
+          "rank": 8,
+          "chunk_id": "18e9d6a9-0823-4fe3-b1de-2b714a907a45",
+          "score": -1.03363
+        },
+        {
+          "rank": 9,
+          "chunk_id": "212afbed-1d66-4dc8-a94b-c8575ff10a88",
+          "score": -1.054721
+        },
+        {
+          "rank": 10,
+          "chunk_id": "1ca5746c-67ee-4fa3-bdd8-ce94ae007379",
+          "score": -1.365398
+        }
+      ]
+    },
+    {
+      "id": "qa-59",
+      "cohort": "new_60",
+      "question": "北交所限价申报指令至少包含哪些交易要素？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "限价申报指令应包括证券账户号码、证券代码、交易单元代码、证券营业部识别码、买卖方向、申报数量、申报价格等内容。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 3,
+      "candidate_count": 30,
+      "unique_candidate_count": 15,
+      "elapsed_ms": 3609,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7b7ed0ca-52c1-49e4-ac5e-b5cbf6b14b45",
+          "score": 3.341258
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2a4748cc-9f18-4bb7-a2c2-d5e97728ff0b",
+          "score": 3.081079
+        },
+        {
+          "rank": 3,
+          "chunk_id": "21567d72-9826-4f8f-970a-0f21996e17c6",
+          "score": 3.016426
+        },
+        {
+          "rank": 4,
+          "chunk_id": "8ed96c80-8157-4582-b671-f2e6c9756401",
+          "score": 2.589407
+        },
+        {
+          "rank": 5,
+          "chunk_id": "71e3b770-4acb-4745-8f00-a4b243b472a5",
+          "score": 2.241119
+        },
+        {
+          "rank": 6,
+          "chunk_id": "9ac1b482-9c2c-4d7b-8309-aa7865565972",
+          "score": 2.049008
+        },
+        {
+          "rank": 7,
+          "chunk_id": "20808498-fa83-4677-b83a-617072921e34",
+          "score": 1.386527
+        },
+        {
+          "rank": 8,
+          "chunk_id": "140d474c-e3f9-4c15-b66e-79c1f33c463f",
+          "score": 0.579793
+        },
+        {
+          "rank": 9,
+          "chunk_id": "1ca5746c-67ee-4fa3-bdd8-ce94ae007379",
+          "score": 0.339317
+        },
+        {
+          "rank": 10,
+          "chunk_id": "25af33d6-8533-46e2-af36-413f04888813",
+          "score": -0.676466
+        }
+      ]
+    },
+    {
+      "id": "qa-60",
+      "cohort": "new_60",
+      "question": "按北交所规则，通过竞价交易买卖股票的单笔申报数量不得低于多少股？",
+      "source": "北京证券交易所交易规则.pdf",
+      "evidence": "通过竞价交易买卖股票的，单笔申报数量应当不低于100股。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 17,
+      "elapsed_ms": 4432,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "21567d72-9826-4f8f-970a-0f21996e17c6",
+          "score": 5.185499
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2a4748cc-9f18-4bb7-a2c2-d5e97728ff0b",
+          "score": 4.495386
+        },
+        {
+          "rank": 3,
+          "chunk_id": "7b7ed0ca-52c1-49e4-ac5e-b5cbf6b14b45",
+          "score": 4.421914
+        },
+        {
+          "rank": 4,
+          "chunk_id": "34f7cf26-53c5-4277-807e-61e2f21c8ecd",
+          "score": 3.578441
+        },
+        {
+          "rank": 5,
+          "chunk_id": "25af33d6-8533-46e2-af36-413f04888813",
+          "score": 3.465142
+        },
+        {
+          "rank": 6,
+          "chunk_id": "0c22f970-dfaf-47e5-9921-f67d98da7745",
+          "score": 3.230177
+        },
+        {
+          "rank": 7,
+          "chunk_id": "140d474c-e3f9-4c15-b66e-79c1f33c463f",
+          "score": 2.584579
+        },
+        {
+          "rank": 8,
+          "chunk_id": "126ba804-108a-42cc-b591-8aded5575733",
+          "score": 2.344916
+        },
+        {
+          "rank": 9,
+          "chunk_id": "7777f913-5617-46ee-8e83-9347fa783956",
+          "score": 1.274619
+        },
+        {
+          "rank": 10,
+          "chunk_id": "15c35a87-5b69-45ab-b1d7-4788e8095c22",
+          "score": 0.436087
+        }
+      ]
+    },
+    {
+      "id": "qa-61",
+      "cohort": "new_60",
+      "question": "征信资料中的个人信用信息包括哪三类？",
+      "source": "征信条例.pdf",
+      "evidence": "本办法所称个人信用信息包括个人基本信息、个人信贷交易信息以及反映个人信用状况的其他信息。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 7,
+      "candidate_count": 34,
+      "unique_candidate_count": 34,
+      "elapsed_ms": 9834,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "ae00f75a-f6ee-4bb8-852f-df6e7e439906",
+          "score": 3.240053
+        },
+        {
+          "rank": 2,
+          "chunk_id": "10479a7f-e398-418c-8688-47e930fa7865",
+          "score": 3.154722
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2c33c1b9-b672-49d8-900f-54b20eeb427c",
+          "score": 3.126631
+        },
+        {
+          "rank": 4,
+          "chunk_id": "b51fd3d9-9e8c-4d7a-ac48-6f5948ba536b",
+          "score": 2.633969
+        },
+        {
+          "rank": 5,
+          "chunk_id": "4436a45e-10c1-4f8e-89be-56ee83dfe6ae",
+          "score": 2.561586
+        },
+        {
+          "rank": 6,
+          "chunk_id": "3021f6cf-8468-463f-8658-0adc26666b26",
+          "score": 2.411317
+        },
+        {
+          "rank": 7,
+          "chunk_id": "6352e404-e392-4715-94ff-fc14da861b31",
+          "score": 2.251138
+        },
+        {
+          "rank": 8,
+          "chunk_id": "ee8839eb-4468-4643-a009-22eb015e5d33",
+          "score": 2.017278
+        },
+        {
+          "rank": 9,
+          "chunk_id": "9ceb567c-6d70-4192-a522-649f26fd125e",
+          "score": 1.791839
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b9ed2bf3-9e06-467e-a9e5-99ff599bed3b",
+          "score": 1.765697
+        }
+      ]
+    },
+    {
+      "id": "qa-62",
+      "cohort": "new_60",
+      "question": "征信资料中的个人基本信息指哪些信息？",
+      "source": "征信条例.pdf",
+      "evidence": "个人基本信息是指自然人身份识别信息、职业和居住地址等信息；",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 35,
+      "unique_candidate_count": 35,
+      "elapsed_ms": 9913,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6352e404-e392-4715-94ff-fc14da861b31",
+          "score": 3.393791
+        },
+        {
+          "rank": 2,
+          "chunk_id": "955ce04c-d21e-48b0-97e3-553b737bb9e2",
+          "score": 3.267833
+        },
+        {
+          "rank": 3,
+          "chunk_id": "4436a45e-10c1-4f8e-89be-56ee83dfe6ae",
+          "score": 2.977391
+        },
+        {
+          "rank": 4,
+          "chunk_id": "10479a7f-e398-418c-8688-47e930fa7865",
+          "score": 2.84367
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b51fd3d9-9e8c-4d7a-ac48-6f5948ba536b",
+          "score": 2.168705
+        },
+        {
+          "rank": 6,
+          "chunk_id": "69577fb5-3934-47fd-80ec-fa71e83e5ec3",
+          "score": 1.569876
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3021f6cf-8468-463f-8658-0adc26666b26",
+          "score": 1.405696
+        },
+        {
+          "rank": 8,
+          "chunk_id": "8d4a0ffb-a72c-471c-9ea8-4a047bbf5b4d",
+          "score": 1.155543
+        },
+        {
+          "rank": 9,
+          "chunk_id": "ee8839eb-4468-4643-a009-22eb015e5d33",
+          "score": 0.995956
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c05e3ca0-54eb-4d22-ade7-4ebfd560d7f9",
+          "score": 0.478901
+        }
+      ]
+    },
+    {
+      "id": "qa-63",
+      "cohort": "new_60",
+      "question": "征信资料所称个人信贷交易信息由哪些信用活动的记录构成？",
+      "source": "征信条例.pdf",
+      "evidence": "个人信贷交易信息是指商业银行提供的、自然人在个人贷款、贷记卡、准贷记卡、担保等信用活动中形成的交易记录；",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 37,
+      "unique_candidate_count": 37,
+      "elapsed_ms": 11487,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6352e404-e392-4715-94ff-fc14da861b31",
+          "score": 1.693062
+        },
+        {
+          "rank": 2,
+          "chunk_id": "06210b12-789c-4b06-a481-a8d1c485b74a",
+          "score": -0.828596
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ee8839eb-4468-4643-a009-22eb015e5d33",
+          "score": -0.870788
+        },
+        {
+          "rank": 4,
+          "chunk_id": "5b3a0b25-f7d5-4f13-b184-28cb24ca82f0",
+          "score": -0.893143
+        },
+        {
+          "rank": 5,
+          "chunk_id": "ebe1b209-9d8f-4e93-bfa5-8231252d0f3b",
+          "score": -1.071188
+        },
+        {
+          "rank": 6,
+          "chunk_id": "b9ed2bf3-9e06-467e-a9e5-99ff599bed3b",
+          "score": -1.638526
+        },
+        {
+          "rank": 7,
+          "chunk_id": "2c33c1b9-b672-49d8-900f-54b20eeb427c",
+          "score": -1.702178
+        },
+        {
+          "rank": 8,
+          "chunk_id": "26c6382c-6a50-4953-ac17-49811c0c1190",
+          "score": -1.974609
+        },
+        {
+          "rank": 9,
+          "chunk_id": "ef52c685-4aa3-46d3-b18f-1f52619030cd",
+          "score": -2.045122
+        },
+        {
+          "rank": 10,
+          "chunk_id": "1896c8fe-5785-4b65-be5d-06b70a4bdfa9",
+          "score": -2.072714
+        }
+      ]
+    },
+    {
+      "id": "qa-64",
+      "cohort": "new_60",
+      "question": "谁应对工作中知悉的个人信用信息保密？",
+      "source": "征信条例.pdf",
+      "evidence": "中国人民银行、商业银行及其工作人员应当为在工作中知悉的个人信用信息保密。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 39,
+      "unique_candidate_count": 37,
+      "elapsed_ms": 11551,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "ee24ae9b-21ee-44dd-9607-9ea80de086e8",
+          "score": 3.763035
+        },
+        {
+          "rank": 2,
+          "chunk_id": "f7edbaaf-2814-48eb-9c62-eebc2a82df06",
+          "score": 2.062263
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2d1c458f-86f0-4bba-90cb-3a144fd5d394",
+          "score": -0.066074
+        },
+        {
+          "rank": 4,
+          "chunk_id": "47bf939f-6401-4a17-b907-78ec4586e55d",
+          "score": -1.592781
+        },
+        {
+          "rank": 5,
+          "chunk_id": "04f07006-effc-4d17-85c0-7493716e3b3a",
+          "score": -2.134299
+        },
+        {
+          "rank": 6,
+          "chunk_id": "d48355c6-d768-4146-ab22-2694e4e4abd6",
+          "score": -2.480612
+        },
+        {
+          "rank": 7,
+          "chunk_id": "dc523998-66a3-41a1-84de-cf12952ed6a5",
+          "score": -2.689053
+        },
+        {
+          "rank": 8,
+          "chunk_id": "ccf2d40f-deba-42f2-a81d-f2be03a6347d",
+          "score": -2.701679
+        },
+        {
+          "rank": 9,
+          "chunk_id": "a4eadebe-b9f2-45e2-a647-5d6b548cb773",
+          "score": -2.818731
+        },
+        {
+          "rank": 10,
+          "chunk_id": "ee8839eb-4468-4643-a009-22eb015e5d33",
+          "score": -2.88187
+        }
+      ]
+    },
+    {
+      "id": "qa-65",
+      "cohort": "new_60",
+      "question": "商业银行向个人信用数据库报送信息应满足哪三项质量和时效要求？",
+      "source": "征信条例.pdf",
+      "evidence": "商业银行应当遵守中国人民银行发布的个人信用数据库标准及其有关要求，准确、完整、及时地向个人信用数据库报送个人信用信息。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 36,
+      "unique_candidate_count": 35,
+      "elapsed_ms": 10546,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "ee24ae9b-21ee-44dd-9607-9ea80de086e8",
+          "score": 2.226202
+        },
+        {
+          "rank": 2,
+          "chunk_id": "1df9030e-588a-4037-9ace-d93cb0aeae91",
+          "score": 0.341268
+        },
+        {
+          "rank": 3,
+          "chunk_id": "4436a45e-10c1-4f8e-89be-56ee83dfe6ae",
+          "score": 0.201422
+        },
+        {
+          "rank": 4,
+          "chunk_id": "6f167367-9110-4936-b53c-89d67331aa52",
+          "score": 0.077572
+        },
+        {
+          "rank": 5,
+          "chunk_id": "59b78383-155d-4ec5-a38f-67d782237960",
+          "score": -0.028517
+        },
+        {
+          "rank": 6,
+          "chunk_id": "8bba8dbd-8635-4181-b1fd-e24a9353a540",
+          "score": -0.268072
+        },
+        {
+          "rank": 7,
+          "chunk_id": "ba8693a2-96b8-4622-8c3f-74a2ef59d5ce",
+          "score": -0.327783
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6352e404-e392-4715-94ff-fc14da861b31",
+          "score": -0.376002
+        },
+        {
+          "rank": 9,
+          "chunk_id": "2d1c458f-86f0-4bba-90cb-3a144fd5d394",
+          "score": -0.433242
+        },
+        {
+          "rank": 10,
+          "chunk_id": "1bdfb705-fccc-4f95-a720-b88a03298458",
+          "score": -0.606685
+        }
+      ]
+    },
+    {
+      "id": "qa-66",
+      "cohort": "new_60",
+      "question": "商业银行能否向未经批准建立的个人信用信息基础数据库提供个人信用信息？",
+      "source": "征信条例.pdf",
+      "evidence": "商业银行不得向未经信贷征信主管部门批准建立或变相建立的个人信用信息基础数据库提供个人信用信息。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 31,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 8855,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "ee24ae9b-21ee-44dd-9607-9ea80de086e8",
+          "score": 5.649395
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2d1c458f-86f0-4bba-90cb-3a144fd5d394",
+          "score": 2.328497
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6352e404-e392-4715-94ff-fc14da861b31",
+          "score": 1.456189
+        },
+        {
+          "rank": 4,
+          "chunk_id": "ba8693a2-96b8-4622-8c3f-74a2ef59d5ce",
+          "score": 1.225771
+        },
+        {
+          "rank": 5,
+          "chunk_id": "4436a45e-10c1-4f8e-89be-56ee83dfe6ae",
+          "score": 1.189578
+        },
+        {
+          "rank": 6,
+          "chunk_id": "6f167367-9110-4936-b53c-89d67331aa52",
+          "score": 1.060139
+        },
+        {
+          "rank": 7,
+          "chunk_id": "b51fd3d9-9e8c-4d7a-ac48-6f5948ba536b",
+          "score": 0.630847
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c6b9933d-5177-4f75-8692-f71039b66734",
+          "score": 0.41526
+        },
+        {
+          "rank": 9,
+          "chunk_id": "930ebc5e-6548-4236-88ee-25468a95456f",
+          "score": 0.300717
+        },
+        {
+          "rank": 10,
+          "chunk_id": "1bdfb705-fccc-4f95-a720-b88a03298458",
+          "score": 0.282906
+        }
+      ]
+    },
+    {
+      "id": "qa-67",
+      "cohort": "new_60",
+      "question": "征信服务中心整理银行报送的个人信息时，能否擅自修改原始数据？",
+      "source": "征信条例.pdf",
+      "evidence": "征信服务中心根据生成信用报告的需要，对商业银行报送的个人信用信息进行客观整理、保存，不得擅自更改原始数据。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 33,
+      "elapsed_ms": 10319,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "ee24ae9b-21ee-44dd-9607-9ea80de086e8",
+          "score": 4.461755
+        },
+        {
+          "rank": 2,
+          "chunk_id": "146e9f62-9c62-46d8-a76b-5307840afac8",
+          "score": 0.752044
+        },
+        {
+          "rank": 3,
+          "chunk_id": "3a771611-f506-4bec-971c-ffb73c1d916c",
+          "score": 0.472131
+        },
+        {
+          "rank": 4,
+          "chunk_id": "844b5198-ccb5-494b-bda6-ef302fdcdee9",
+          "score": -0.128199
+        },
+        {
+          "rank": 5,
+          "chunk_id": "955ce04c-d21e-48b0-97e3-553b737bb9e2",
+          "score": -0.173205
+        },
+        {
+          "rank": 6,
+          "chunk_id": "1bdfb705-fccc-4f95-a720-b88a03298458",
+          "score": -0.267879
+        },
+        {
+          "rank": 7,
+          "chunk_id": "18598195-2dfd-44f8-b5b7-f9d2dc63346e",
+          "score": -0.621973
+        },
+        {
+          "rank": 8,
+          "chunk_id": "e6661667-0c7e-4b25-9188-f8fd9dbca79d",
+          "score": -0.830836
+        },
+        {
+          "rank": 9,
+          "chunk_id": "5eb1e7c4-2492-4814-b8f2-68b57bddb918",
+          "score": -1.004032
+        },
+        {
+          "rank": 10,
+          "chunk_id": "86638f1a-71c2-40cf-b956-e9b33ccdd9d8",
+          "score": -1.077196
+        }
+      ]
+    },
+    {
+      "id": "qa-68",
+      "cohort": "new_60",
+      "question": "商业银行收到征信服务中心的复核通知后应在几个工作日内答复？",
+      "source": "征信条例.pdf",
+      "evidence": "商业银行应当在收到复核通知之日起 5 个工作日内给予答复。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 32,
+      "elapsed_ms": 9718,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "ee24ae9b-21ee-44dd-9607-9ea80de086e8",
+          "score": 5.640138
+        },
+        {
+          "rank": 2,
+          "chunk_id": "1a74dbe0-4415-40b3-b107-723ad1b5dafc",
+          "score": 4.192633
+        },
+        {
+          "rank": 3,
+          "chunk_id": "5eb1e7c4-2492-4814-b8f2-68b57bddb918",
+          "score": 3.866849
+        },
+        {
+          "rank": 4,
+          "chunk_id": "146e9f62-9c62-46d8-a76b-5307840afac8",
+          "score": 3.649028
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e6661667-0c7e-4b25-9188-f8fd9dbca79d",
+          "score": 3.616617
+        },
+        {
+          "rank": 6,
+          "chunk_id": "00e4cfc4-ee94-4c74-9bbd-e097cea0b32f",
+          "score": 1.360248
+        },
+        {
+          "rank": 7,
+          "chunk_id": "8bba8dbd-8635-4181-b1fd-e24a9353a540",
+          "score": 1.189041
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b4819977-9da7-426c-806f-0095595273e7",
+          "score": -0.338923
+        },
+        {
+          "rank": 9,
+          "chunk_id": "268f6053-53c9-4c0f-9da3-16e432069e74",
+          "score": -0.459533
+        },
+        {
+          "rank": 10,
+          "chunk_id": "d48355c6-d768-4146-ab22-2694e4e4abd6",
+          "score": -1.19376
+        }
+      ]
+    },
+    {
+      "id": "qa-69",
+      "cohort": "new_60",
+      "question": "商业银行查询个人信用报告时通常须取得被查询人的什么授权？",
+      "source": "征信条例.pdf",
+      "evidence": "除本办法第十二条第 ( 四 ) 项规定之外，商业银行查询个人信用报告时应当取得被查询人的书面授权。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 33,
+      "elapsed_ms": 10561,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "54dbbdd0-6331-4dbc-b6f1-c01d67cf1cfd",
+          "score": 5.296019
+        },
+        {
+          "rank": 2,
+          "chunk_id": "3da8901c-10ea-43b3-92d9-9fcbf4322395",
+          "score": 5.23434
+        },
+        {
+          "rank": 3,
+          "chunk_id": "930ebc5e-6548-4236-88ee-25468a95456f",
+          "score": 3.749545
+        },
+        {
+          "rank": 4,
+          "chunk_id": "2ccf22da-17bf-4386-a686-b6aded7f49db",
+          "score": 3.742975
+        },
+        {
+          "rank": 5,
+          "chunk_id": "bbe9a385-6169-4965-9514-4e2313e836cb",
+          "score": 2.839412
+        },
+        {
+          "rank": 6,
+          "chunk_id": "e0ca9552-a189-4bc4-b854-ceb743d10664",
+          "score": 1.866088
+        },
+        {
+          "rank": 7,
+          "chunk_id": "1bdfb705-fccc-4f95-a720-b88a03298458",
+          "score": 1.586425
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6b15faa8-9767-4123-b470-1637a3a5630b",
+          "score": 1.159372
+        },
+        {
+          "rank": 9,
+          "chunk_id": "ee8839eb-4468-4643-a009-22eb015e5d33",
+          "score": 0.77358
+        },
+        {
+          "rank": 10,
+          "chunk_id": "8bba8dbd-8635-4181-b1fd-e24a9353a540",
+          "score": 0.539134
+        }
+      ]
+    },
+    {
+      "id": "qa-70",
+      "cohort": "new_60",
+      "question": "个人认为信用报告有错误时，可以通过哪里提出异议？",
+      "source": "征信条例.pdf",
+      "evidence": "个人认为本人信用报告中的信用信息存在错误( 以下简称异议信息 ) 时，可以通过所在地中国人民银行征信管理部门或直接向征信服务中心提出书面异议申请。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 37,
+      "unique_candidate_count": 37,
+      "elapsed_ms": 11172,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "1a74dbe0-4415-40b3-b107-723ad1b5dafc",
+          "score": 5.823816
+        },
+        {
+          "rank": 2,
+          "chunk_id": "4a6dd389-f875-4bec-a384-964bd211032b",
+          "score": 4.478102
+        },
+        {
+          "rank": 3,
+          "chunk_id": "955ce04c-d21e-48b0-97e3-553b737bb9e2",
+          "score": 3.929888
+        },
+        {
+          "rank": 4,
+          "chunk_id": "22ed3a79-af9e-407f-a579-80f831408283",
+          "score": 3.925518
+        },
+        {
+          "rank": 5,
+          "chunk_id": "ebe56aa4-419a-4fcd-a45c-c0c01d020448",
+          "score": 3.736069
+        },
+        {
+          "rank": 6,
+          "chunk_id": "69b0aa0e-5405-475f-8724-50a834ceeb02",
+          "score": 3.676602
+        },
+        {
+          "rank": 7,
+          "chunk_id": "18addfd0-1675-4cba-8783-35e05632cf70",
+          "score": 3.041406
+        },
+        {
+          "rank": 8,
+          "chunk_id": "268f6053-53c9-4c0f-9da3-16e432069e74",
+          "score": 2.830669
+        },
+        {
+          "rank": 9,
+          "chunk_id": "844b5198-ccb5-494b-bda6-ef302fdcdee9",
+          "score": 2.791926
+        },
+        {
+          "rank": 10,
+          "chunk_id": "bb130ce3-5eec-42c4-95f6-c92828aaee89",
+          "score": 2.757424
+        }
+      ]
+    },
+    {
+      "id": "qa-71",
+      "cohort": "new_60",
+      "question": "《人民币管理条例》所称人民币包括哪些形态？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "本条例所称人民币，是指中国人民银行依法发行的货币，包括纸币和硬币。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 33,
+      "elapsed_ms": 12615,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 2.599658
+        },
+        {
+          "rank": 2,
+          "chunk_id": "fb2f4e31-1159-40b5-8655-7b2c34b2e275",
+          "score": 0.973559
+        },
+        {
+          "rank": 3,
+          "chunk_id": "16382bc9-c071-4ade-a9b7-de756ecc084e",
+          "score": -0.202193
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e7e15c07-2bf1-4804-a8b7-fa972b3d46f3",
+          "score": -0.404166
+        },
+        {
+          "rank": 5,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": -0.58639
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2a5afe02-90c2-43b9-af98-430138098d59",
+          "score": -0.604478
+        },
+        {
+          "rank": 7,
+          "chunk_id": "a3010527-ab4e-491b-bd2c-a9ee5258ebaf",
+          "score": -0.863234
+        },
+        {
+          "rank": 8,
+          "chunk_id": "49a52143-ac1a-4ffa-8c3e-83781ff2e197",
+          "score": -1.215468
+        },
+        {
+          "rank": 9,
+          "chunk_id": "1617ecc7-d7eb-4c65-98cd-5491a78b56a8",
+          "score": -1.309167
+        },
+        {
+          "rank": 10,
+          "chunk_id": "fe3d1c1d-8c4f-4e51-8199-5abde8b8c181",
+          "score": -1.66594
+        }
+      ]
+    },
+    {
+      "id": "qa-72",
+      "cohort": "new_60",
+      "question": "以人民币支付境内公共或私人债务时，单位和个人能否拒收？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "以人民币支付中华人民共和国境内的一切公共的和私人的债务，任何单位和个人不得拒收。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 9397,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": 5.121309
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 4.327282
+        },
+        {
+          "rank": 3,
+          "chunk_id": "72125a00-5f57-4242-80a8-c22b99bfa5c3",
+          "score": 3.682254
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e490a131-3f0f-4e02-ba65-33c63b9f1bbb",
+          "score": 2.768651
+        },
+        {
+          "rank": 5,
+          "chunk_id": "49a52143-ac1a-4ffa-8c3e-83781ff2e197",
+          "score": 2.397815
+        },
+        {
+          "rank": 6,
+          "chunk_id": "b8c7db1b-5da2-443a-b3d4-d44baf661193",
+          "score": 0.380978
+        },
+        {
+          "rank": 7,
+          "chunk_id": "8a571870-f138-48f7-b022-6dd319d2d773",
+          "score": -0.070146
+        },
+        {
+          "rank": 8,
+          "chunk_id": "fec898bb-435a-4eb5-9fca-596552d169bd",
+          "score": -0.321144
+        },
+        {
+          "rank": 9,
+          "chunk_id": "6055275e-3431-4131-84ae-9d961fb43263",
+          "score": -0.567052
+        },
+        {
+          "rank": 10,
+          "chunk_id": "87bb51d1-966f-4ede-a1bd-d92b394a4506",
+          "score": -0.680171
+        }
+      ]
+    },
+    {
+      "id": "qa-73",
+      "cohort": "new_60",
+      "question": "哪个机关负责组织实施《人民币管理条例》？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "中国人民银行是国家管理人民币的主管机关，负责本条例的组织实施。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 37,
+      "unique_candidate_count": 35,
+      "elapsed_ms": 10350,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 4.444424
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e7e15c07-2bf1-4804-a8b7-fa972b3d46f3",
+          "score": 2.03914
+        },
+        {
+          "rank": 3,
+          "chunk_id": "b5803555-5098-4917-9ac8-8442f0123b01",
+          "score": 1.486833
+        },
+        {
+          "rank": 4,
+          "chunk_id": "13c3f75d-35f0-4173-bbcd-7f77c7f81b57",
+          "score": 1.332606
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2a5afe02-90c2-43b9-af98-430138098d59",
+          "score": 0.889141
+        },
+        {
+          "rank": 6,
+          "chunk_id": "b5df9646-c95d-4459-b0e1-1834635742dc",
+          "score": 0.856187
+        },
+        {
+          "rank": 7,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": 0.404449
+        },
+        {
+          "rank": 8,
+          "chunk_id": "954f781c-5f9c-42f2-8262-f6320a2b8114",
+          "score": 0.39893
+        },
+        {
+          "rank": 9,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 0.125708
+        },
+        {
+          "rank": 10,
+          "chunk_id": "f5c186f2-b777-477a-89a2-73d757dfa79a",
+          "score": -0.312379
+        }
+      ]
+    },
+    {
+      "id": "qa-74",
+      "cohort": "new_60",
+      "question": "新版人民币由谁组织设计，报谁批准？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "新版人民币由中国人民银行组织设计，报国务院批准。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 32,
+      "elapsed_ms": 11123,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 4.237418
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 1.1676
+        },
+        {
+          "rank": 3,
+          "chunk_id": "a9ecee1e-b1ff-4701-adf4-9bc34ac68a2a",
+          "score": -0.955101
+        },
+        {
+          "rank": 4,
+          "chunk_id": "03070d71-1e47-4cef-8d71-2807f0a19b4c",
+          "score": -1.400801
+        },
+        {
+          "rank": 5,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": -1.784702
+        },
+        {
+          "rank": 6,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": -2.090884
+        },
+        {
+          "rank": 7,
+          "chunk_id": "8295d66f-c523-4953-ab11-593967474914",
+          "score": -2.177528
+        },
+        {
+          "rank": 8,
+          "chunk_id": "36367326-a45e-4ca7-8d59-b60de645d360",
+          "score": -2.517828
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c1493dac-e1d3-4e70-b375-1fa249efefbb",
+          "score": -2.64328
+        },
+        {
+          "rank": 10,
+          "chunk_id": "27552c47-baf7-43c1-b084-37bb14e4cbaa",
+          "score": -2.86919
+        }
+      ]
+    },
+    {
+      "id": "qa-75",
+      "cohort": "new_60",
+      "question": "印制人民币的企业应按照什么标准和计划印制人民币？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "印制人民币的企业应当按照中国人民银行制定的人民币质量标准和印制计划印制人民币。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 33,
+      "elapsed_ms": 11607,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 4.509444
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 2.303403
+        },
+        {
+          "rank": 3,
+          "chunk_id": "b5df9646-c95d-4459-b0e1-1834635742dc",
+          "score": 1.877874
+        },
+        {
+          "rank": 4,
+          "chunk_id": "13c3f75d-35f0-4173-bbcd-7f77c7f81b57",
+          "score": 1.491556
+        },
+        {
+          "rank": 5,
+          "chunk_id": "d0ebba69-d4ee-4e5a-a1e1-53c38fc38e58",
+          "score": 1.062824
+        },
+        {
+          "rank": 6,
+          "chunk_id": "e07fed9c-daaa-4558-90bb-11230dfd537f",
+          "score": -1.245627
+        },
+        {
+          "rank": 7,
+          "chunk_id": "e85a3c89-24c9-4ce0-af8f-40dc14189ade",
+          "score": -1.374736
+        },
+        {
+          "rank": 8,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": -2.288025
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3f37ce5d-5f8c-44ec-b259-a9296ff9c44e",
+          "score": -2.342897
+        },
+        {
+          "rank": 10,
+          "chunk_id": "03070d71-1e47-4cef-8d71-2807f0a19b4c",
+          "score": -2.345086
+        }
+      ]
+    },
+    {
+      "id": "qa-76",
+      "cohort": "new_60",
+      "question": "人民币样币用于什么，它由谁按规定印制？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "人民币样币是检验人民币印制质量和鉴别人民币真伪的标准样本，由印制人民币的企业按照中国人民银行的规定印制。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 34,
+      "elapsed_ms": 13081,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 3.554643
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 2.607345
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2a5afe02-90c2-43b9-af98-430138098d59",
+          "score": 1.810951
+        },
+        {
+          "rank": 4,
+          "chunk_id": "3f37ce5d-5f8c-44ec-b259-a9296ff9c44e",
+          "score": -0.129163
+        },
+        {
+          "rank": 5,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": -0.358001
+        },
+        {
+          "rank": 6,
+          "chunk_id": "6cedd0bd-6a0c-4888-8144-1dcd5ab1cd86",
+          "score": -0.483705
+        },
+        {
+          "rank": 7,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": -0.747907
+        },
+        {
+          "rank": 8,
+          "chunk_id": "0b6dc881-6cea-4001-aa21-95f4392e087a",
+          "score": -1.561076
+        },
+        {
+          "rank": 9,
+          "chunk_id": "b5df9646-c95d-4459-b0e1-1834635742dc",
+          "score": -1.773573
+        },
+        {
+          "rank": 10,
+          "chunk_id": "13c3f75d-35f0-4173-bbcd-7f77c7f81b57",
+          "score": -1.918301
+        }
+      ]
+    },
+    {
+      "id": "qa-77",
+      "cohort": "new_60",
+      "question": "人民币由哪个机关统一发行？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "人民币由中国人民银行统一发行。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 34,
+      "elapsed_ms": 11400,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 4.189789
+        },
+        {
+          "rank": 2,
+          "chunk_id": "fe3d1c1d-8c4f-4e51-8199-5abde8b8c181",
+          "score": 3.274363
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6cedd0bd-6a0c-4888-8144-1dcd5ab1cd86",
+          "score": 3.14034
+        },
+        {
+          "rank": 4,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": 2.931847
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": 1.800998
+        },
+        {
+          "rank": 6,
+          "chunk_id": "e7479140-08c2-4d1d-8f0b-6f2b5cebcd11",
+          "score": 1.331326
+        },
+        {
+          "rank": 7,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": 1.134699
+        },
+        {
+          "rank": 8,
+          "chunk_id": "83bc4eed-7890-4cf5-a419-73cd215bf8a3",
+          "score": 0.566414
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3b1b22e5-6ed8-4a5b-ba3e-31aefb71cd38",
+          "score": 0.257934
+        },
+        {
+          "rank": 10,
+          "chunk_id": "2a5afe02-90c2-43b9-af98-430138098d59",
+          "score": -0.028041
+        }
+      ]
+    },
+    {
+      "id": "qa-78",
+      "cohort": "new_60",
+      "question": "发行新版人民币时，中国人民银行应公告哪些主要信息？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "中国人民银行应当将新版人民币的发行时间、面额、图案、式样、规格、主色调、主要特征等予以公告。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 28,
+      "elapsed_ms": 9291,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 4.435681
+        },
+        {
+          "rank": 2,
+          "chunk_id": "03070d71-1e47-4cef-8d71-2807f0a19b4c",
+          "score": 2.520119
+        },
+        {
+          "rank": 3,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": 2.50897
+        },
+        {
+          "rank": 4,
+          "chunk_id": "c1493dac-e1d3-4e70-b375-1fa249efefbb",
+          "score": 0.514502
+        },
+        {
+          "rank": 5,
+          "chunk_id": "d0ebba69-d4ee-4e5a-a1e1-53c38fc38e58",
+          "score": 0.170696
+        },
+        {
+          "rank": 6,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": 0.147585
+        },
+        {
+          "rank": 7,
+          "chunk_id": "9443c4b7-f72f-44e0-a503-3753ff1ee0e6",
+          "score": -0.386318
+        },
+        {
+          "rank": 8,
+          "chunk_id": "a0cac48b-9854-4758-9965-49cf5f9a199b",
+          "score": -0.934237
+        },
+        {
+          "rank": 9,
+          "chunk_id": "09607364-0f05-47b8-8ca7-b55a1059a8cf",
+          "score": -1.074566
+        },
+        {
+          "rank": 10,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": -1.108203
+        }
+      ]
+    },
+    {
+      "id": "qa-79",
+      "cohort": "new_60",
+      "question": "《人民币管理条例》中的纪念币包括哪两种？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "纪念币是具有特定主题的限量发行的人民币，包括普通纪念币和贵金属纪念币。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 2,
+      "candidate_count": 33,
+      "unique_candidate_count": 33,
+      "elapsed_ms": 12412,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "04802f11-8dc9-4555-a6cd-7ab2ce4e561b",
+          "score": 1.106456
+        },
+        {
+          "rank": 2,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 0.645162
+        },
+        {
+          "rank": 3,
+          "chunk_id": "79ebb1fd-2bc5-48e9-a9ac-d1aa59a0eb42",
+          "score": -0.086541
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e4af32ba-d564-4553-98ac-8567f313ac5b",
+          "score": -0.792521
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0b6dc881-6cea-4001-aa21-95f4392e087a",
+          "score": -1.545562
+        },
+        {
+          "rank": 6,
+          "chunk_id": "dde6bd40-0799-4166-9c38-1bc5b34bfd13",
+          "score": -1.645765
+        },
+        {
+          "rank": 7,
+          "chunk_id": "cf716d0b-0c75-4b83-9605-05033f2188f3",
+          "score": -1.8242
+        },
+        {
+          "rank": 8,
+          "chunk_id": "3f37ce5d-5f8c-44ec-b259-a9296ff9c44e",
+          "score": -2.081428
+        },
+        {
+          "rank": 9,
+          "chunk_id": "f1c9dae9-2eb5-4d4b-a5f6-e2023d6fb86c",
+          "score": -2.222101
+        },
+        {
+          "rank": 10,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": -2.236023
+        }
+      ]
+    },
+    {
+      "id": "qa-80",
+      "cohort": "new_60",
+      "question": "人民币发行库和分支库主要负责保管什么？",
+      "source": "中华人民共和国人民币管理条例.txt",
+      "evidence": "中国人民银行设立人民币发行库，在其分支机构设立分支库，负责保管人民币发行基金。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 39,
+      "unique_candidate_count": 37,
+      "elapsed_ms": 12119,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6236ae0a-d8b9-4621-942a-ff9bd1df5a53",
+          "score": 2.587061
+        },
+        {
+          "rank": 2,
+          "chunk_id": "07b6bc27-5a28-4df9-9158-462ee636a18d",
+          "score": 0.828911
+        },
+        {
+          "rank": 3,
+          "chunk_id": "989fb8dd-cc49-4a09-9343-c3c4dc63e7b0",
+          "score": -0.58663
+        },
+        {
+          "rank": 4,
+          "chunk_id": "f4125468-cef3-47b1-ae37-699bc6ca9c9e",
+          "score": -2.804075
+        },
+        {
+          "rank": 5,
+          "chunk_id": "d0ebba69-d4ee-4e5a-a1e1-53c38fc38e58",
+          "score": -3.088255
+        },
+        {
+          "rank": 6,
+          "chunk_id": "fb2f4e31-1159-40b5-8655-7b2c34b2e275",
+          "score": -3.53637
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c0d625db-ef9f-4c45-b738-35c90764a01e",
+          "score": -3.723577
+        },
+        {
+          "rank": 8,
+          "chunk_id": "48a88919-26dc-47c5-aebe-5d2fa75982a4",
+          "score": -3.747166
+        },
+        {
+          "rank": 9,
+          "chunk_id": "877196ff-6541-4692-9bbd-43e90003c5e0",
+          "score": -3.82885
+        },
+        {
+          "rank": 10,
+          "chunk_id": "fc637a3c-ab5f-410d-a558-0830fc072432",
+          "score": -3.926077
+        }
+      ]
+    },
+    {
+      "id": "qa-81",
+      "cohort": "new_60",
+      "question": "《金融网络安全知识手册》所说的社交陷阱是什么？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "社交陷阱是指有些不法分子利用社会工程学手段获取持卡人个人信息，并通过一些重要信息盗用持卡人账户资金的网络诈骗方式。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 35,
+      "unique_candidate_count": 35,
+      "elapsed_ms": 10731,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": 3.88528
+        },
+        {
+          "rank": 2,
+          "chunk_id": "a90c483c-3ac6-42f8-a8b1-ac937e8cf01c",
+          "score": -4.870543
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ee621671-9e9c-47db-97c9-3ae82ea67621",
+          "score": -5.845289
+        },
+        {
+          "rank": 4,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": -6.086255
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b2b23d31-b695-42e7-8643-c39a94aebd79",
+          "score": -6.158329
+        },
+        {
+          "rank": 6,
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "score": -6.253285
+        },
+        {
+          "rank": 7,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": -6.267153
+        },
+        {
+          "rank": 8,
+          "chunk_id": "a526e2ae-9bdb-4ffa-8913-14131c026ea8",
+          "score": -6.306522
+        },
+        {
+          "rank": 9,
+          "chunk_id": "56672e4e-e717-49f2-b57b-485778588b3f",
+          "score": -6.412425
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c9073cb8-d55d-49d8-8ab0-214a763328e3",
+          "score": -6.414295
+        }
+      ]
+    },
+    {
+      "id": "qa-82",
+      "cohort": "new_60",
+      "question": "支付账户与其他网站使用相同用户名和密码会带来什么风险？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "目前某些中小网站的安全防护能力较弱，容易遭到黑客攻击，不少注册用户的用户名和密码便因此泄露。而如果用户的支付账户设置了相同的用户名和密码，则极易发生盗用。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 29,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 10212,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "9b14bce0-6255-48f2-be02-4fe4c35b08d0",
+          "score": 2.095315
+        },
+        {
+          "rank": 2,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": -1.682765
+        },
+        {
+          "rank": 3,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -2.251204
+        },
+        {
+          "rank": 4,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": -2.671525
+        },
+        {
+          "rank": 5,
+          "chunk_id": "6623188e-d306-4d4e-9c01-115eb459cd8a",
+          "score": -3.046395
+        },
+        {
+          "rank": 6,
+          "chunk_id": "56672e4e-e717-49f2-b57b-485778588b3f",
+          "score": -3.400174
+        },
+        {
+          "rank": 7,
+          "chunk_id": "7ad7bf2c-111d-4721-a507-6b91fb48b331",
+          "score": -3.512349
+        },
+        {
+          "rank": 8,
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "score": -3.871098
+        },
+        {
+          "rank": 9,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": -4.127194
+        },
+        {
+          "rank": 10,
+          "chunk_id": "ccf2d40f-deba-42f2-a81d-f2be03a6347d",
+          "score": -4.658787
+        }
+      ]
+    },
+    {
+      "id": "qa-83",
+      "cohort": "new_60",
+      "question": "支付短信验证码是什么？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "短信验证码是用户在支付时，银行或第三方支付通过客户绑定的手机，下发短信给客户的一次性随机动态密码。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 38,
+      "unique_candidate_count": 38,
+      "elapsed_ms": 12894,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "6623188e-d306-4d4e-9c01-115eb459cd8a",
+          "score": 2.554145
+        },
+        {
+          "rank": 2,
+          "chunk_id": "d53f59fc-d4ba-40ce-9521-7a3ff98a1fa1",
+          "score": -2.704253
+        },
+        {
+          "rank": 3,
+          "chunk_id": "bf61565c-2d04-4e64-baa5-eb82c19ae975",
+          "score": -3.472461
+        },
+        {
+          "rank": 4,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -3.96825
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": -4.371239
+        },
+        {
+          "rank": 6,
+          "chunk_id": "18598195-2dfd-44f8-b5b7-f9d2dc63346e",
+          "score": -4.653358
+        },
+        {
+          "rank": 7,
+          "chunk_id": "22262872-ff50-4a5f-8488-006f566683de",
+          "score": -5.156227
+        },
+        {
+          "rank": 8,
+          "chunk_id": "4dff112d-3a22-4750-8c91-20060d4ee211",
+          "score": -5.581202
+        },
+        {
+          "rank": 9,
+          "chunk_id": "cc7b1fbc-9742-46b2-b83e-b33c9f1dec03",
+          "score": -5.632819
+        },
+        {
+          "rank": 10,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": -5.757002
+        }
+      ]
+    },
+    {
+      "id": "qa-84",
+      "cohort": "new_60",
+      "question": "网上银行或手机银行的安全控件和客户端软件应从哪里下载？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "从银行官方网站下载安装网上银行、手机银行安全控件和客户端软件。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 9940,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": 3.243949
+        },
+        {
+          "rank": 2,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": -1.657592
+        },
+        {
+          "rank": 3,
+          "chunk_id": "56672e4e-e717-49f2-b57b-485778588b3f",
+          "score": -2.093653
+        },
+        {
+          "rank": 4,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": -2.131812
+        },
+        {
+          "rank": 5,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": -3.548847
+        },
+        {
+          "rank": 6,
+          "chunk_id": "cc7b1fbc-9742-46b2-b83e-b33c9f1dec03",
+          "score": -3.549268
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3dc8b0d5-aaad-4573-94bf-99a95c9f3984",
+          "score": -3.598274
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6623188e-d306-4d4e-9c01-115eb459cd8a",
+          "score": -4.035719
+        },
+        {
+          "rank": 9,
+          "chunk_id": "2e96a84f-aaa2-4673-93df-0a4304d9d163",
+          "score": -4.475747
+        },
+        {
+          "rank": 10,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -4.62292
+        }
+      ]
+    },
+    {
+      "id": "qa-85",
+      "cohort": "new_60",
+      "question": "手册对在公共场所或他人电脑上使用网上银行有什么建议？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "避免在公共场所或他人计算机上登录和使用网上银行。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 33,
+      "unique_candidate_count": 33,
+      "elapsed_ms": 10840,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": 2.916723
+        },
+        {
+          "rank": 2,
+          "chunk_id": "56672e4e-e717-49f2-b57b-485778588b3f",
+          "score": 1.762394
+        },
+        {
+          "rank": 3,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": -0.405074
+        },
+        {
+          "rank": 4,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -0.558187
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": -0.635092
+        },
+        {
+          "rank": 6,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": -2.947772
+        },
+        {
+          "rank": 7,
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "score": -3.26181
+        },
+        {
+          "rank": 8,
+          "chunk_id": "3dc8b0d5-aaad-4573-94bf-99a95c9f3984",
+          "score": -3.29997
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "score": -3.639315
+        },
+        {
+          "rank": 10,
+          "chunk_id": "cc7b1fbc-9742-46b2-b83e-b33c9f1dec03",
+          "score": -4.127917
+        }
+      ]
+    },
+    {
+      "id": "qa-86",
+      "cohort": "new_60",
+      "question": "退出网上银行或暂时离开电脑时，应如何处理 USBKey？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "退出网上银行或暂时离开电脑时，一定要将 USBKey 拔出。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 10212,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": 3.044948
+        },
+        {
+          "rank": 2,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": 0.377324
+        },
+        {
+          "rank": 3,
+          "chunk_id": "6623188e-d306-4d4e-9c01-115eb459cd8a",
+          "score": -0.120293
+        },
+        {
+          "rank": 4,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": -3.211337
+        },
+        {
+          "rank": 5,
+          "chunk_id": "56672e4e-e717-49f2-b57b-485778588b3f",
+          "score": -3.340625
+        },
+        {
+          "rank": 6,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": -4.809053
+        },
+        {
+          "rank": 7,
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "score": -5.441465
+        },
+        {
+          "rank": 8,
+          "chunk_id": "cc7b1fbc-9742-46b2-b83e-b33c9f1dec03",
+          "score": -5.448359
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3dc8b0d5-aaad-4573-94bf-99a95c9f3984",
+          "score": -5.904613
+        },
+        {
+          "rank": 10,
+          "chunk_id": "d44d56f3-f064-4dde-89da-1f48aa2fd526",
+          "score": -5.929323
+        }
+      ]
+    },
+    {
+      "id": "qa-87",
+      "cohort": "new_60",
+      "question": "手册建议通过什么提醒服务及时了解账户变化？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "可以通过定制银行短信提醒服务和对账邮件，及时获得银行登录、余额变动、账户设置变更等信息提醒。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 39,
+      "unique_candidate_count": 34,
+      "elapsed_ms": 10535,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": -1.287911
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "score": -3.43418
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dbec7432-9d01-4266-9d68-6ff142bd96bc",
+          "score": -4.135557
+        },
+        {
+          "rank": 4,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": -4.617226
+        },
+        {
+          "rank": 5,
+          "chunk_id": "d8c98fec-c094-481e-b2fd-b56a7c91d68f",
+          "score": -4.645877
+        },
+        {
+          "rank": 6,
+          "chunk_id": "d44d56f3-f064-4dde-89da-1f48aa2fd526",
+          "score": -5.444891
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c05e3ca0-54eb-4d22-ade7-4ebfd560d7f9",
+          "score": -5.757638
+        },
+        {
+          "rank": 8,
+          "chunk_id": "7221e221-6b73-4f4f-87e7-8211d34178c2",
+          "score": -5.860209
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c5417f45-8af9-49ec-90f8-f58a10357631",
+          "score": -6.146242
+        },
+        {
+          "rank": 10,
+          "chunk_id": "bd6e1ef8-029e-459a-93ce-832ced828180",
+          "score": -6.35987
+        }
+      ]
+    },
+    {
+      "id": "qa-88",
+      "cohort": "new_60",
+      "question": "发现网络支付被骗后，应首先联系哪些机构并向谁报警？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "一旦发现被骗，要在第一时间联系银行、支付机构，采取相应应急措施，同时向当地警方报警。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 38,
+      "unique_candidate_count": 38,
+      "elapsed_ms": 13900,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": 1.550158
+        },
+        {
+          "rank": 2,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": -2.84759
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ad001ab1-1ac4-454c-bac3-fd35d765459a",
+          "score": -3.540902
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e5d110dd-6d58-4d72-8581-b451d3b9bc4b",
+          "score": -3.910731
+        },
+        {
+          "rank": 5,
+          "chunk_id": "302b48be-9cbb-4069-b97d-431b302cc2aa",
+          "score": -3.976478
+        },
+        {
+          "rank": 6,
+          "chunk_id": "bb4ede87-27f6-4433-a48f-feb4060c64d8",
+          "score": -4.295267
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": -4.305617
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6623188e-d306-4d4e-9c01-115eb459cd8a",
+          "score": -4.776349
+        },
+        {
+          "rank": 9,
+          "chunk_id": "28783051-2114-4c96-91fa-7f8706c6cb9e",
+          "score": -4.853714
+        },
+        {
+          "rank": 10,
+          "chunk_id": "249783e0-827a-4044-a38a-3d9b6da5c96c",
+          "score": -4.931574
+        }
+      ]
+    },
+    {
+      "id": "qa-89",
+      "cohort": "new_60",
+      "question": "若已经输入银行卡信息，手册建议立即采取什么措施？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "如果您还输入了银行卡信息：请立刻致电银行申请临时冻结账户或电话挂失",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 31,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 9842,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": 0.093457
+        },
+        {
+          "rank": 2,
+          "chunk_id": "b2218744-94df-47ad-8262-764fcef76c72",
+          "score": -1.97986
+        },
+        {
+          "rank": 3,
+          "chunk_id": "3ccccfd2-f14f-4faf-a7cf-0a371701c620",
+          "score": -2.956043
+        },
+        {
+          "rank": 4,
+          "chunk_id": "368755d6-15dc-4d86-850f-dc6574cbd89e",
+          "score": -3.016774
+        },
+        {
+          "rank": 5,
+          "chunk_id": "fe31b388-33cd-4419-b5b8-638117b57202",
+          "score": -3.375292
+        },
+        {
+          "rank": 6,
+          "chunk_id": "e2e7bc5f-7f35-42fe-9de2-596970d07ff4",
+          "score": -3.464251
+        },
+        {
+          "rank": 7,
+          "chunk_id": "d827b416-930d-49e5-b1e1-d63d9e33418d",
+          "score": -3.971638
+        },
+        {
+          "rank": 8,
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "score": -4.064829
+        },
+        {
+          "rank": 9,
+          "chunk_id": "8f8dc213-3263-427b-a6ef-ac014f28db04",
+          "score": -4.077656
+        },
+        {
+          "rank": 10,
+          "chunk_id": "4dff112d-3a22-4750-8c91-20060d4ee211",
+          "score": -4.177038
+        }
+      ]
+    },
+    {
+      "id": "qa-90",
+      "cohort": "new_60",
+      "question": "金融 IC 卡为什么比磁条卡更难被复制？",
+      "source": "金融网络安全知识手册.pdf",
+      "evidence": "金融 IC 卡的信息存储在智能芯片中，卡内信息难以复制，加上多重的交易认证流程，可以有效保障持卡人银行账户资金安全。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 35,
+      "unique_candidate_count": 34,
+      "elapsed_ms": 11983,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "9409d7cb-20ec-4f28-8c36-fc823a34c877",
+          "score": 4.182231
+        },
+        {
+          "rank": 2,
+          "chunk_id": "803de2b3-b31a-4dc1-bbf6-cdf725d60b07",
+          "score": 1.617343
+        },
+        {
+          "rank": 3,
+          "chunk_id": "e276090a-6a2b-4755-a700-250d3aa8cd59",
+          "score": 1.110165
+        },
+        {
+          "rank": 4,
+          "chunk_id": "7f22b6bf-6d80-4d9d-b564-d1052d078e11",
+          "score": -1.775183
+        },
+        {
+          "rank": 5,
+          "chunk_id": "92757f35-8cf3-4195-bc54-af4f0810b492",
+          "score": -2.652691
+        },
+        {
+          "rank": 6,
+          "chunk_id": "2e96a84f-aaa2-4673-93df-0a4304d9d163",
+          "score": -3.474927
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3239ad6a-2d5b-4d71-a289-532ba7e11770",
+          "score": -3.564351
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b7331360-f09a-4d6e-971b-c845823f374b",
+          "score": -3.620351
+        },
+        {
+          "rank": 9,
+          "chunk_id": "53e3e39f-d61b-447d-aec9-39d7716cc36e",
+          "score": -5.389737
+        },
+        {
+          "rank": 10,
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "score": -5.511206
+        }
+      ]
+    },
+    {
+      "id": "qa-91",
+      "cohort": "new_60",
+      "question": "家庭理财主要规划和管理哪些内容？",
+      "source": "05 家庭理财：管好您的钱袋.pdf",
+      "evidence": "家庭理财是关于如何计划家庭收支、如何管理家庭财富的学问，就是要教您制定理财规划，管理好自己的收支和投资，帮助您实现美好的生活目标。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 2,
+      "candidate_count": 23,
+      "unique_candidate_count": 23,
+      "elapsed_ms": 6759,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "5343960f-9bff-4afa-bb61-24274080d45b",
+          "score": 1.379686
+        },
+        {
+          "rank": 2,
+          "chunk_id": "bf2964ea-262a-41a6-ad8b-c14955d82880",
+          "score": 1.082882
+        },
+        {
+          "rank": 3,
+          "chunk_id": "fc281389-b96f-497f-855a-c125d279c7d6",
+          "score": 1.016255
+        },
+        {
+          "rank": 4,
+          "chunk_id": "18b803e1-690d-4916-b0a4-c5f6cd164d3c",
+          "score": 0.619069
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0c5a3299-b433-4ae3-8f38-a4fd6cf0f105",
+          "score": 0.360616
+        },
+        {
+          "rank": 6,
+          "chunk_id": "0a76996e-0e3e-4cea-b860-bc6c1cf2fbb1",
+          "score": -0.479364
+        },
+        {
+          "rank": 7,
+          "chunk_id": "80661f31-ebd7-4a1c-8681-8b4dfff80627",
+          "score": -0.792434
+        },
+        {
+          "rank": 8,
+          "chunk_id": "3af6a342-941c-40e0-a8a4-b55def83c253",
+          "score": -0.838483
+        },
+        {
+          "rank": 9,
+          "chunk_id": "51d612cd-c09a-44d4-aa06-45f519368e08",
+          "score": -0.982688
+        },
+        {
+          "rank": 10,
+          "chunk_id": "189edc17-4c8d-4e27-8bf9-6ddba43a6940",
+          "score": -1.098199
+        }
+      ]
+    },
+    {
+      "id": "qa-92",
+      "cohort": "new_60",
+      "question": "计算家庭净资产时，应从资产中减去什么？",
+      "source": "05 家庭理财：管好您的钱袋.pdf",
+      "evidence": "然后您可以用资产减去负债，得出自己的净资产是多少，这就是您的家底。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 31,
+      "elapsed_ms": 10082,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "519210fa-df4f-4d42-8278-6fb69e5a765e",
+          "score": -0.511611
+        },
+        {
+          "rank": 2,
+          "chunk_id": "d41fd3bc-0527-4097-b9f2-fece1786e803",
+          "score": -1.544799
+        },
+        {
+          "rank": 3,
+          "chunk_id": "5343960f-9bff-4afa-bb61-24274080d45b",
+          "score": -2.32446
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0c5a3299-b433-4ae3-8f38-a4fd6cf0f105",
+          "score": -3.14654
+        },
+        {
+          "rank": 5,
+          "chunk_id": "189edc17-4c8d-4e27-8bf9-6ddba43a6940",
+          "score": -3.964756
+        },
+        {
+          "rank": 6,
+          "chunk_id": "54228e51-29ba-4ef1-a577-e54cb83c79ff",
+          "score": -4.073342
+        },
+        {
+          "rank": 7,
+          "chunk_id": "3af6a342-941c-40e0-a8a4-b55def83c253",
+          "score": -4.380575
+        },
+        {
+          "rank": 8,
+          "chunk_id": "80661f31-ebd7-4a1c-8681-8b4dfff80627",
+          "score": -4.45367
+        },
+        {
+          "rank": 9,
+          "chunk_id": "50cf65a2-9cf7-4278-8395-b6d71e0dee08",
+          "score": -4.594623
+        },
+        {
+          "rank": 10,
+          "chunk_id": "0c585e41-89ce-471b-aeec-bf2886e5d31a",
+          "score": -4.669346
+        }
+      ]
+    },
+    {
+      "id": "qa-93",
+      "cohort": "new_60",
+      "question": "摸清家庭资产和收支后，下一步可以制定什么？",
+      "source": "05 家庭理财：管好您的钱袋.pdf",
+      "evidence": "摸清了家底，也了解了自己的收入和支出，您就可以制定自己的理财目标和理财规划了。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 30,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 8790,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "519210fa-df4f-4d42-8278-6fb69e5a765e",
+          "score": 1.120467
+        },
+        {
+          "rank": 2,
+          "chunk_id": "5343960f-9bff-4afa-bb61-24274080d45b",
+          "score": -0.351724
+        },
+        {
+          "rank": 3,
+          "chunk_id": "51d612cd-c09a-44d4-aa06-45f519368e08",
+          "score": -1.689201
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0a76996e-0e3e-4cea-b860-bc6c1cf2fbb1",
+          "score": -1.994949
+        },
+        {
+          "rank": 5,
+          "chunk_id": "189edc17-4c8d-4e27-8bf9-6ddba43a6940",
+          "score": -2.500552
+        },
+        {
+          "rank": 6,
+          "chunk_id": "0c5a3299-b433-4ae3-8f38-a4fd6cf0f105",
+          "score": -2.705184
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c2ab4835-e5cd-4ef0-abdd-58c3e5387c93",
+          "score": -2.951501
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b46f7ddb-9536-46ed-9cb4-2ed61558a27d",
+          "score": -3.039132
+        },
+        {
+          "rank": 9,
+          "chunk_id": "bf2964ea-262a-41a6-ad8b-c14955d82880",
+          "score": -3.474132
+        },
+        {
+          "rank": 10,
+          "chunk_id": "0c585e41-89ce-471b-aeec-bf2886e5d31a",
+          "score": -3.550188
+        }
+      ]
+    },
+    {
+      "id": "qa-94",
+      "cohort": "new_60",
+      "question": "选择储蓄品种时，资料建议先考虑什么，再考虑收益？",
+      "source": "06 走进银行：享受便捷的现代生活.pdf",
+      "evidence": "选择储蓄品种时，应当首先考虑它的方便与适用，在此基础上，再考虑怎么去获得更多利息。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 34,
+      "unique_candidate_count": 30,
+      "elapsed_ms": 11180,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "26a02072-cb67-4a29-8a14-cfd86415db79",
+          "score": 3.064053
+        },
+        {
+          "rank": 2,
+          "chunk_id": "640e3b96-20f1-4ffc-9d6b-5f6801e0e8f1",
+          "score": -1.50643
+        },
+        {
+          "rank": 3,
+          "chunk_id": "e30eecd6-a431-414c-80dc-3fc002eb3f2b",
+          "score": -2.345236
+        },
+        {
+          "rank": 4,
+          "chunk_id": "84b02c48-a118-48a9-aca9-1e8345ea5a25",
+          "score": -2.779766
+        },
+        {
+          "rank": 5,
+          "chunk_id": "7f619ca2-948f-4b12-8153-8270ccaa5656",
+          "score": -2.955259
+        },
+        {
+          "rank": 6,
+          "chunk_id": "e3e5b435-1300-48cc-a6c8-4a11c032c352",
+          "score": -3.272507
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c2ab4835-e5cd-4ef0-abdd-58c3e5387c93",
+          "score": -3.300842
+        },
+        {
+          "rank": 8,
+          "chunk_id": "e58f6705-8827-4dd6-9ed9-2161c9fb5537",
+          "score": -3.351554
+        },
+        {
+          "rank": 9,
+          "chunk_id": "9d36dab9-563f-4be7-9347-a1b9567461ef",
+          "score": -3.353369
+        },
+        {
+          "rank": 10,
+          "chunk_id": "06e470d1-427f-4276-89f8-3b5c858291ef",
+          "score": -3.518392
+        }
+      ]
+    },
+    {
+      "id": "qa-95",
+      "cohort": "new_60",
+      "question": "资料中整存整取类定期储蓄存款的起存金额是多少？",
+      "source": "06 走进银行：享受便捷的现代生活.pdf",
+      "evidence": "人们常说的“定期”一般是指整存整取类的定期储蓄存款:50元起存，多存不限。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 28,
+      "unique_candidate_count": 22,
+      "elapsed_ms": 8477,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "574b7a40-1403-461c-8f8e-4438b75fa056",
+          "score": 2.929119
+        },
+        {
+          "rank": 2,
+          "chunk_id": "676201dd-0d81-42d9-b760-22dc576a50a4",
+          "score": 2.201444
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2f16aa60-bda6-432f-a0ba-de32ae4dae7e",
+          "score": 1.470867
+        },
+        {
+          "rank": 4,
+          "chunk_id": "54228e51-29ba-4ef1-a577-e54cb83c79ff",
+          "score": -0.632353
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0cc6b658-d7d8-4707-accb-ffe7da938704",
+          "score": -1.318466
+        },
+        {
+          "rank": 6,
+          "chunk_id": "26a02072-cb67-4a29-8a14-cfd86415db79",
+          "score": -1.796033
+        },
+        {
+          "rank": 7,
+          "chunk_id": "640e3b96-20f1-4ffc-9d6b-5f6801e0e8f1",
+          "score": -2.049692
+        },
+        {
+          "rank": 8,
+          "chunk_id": "93316ac3-af7e-4238-92f1-3a94630c4968",
+          "score": -2.382205
+        },
+        {
+          "rank": 9,
+          "chunk_id": "9921ac30-c450-436a-b529-db2cabc37200",
+          "score": -2.865181
+        },
+        {
+          "rank": 10,
+          "chunk_id": "70e80cab-1377-4c60-b0e2-d2c9c110c342",
+          "score": -3.048809
+        }
+      ]
+    },
+    {
+      "id": "qa-96",
+      "cohort": "new_60",
+      "question": "记名和不记名存单在挂失方面有什么区别？",
+      "source": "06 走进银行：享受便捷的现代生活.pdf",
+      "evidence": "存单分记名和不记名两种，记名的可以挂失，不记名的不可挂失。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 32,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 11617,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "574b7a40-1403-461c-8f8e-4438b75fa056",
+          "score": 1.356234
+        },
+        {
+          "rank": 2,
+          "chunk_id": "e3de8f10-d031-4d36-9cc3-2fa48cb92bee",
+          "score": -1.722574
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2fd5af5a-c915-4a48-af54-a93a12929034",
+          "score": -3.465141
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0222371f-72cd-4806-b97b-65781ca85ef1",
+          "score": -3.645978
+        },
+        {
+          "rank": 5,
+          "chunk_id": "256633fd-4b69-446f-af3d-86b4be26ade6",
+          "score": -3.907531
+        },
+        {
+          "rank": 6,
+          "chunk_id": "8a7e2a75-bcf8-4c0b-93ae-6430ce5227fd",
+          "score": -3.947999
+        },
+        {
+          "rank": 7,
+          "chunk_id": "73f07f9a-a157-4569-add7-ebc494d08b0e",
+          "score": -4.221909
+        },
+        {
+          "rank": 8,
+          "chunk_id": "2f16aa60-bda6-432f-a0ba-de32ae4dae7e",
+          "score": -4.745527
+        },
+        {
+          "rank": 9,
+          "chunk_id": "82ef85f0-178f-4fbe-a5a5-ec1a7d32dc8a",
+          "score": -5.076152
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b41db495-c81f-479b-9f52-a27c5d3ad876",
+          "score": -5.305408
+        }
+      ]
+    },
+    {
+      "id": "qa-97",
+      "cohort": "new_60",
+      "question": "证券账户主要记录投资者持有什么信息？",
+      "source": "07 投资证券：在机会与风险中“淘金”.pdf",
+      "evidence": "证券账户相当于一个证券存折，记录投资者持有的证券种类和数量。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 3,
+      "candidate_count": 38,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 8492,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": 0.407572
+        },
+        {
+          "rank": 2,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": 0.330682
+        },
+        {
+          "rank": 3,
+          "chunk_id": "cf5da19d-e82d-49c8-9201-aaf0d3bf0cb5",
+          "score": -0.026968
+        },
+        {
+          "rank": 4,
+          "chunk_id": "10224500-fab3-4601-834c-9b9947689d4e",
+          "score": -1.148341
+        },
+        {
+          "rank": 5,
+          "chunk_id": "221c23be-e5df-4c6a-9470-1864ae8ce612",
+          "score": -2.408546
+        },
+        {
+          "rank": 6,
+          "chunk_id": "b139737e-2cf2-4d2e-8c7b-b30ad41a19be",
+          "score": -2.663789
+        },
+        {
+          "rank": 7,
+          "chunk_id": "2eeec335-0b60-4f3f-bf9f-bc49bb7acf56",
+          "score": -2.696512
+        },
+        {
+          "rank": 8,
+          "chunk_id": "55ffa247-fb04-486f-9904-b8717d291d0d",
+          "score": -3.169364
+        },
+        {
+          "rank": 9,
+          "chunk_id": "3c6be4f3-c085-491c-8443-513cbc428a8e",
+          "score": -3.176828
+        },
+        {
+          "rank": 10,
+          "chunk_id": "16a367bb-cb85-46ee-92f4-4070322fe7e4",
+          "score": -3.506039
+        }
+      ]
+    },
+    {
+      "id": "qa-98",
+      "cohort": "new_60",
+      "question": "普通投资者可以直接进入证券交易所买卖股票吗？应如何交易？",
+      "source": "07 投资证券：在机会与风险中“淘金”.pdf",
+      "evidence": "普通投资者不能直接进入证券交易所买卖股票，需要委托证券交易所的会员（即证券经纪商）代理证券交易。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 39,
+      "unique_candidate_count": 24,
+      "elapsed_ms": 6394,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "10224500-fab3-4601-834c-9b9947689d4e",
+          "score": 6.274594
+        },
+        {
+          "rank": 2,
+          "chunk_id": "35c54b66-fe5f-4d16-9439-fb0a5f8e0da7",
+          "score": 1.049144
+        },
+        {
+          "rank": 3,
+          "chunk_id": "493d34f0-c7ac-4baf-9c50-1b3f5fd51d1e",
+          "score": 0.518727
+        },
+        {
+          "rank": 4,
+          "chunk_id": "345e0f15-ad24-4f76-94dc-c0249074979e",
+          "score": 0.401375
+        },
+        {
+          "rank": 5,
+          "chunk_id": "b68c0049-3172-429c-ae56-e92ee567ab31",
+          "score": 0.261726
+        },
+        {
+          "rank": 6,
+          "chunk_id": "ffb20219-cb50-42e9-9a0c-aa32308458e1",
+          "score": 0.118685
+        },
+        {
+          "rank": 7,
+          "chunk_id": "137dfd9e-7d25-4c15-ab9a-bf3ad5afa09d",
+          "score": -0.256829
+        },
+        {
+          "rank": 8,
+          "chunk_id": "38846e68-b706-466a-a3ef-59c352bcb490",
+          "score": -0.338539
+        },
+        {
+          "rank": 9,
+          "chunk_id": "2907653c-8462-466b-8aea-6e8b24626e4a",
+          "score": -1.03305
+        },
+        {
+          "rank": 10,
+          "chunk_id": "cf5da19d-e82d-49c8-9201-aaf0d3bf0cb5",
+          "score": -1.095371
+        }
+      ]
+    },
+    {
+      "id": "qa-99",
+      "cohort": "new_60",
+      "question": "购买保险时应重点读懂哪两类条款？",
+      "source": "08 携手保险：从容面对“飞来之祸”.pdf",
+      "evidence": "购买保险时，您还应读懂每项保险条款，尤其要注意保险责任条款与责任免除（也称除外责任）条款。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 29,
+      "unique_candidate_count": 29,
+      "elapsed_ms": 8279,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "f94d14b3-2e7a-4ca6-b495-dbb625909ad2",
+          "score": 2.764923
+        },
+        {
+          "rank": 2,
+          "chunk_id": "f5051062-9594-4428-8f0a-d80c1c870ee9",
+          "score": 1.792179
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c9575013-900f-47ab-94d9-e118e2aa4241",
+          "score": 1.431915
+        },
+        {
+          "rank": 4,
+          "chunk_id": "080c33c4-b83b-43a9-8880-f49a29e8beca",
+          "score": -0.535309
+        },
+        {
+          "rank": 5,
+          "chunk_id": "59eb9e03-4f15-459e-897d-73b955f57a48",
+          "score": -0.667453
+        },
+        {
+          "rank": 6,
+          "chunk_id": "0b45a0f5-5943-4d32-8fda-265b64589b49",
+          "score": -0.732725
+        },
+        {
+          "rank": 7,
+          "chunk_id": "239668c8-bb37-4e11-9360-e759abc2948f",
+          "score": -1.019894
+        },
+        {
+          "rank": 8,
+          "chunk_id": "6e448c79-0524-4c5e-b03a-1cdd968a69e9",
+          "score": -1.604734
+        },
+        {
+          "rank": 9,
+          "chunk_id": "a754bd7a-4861-4403-8a5a-a666dcf1e58c",
+          "score": -1.880195
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b5166cb3-9453-4b71-94da-b9e3972d0efe",
+          "score": -1.880858
+        }
+      ]
+    },
+    {
+      "id": "qa-100",
+      "cohort": "new_60",
+      "question": "资料将健康险定义为什么，列举了哪些类型？",
+      "source": "08 携手保险：从容面对“飞来之祸”.pdf",
+      "evidence": "健康险是以被保险人的健康状况为基础，以补偿被保险人的医疗费用为目的的类保险，包括疾病保险、医疗保险、护理保险等。",
+      "candidate_pool_has_evidence": true,
+      "rerank_evidence_rank": 1,
+      "candidate_count": 40,
+      "unique_candidate_count": 40,
+      "elapsed_ms": 12394,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "32cdb08d-b40a-4be4-be01-e876de47d141",
+          "score": -4.46664
+        },
+        {
+          "rank": 2,
+          "chunk_id": "0b45a0f5-5943-4d32-8fda-265b64589b49",
+          "score": -5.143823
+        },
+        {
+          "rank": 3,
+          "chunk_id": "ebf32358-49e0-4e65-bb3b-caafcb9a43b8",
+          "score": -5.148898
+        },
+        {
+          "rank": 4,
+          "chunk_id": "554b71fc-281b-44bf-98d7-cfc60bd4d8ba",
+          "score": -5.952358
+        },
+        {
+          "rank": 5,
+          "chunk_id": "fdb56acb-ce7a-4128-98be-442eaceed037",
+          "score": -6.011576
+        },
+        {
+          "rank": 6,
+          "chunk_id": "7f0206b2-a064-4a6d-9e5f-ac6c04e34f3f",
+          "score": -6.05309
+        },
+        {
+          "rank": 7,
+          "chunk_id": "80661f31-ebd7-4a1c-8681-8b4dfff80627",
+          "score": -6.298521
+        },
+        {
+          "rank": 8,
+          "chunk_id": "189edc17-4c8d-4e27-8bf9-6ddba43a6940",
+          "score": -6.368887
+        },
+        {
+          "rank": 9,
+          "chunk_id": "f560d85b-7f7f-4de0-a0b7-30b526b2f9a7",
+          "score": -6.43357
+        },
+        {
+          "rank": 10,
+          "chunk_id": "46a9620f-177c-404d-9b00-ad922dbf6090",
+          "score": -6.851925
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "evaluated_at": "2026-11-02T20:12:39.288940+08:00",
+  "candidate_n_per_method": 20,
+  "method": "Same 100 annotated evidence cases; fast RRF ranking evaluated now, smart rerank ranks from saved current N=20 report. This measures source evidence recall, not answer correctness.",
+  "summary": {
+    "case_count": 100,
+    "top_k": 4,
+    "fast_evidence_hits": 78,
+    "smart_evidence_hits": 99
+  },
+  "cases": [
+    {
+      "id": "qa-01",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-02",
+      "fast_evidence_rank": 5,
+      "smart_evidence_rank": 4
+    },
+    {
+      "id": "qa-03",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-04",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 2
+    },
+    {
+      "id": "qa-05",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-06",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-07",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-08",
+      "fast_evidence_rank": 10,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-09",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-10",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-11",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-12",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-13",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-14",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-15",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-16",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-17",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-18",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-19",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-20",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-21",
+      "fast_evidence_rank": 4,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-22",
+      "fast_evidence_rank": 16,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-23",
+      "fast_evidence_rank": 9,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-24",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-25",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-26",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-27",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-28",
+      "fast_evidence_rank": 24,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-29",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-30",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-31",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-32",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-33",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-34",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-35",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-36",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-37",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-38",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 3
+    },
+    {
+      "id": "qa-39",
+      "fast_evidence_rank": 5,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-40",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-41",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-42",
+      "fast_evidence_rank": 13,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-43",
+      "fast_evidence_rank": 11,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-44",
+      "fast_evidence_rank": 7,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-45",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-46",
+      "fast_evidence_rank": 15,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-47",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-48",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-49",
+      "fast_evidence_rank": 6,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-50",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-51",
+      "fast_evidence_rank": 24,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-52",
+      "fast_evidence_rank": 23,
+      "smart_evidence_rank": 4
+    },
+    {
+      "id": "qa-53",
+      "fast_evidence_rank": 4,
+      "smart_evidence_rank": 2
+    },
+    {
+      "id": "qa-54",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-55",
+      "fast_evidence_rank": 9,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-56",
+      "fast_evidence_rank": 10,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-57",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-58",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 2
+    },
+    {
+      "id": "qa-59",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 3
+    },
+    {
+      "id": "qa-60",
+      "fast_evidence_rank": 12,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-61",
+      "fast_evidence_rank": 24,
+      "smart_evidence_rank": 7
+    },
+    {
+      "id": "qa-62",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-63",
+      "fast_evidence_rank": 5,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-64",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-65",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-66",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-67",
+      "fast_evidence_rank": 5,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-68",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-69",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-70",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-71",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-72",
+      "fast_evidence_rank": 9,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-73",
+      "fast_evidence_rank": 4,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-74",
+      "fast_evidence_rank": 4,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-75",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-76",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-77",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-78",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-79",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 2
+    },
+    {
+      "id": "qa-80",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-81",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-82",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-83",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-84",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-85",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-86",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-87",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-88",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-89",
+      "fast_evidence_rank": 3,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-90",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-91",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 2
+    },
+    {
+      "id": "qa-92",
+      "fast_evidence_rank": 9,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-93",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-94",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-95",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-96",
+      "fast_evidence_rank": 9,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-97",
+      "fast_evidence_rank": 4,
+      "smart_evidence_rank": 3
+    },
+    {
+      "id": "qa-98",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-99",
+      "fast_evidence_rank": 1,
+      "smart_evidence_rank": 1
+    },
+    {
+      "id": "qa-100",
+      "fast_evidence_rank": 2,
+      "smart_evidence_rank": 1
+    }
+  ]
+}

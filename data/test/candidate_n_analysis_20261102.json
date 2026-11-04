@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-11-02T10:45:40.003963+08:00",
+  "embedding_model": "shaw/dmeta-embedding-zh:latest",
+  "corpus_chunk_count": 1894,
+  "case_count": 100,
+  "saved_n50_top4_hits": 98,
+  "method": "For each N, form the union of semantic Top N and keyword Top N. Pool hit requires a single candidate chunk to contain annotated evidence. Saved N=50 Top 4 hits are projected as preserved when their evidence-containing chunk content is still in the smaller pool; the cross encoder is not rerun here.",
+  "summary": [
+    {
+      "n_per_method": 10,
+      "pool_evidence_hits": 96,
+      "saved_n50_top4_hits_preserved": 94,
+      "mean_candidate_count": 16.0,
+      "mean_unique_rerank_pairs": 12.9,
+      "pool_miss_ids": [
+        "qa-28",
+        "qa-51",
+        "qa-52",
+        "qa-61"
+      ],
+      "lost_saved_top4_hit_ids": [
+        "qa-03",
+        "qa-28",
+        "qa-51",
+        "qa-52"
+      ]
+    },
+    {
+      "n_per_method": 20,
+      "pool_evidence_hits": 100,
+      "saved_n50_top4_hits_preserved": 98,
+      "mean_candidate_count": 31.8,
+      "mean_unique_rerank_pairs": 25.9,
+      "pool_miss_ids": [],
+      "lost_saved_top4_hit_ids": []
+    },
+    {
+      "n_per_method": 30,
+      "pool_evidence_hits": 100,
+      "saved_n50_top4_hits_preserved": 98,
+      "mean_candidate_count": 47.9,
+      "mean_unique_rerank_pairs": 39.3,
+      "pool_miss_ids": [],
+      "lost_saved_top4_hit_ids": []
+    },
+    {
+      "n_per_method": 40,
+      "pool_evidence_hits": 100,
+      "saved_n50_top4_hits_preserved": 98,
+      "mean_candidate_count": 64.0,
+      "mean_unique_rerank_pairs": 52.5,
+      "pool_miss_ids": [],
+      "lost_saved_top4_hit_ids": []
+    },
+    {
+      "n_per_method": 50,
+      "pool_evidence_hits": 100,
+      "saved_n50_top4_hits_preserved": 98,
+      "mean_candidate_count": 80.1,
+      "mean_unique_rerank_pairs": 65.8,
+      "pool_miss_ids": [],
+      "lost_saved_top4_hit_ids": []
+    }
+  ]
+}

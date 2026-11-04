@@ -111,6 +111,18 @@ def get_chunks(only_valid: bool) -> list[sqlite3.Row]:
         return conn.execute(sql, params).fetchall()
 
 
+def get_search_chunks(only_valid: bool) -> list[sqlite3.Row]:
+    """Read keyword-search fields without transferring stored embedding vectors."""
+    sql = """SELECT c.id, c.document_id, c.content, c.page, c.section,
+                    d.title, d.effective_date, d.validity
+             FROM chunks c JOIN documents d ON d.id = c.document_id
+             WHERE d.status = 'ready'"""
+    if only_valid:
+        sql += " AND d.validity IN ('valid', 'unknown')"
+    with connect() as conn:
+        return conn.execute(sql).fetchall()
+
+
 def get_ready_chunks_for_embedding() -> list[sqlite3.Row]:
     with connect() as conn:
         return conn.execute(
@@ -128,17 +140,18 @@ def update_chunk_embeddings(embeddings: dict[str, list[float]]) -> None:
         )
 
 
-def save_history(question: str, answer: str, sources: list[dict[str, Any]]) -> None:
+def save_history(question: str, answer: str, sources: list[dict[str, Any]]) -> int:
     with connect() as conn:
-        conn.execute(
+        cursor = conn.execute(
             "INSERT INTO qa_history (question, answer, sources, created_at) VALUES (?, ?, ?, ?)",
             (question, answer, json.dumps(sources, ensure_ascii=False), utc_now()),
         )
+        return int(cursor.lastrowid)
 
 
 if settings.database_backend == "mysql":
     from .mysql_db import (connect, init_db, insert_document, insert_chunks, list_documents,
-                           get_document_chunks, get_chunks, get_ready_chunks_for_embedding,
+                           get_document_chunks, get_chunks, get_search_chunks, get_ready_chunks_for_embedding,
                            update_chunk_embeddings, save_history)
 elif settings.database_backend != "sqlite":
     raise ValueError(f"Unsupported database backend: {settings.database_backend}")

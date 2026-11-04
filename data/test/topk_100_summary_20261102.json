@@ -1,0 +1,685 @@
+{
+  "complete": true,
+  "generated_at": "2026-11-02T10:38:17.971041+08:00",
+  "historical_40_report": "D:\\信雅达rag\\data\\test\\cross_encoder_evaluation_20261101.json",
+  "new_60_report": "D:\\信雅达rag\\data\\test\\topk_60_evaluation_20261102.json",
+  "model": "BAAI/bge-reranker-v2-m3-int8",
+  "embedding_model": "shaw/dmeta-embedding-zh:latest",
+  "eligible_chunk_count": 1894,
+  "method": "A case hits at K when a single returned source chunk contains its annotated evidence. This combines saved ranks from the historical 40-case rerank run with ranks from the new 60-case run. The 40 cases were not rerun. This measures evidence recall, not answer accuracy, latency, or token cost.",
+  "curve": [
+    {
+      "k": 1,
+      "historical_40_hits": 37,
+      "new_60_hits": 52,
+      "combined_100_hits": 89,
+      "combined_100_recall": 0.89,
+      "marginal_new_hits": 89
+    },
+    {
+      "k": 2,
+      "historical_40_hits": 38,
+      "new_60_hits": 55,
+      "combined_100_hits": 93,
+      "combined_100_recall": 0.93,
+      "marginal_new_hits": 4
+    },
+    {
+      "k": 3,
+      "historical_40_hits": 39,
+      "new_60_hits": 58,
+      "combined_100_hits": 97,
+      "combined_100_recall": 0.97,
+      "marginal_new_hits": 4
+    },
+    {
+      "k": 4,
+      "historical_40_hits": 39,
+      "new_60_hits": 59,
+      "combined_100_hits": 98,
+      "combined_100_recall": 0.98,
+      "marginal_new_hits": 1
+    },
+    {
+      "k": 5,
+      "historical_40_hits": 39,
+      "new_60_hits": 59,
+      "combined_100_hits": 98,
+      "combined_100_recall": 0.98,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 6,
+      "historical_40_hits": 40,
+      "new_60_hits": 59,
+      "combined_100_hits": 99,
+      "combined_100_recall": 0.99,
+      "marginal_new_hits": 1
+    },
+    {
+      "k": 7,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 1
+    },
+    {
+      "k": 8,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 9,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 10,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 11,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 12,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 13,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 14,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 15,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 16,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 17,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 18,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 19,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    },
+    {
+      "k": 20,
+      "historical_40_hits": 40,
+      "new_60_hits": 60,
+      "combined_100_hits": 100,
+      "combined_100_recall": 1.0,
+      "marginal_new_hits": 0
+    }
+  ],
+  "thresholds": {
+    "minimum_k_for_90_of_100": 2,
+    "minimum_k_for_95_of_100": 3,
+    "minimum_k_for_98_of_100": 4,
+    "minimum_k_for_99_of_100": 6,
+    "minimum_k_for_100_of_100": 7
+  },
+  "misses_at_max_k": {
+    "historical_40": [],
+    "new_60": []
+  },
+  "cases": [
+    {
+      "id": "qa-01",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-02",
+      "cohort": "historical_40",
+      "evidence_rank": 6
+    },
+    {
+      "id": "qa-03",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-04",
+      "cohort": "historical_40",
+      "evidence_rank": 2
+    },
+    {
+      "id": "qa-05",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-06",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-07",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-08",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-09",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-10",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-11",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-12",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-13",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-14",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-15",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-16",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-17",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-18",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-19",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-20",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-21",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-22",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-23",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-24",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-25",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-26",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-27",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-28",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-29",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-30",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-31",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-32",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-33",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-34",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-35",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-36",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-37",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-38",
+      "cohort": "historical_40",
+      "evidence_rank": 3
+    },
+    {
+      "id": "qa-39",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-40",
+      "cohort": "historical_40",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-41",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-42",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-43",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-44",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-45",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-46",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-47",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-48",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-49",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-50",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-51",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-52",
+      "cohort": "new_60",
+      "evidence_rank": 4
+    },
+    {
+      "id": "qa-53",
+      "cohort": "new_60",
+      "evidence_rank": 2
+    },
+    {
+      "id": "qa-54",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-55",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-56",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-57",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-58",
+      "cohort": "new_60",
+      "evidence_rank": 2
+    },
+    {
+      "id": "qa-59",
+      "cohort": "new_60",
+      "evidence_rank": 3
+    },
+    {
+      "id": "qa-60",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-61",
+      "cohort": "new_60",
+      "evidence_rank": 7
+    },
+    {
+      "id": "qa-62",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-63",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-64",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-65",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-66",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-67",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-68",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-69",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-70",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-71",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-72",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-73",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-74",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-75",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-76",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-77",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-78",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-79",
+      "cohort": "new_60",
+      "evidence_rank": 2
+    },
+    {
+      "id": "qa-80",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-81",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-82",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-83",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-84",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-85",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-86",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-87",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-88",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-89",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-90",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-91",
+      "cohort": "new_60",
+      "evidence_rank": 3
+    },
+    {
+      "id": "qa-92",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-93",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-94",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-95",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-96",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-97",
+      "cohort": "new_60",
+      "evidence_rank": 3
+    },
+    {
+      "id": "qa-98",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-99",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    },
+    {
+      "id": "qa-100",
+      "cohort": "new_60",
+      "evidence_rank": 1
+    }
+  ]
+}

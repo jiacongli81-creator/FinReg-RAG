@@ -110,7 +110,7 @@
     async function askQuestion() {
       const question = document.getElementById('question').value.trim();
       if (!question) { alert('请输入问题'); return; }
-      const response = await fetch('/query', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question, top_k: 5, only_valid: true}) });
+      const response = await fetch('/query', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question, only_valid: true}) });
       const result = await response.json();
       if (!response.ok) {
         document.getElementById('answer').textContent = result.detail || '问答失败';

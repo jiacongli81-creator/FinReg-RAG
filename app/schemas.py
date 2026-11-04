@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -8,6 +8,7 @@ class QueryRequest(BaseModel):
     question: str = Field(min_length=1, max_length=2000)
     top_k: int | None = Field(default=None, ge=1, le=20)
     only_valid: bool = True
+    mode: Literal["fast", "smart"] = "fast"
 
 
 class SourceItem(BaseModel):
@@ -28,6 +29,14 @@ class QueryResponse(BaseModel):
     sources: list[SourceItem]
     elapsed_ms: int
     llm_provider: str
+    mode: Literal["fast", "smart"]
+    history_id: int
+
+
+class KeywordSearchResponse(BaseModel):
+    query: str
+    results: list[SourceItem]
+    elapsed_ms: int
 
 
 class DocumentResponse(BaseModel):
@@ -59,3 +68,15 @@ class DirectoryIngestResponse(BaseModel):
     failed: int
     documents: list[DocumentResponse]
     errors: list[dict[str, Any]]
+
+
+class FavoriteRequest(BaseModel):
+    history_id: int = Field(ge=1)
+
+
+class TagRequest(BaseModel):
+    name: str = Field(min_length=1, max_length=100)
+
+
+class DocumentTagsRequest(BaseModel):
+    tag_ids: list[str]

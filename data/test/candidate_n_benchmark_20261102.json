@@ -1,0 +1,158 @@
+{
+  "generated_at": "2026-11-02T10:51:36.967691+08:00",
+  "model": "BAAI/bge-reranker-v2-m3-int8",
+  "batch_size": 16,
+  "sample_ids": [
+    "qa-02",
+    "qa-28",
+    "qa-41",
+    "qa-52",
+    "qa-61"
+  ],
+  "method": "Warm model, paired questions, timed rerank_candidates only; retrieval and answer generation are excluded. N is the candidate count per semantic and keyword method.",
+  "summary": [
+    {
+      "n_per_method": 20,
+      "sample_count": 5,
+      "top4_evidence_hits": 4,
+      "mean_rerank_elapsed_ms": 10781,
+      "mean_unique_rerank_pairs": 25.0
+    },
+    {
+      "n_per_method": 30,
+      "sample_count": 5,
+      "top4_evidence_hits": 4,
+      "mean_rerank_elapsed_ms": 16587,
+      "mean_unique_rerank_pairs": 37.6
+    },
+    {
+      "n_per_method": 50,
+      "sample_count": 5,
+      "top4_evidence_hits": 4,
+      "mean_rerank_elapsed_ms": 27808,
+      "mean_unique_rerank_pairs": 62.4
+    }
+  ],
+  "cases": [
+    {
+      "id": "qa-02",
+      "n_per_method": 20,
+      "candidate_count": 27,
+      "unique_rerank_pairs": 18,
+      "evidence_rank": 4,
+      "rerank_elapsed_ms": 7217
+    },
+    {
+      "id": "qa-02",
+      "n_per_method": 30,
+      "candidate_count": 43,
+      "unique_rerank_pairs": 32,
+      "evidence_rank": 2,
+      "rerank_elapsed_ms": 13417
+    },
+    {
+      "id": "qa-02",
+      "n_per_method": 50,
+      "candidate_count": 70,
+      "unique_rerank_pairs": 57,
+      "evidence_rank": 2,
+      "rerank_elapsed_ms": 24219
+    },
+    {
+      "id": "qa-28",
+      "n_per_method": 30,
+      "candidate_count": 54,
+      "unique_rerank_pairs": 46,
+      "evidence_rank": 1,
+      "rerank_elapsed_ms": 23368
+    },
+    {
+      "id": "qa-28",
+      "n_per_method": 50,
+      "candidate_count": 90,
+      "unique_rerank_pairs": 79,
+      "evidence_rank": 1,
+      "rerank_elapsed_ms": 39898
+    },
+    {
+      "id": "qa-28",
+      "n_per_method": 20,
+      "candidate_count": 37,
+      "unique_rerank_pairs": 34,
+      "evidence_rank": 1,
+      "rerank_elapsed_ms": 16844
+    },
+    {
+      "id": "qa-41",
+      "n_per_method": 50,
+      "candidate_count": 74,
+      "unique_rerank_pairs": 39,
+      "evidence_rank": 1,
+      "rerank_elapsed_ms": 16157
+    },
+    {
+      "id": "qa-41",
+      "n_per_method": 20,
+      "candidate_count": 32,
+      "unique_rerank_pairs": 17,
+      "evidence_rank": 1,
+      "rerank_elapsed_ms": 7016
+    },
+    {
+      "id": "qa-41",
+      "n_per_method": 30,
+      "candidate_count": 48,
+      "unique_rerank_pairs": 25,
+      "evidence_rank": 1,
+      "rerank_elapsed_ms": 10481
+    },
+    {
+      "id": "qa-52",
+      "n_per_method": 20,
+      "candidate_count": 40,
+      "unique_rerank_pairs": 22,
+      "evidence_rank": 4,
+      "rerank_elapsed_ms": 8799
+    },
+    {
+      "id": "qa-52",
+      "n_per_method": 30,
+      "candidate_count": 60,
+      "unique_rerank_pairs": 33,
+      "evidence_rank": 4,
+      "rerank_elapsed_ms": 13457
+    },
+    {
+      "id": "qa-52",
+      "n_per_method": 50,
+      "candidate_count": 94,
+      "unique_rerank_pairs": 56,
+      "evidence_rank": 4,
+      "rerank_elapsed_ms": 23159
+    },
+    {
+      "id": "qa-61",
+      "n_per_method": 30,
+      "candidate_count": 52,
+      "unique_rerank_pairs": 52,
+      "evidence_rank": 6,
+      "rerank_elapsed_ms": 22213
+    },
+    {
+      "id": "qa-61",
+      "n_per_method": 50,
+      "candidate_count": 81,
+      "unique_rerank_pairs": 81,
+      "evidence_rank": 7,
+      "rerank_elapsed_ms": 35606
+    },
+    {
+      "id": "qa-61",
+      "n_per_method": 20,
+      "candidate_count": 34,
+      "unique_rerank_pairs": 34,
+      "evidence_rank": 7,
+      "rerank_elapsed_ms": 14031
+    }
+  ]
+}

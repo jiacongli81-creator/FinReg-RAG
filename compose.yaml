@@ -1,0 +1,116 @@
+services:
+  mysql:
+    image: mysql:8.0.44
+    env_file: ./docker/mysql.env
+    environment:
+      MYSQL_DATABASE: finreg_rag
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./docker-data/mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  milvus:
+    image: milvusdb/milvus:v2.6.11
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      ETCD_USE_EMBED: "true"
+      ETCD_DATA_DIR: /var/lib/milvus/etcd
+      ETCD_CONFIG_PATH: /milvus/configs/embedEtcd.yaml
+      COMMON_STORAGETYPE: local
+      DEPLOY_MODE: STANDALONE
+    volumes:
+      - ./docker-data/milvus:/var/lib/milvus
+      - ./docker/embedEtcd.yaml:/milvus/configs/embedEtcd.yaml:ro
+      - ./docker/milvus-user.yaml:/milvus/configs/user.yaml:ro
+    ports:
+      - "127.0.0.1:19530:19530"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 3
+
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ./docker-data/ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+
+  ollama-init:
+    image: ollama/ollama:latest
+    entrypoint: ["ollama", "pull", "shaw/dmeta-embedding-zh:latest"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
+  mineru-init:
+    image: finreg-rag:local
+    entrypoint: ["/bin/sh", "-ec", "if ! mineru-kit models verify --tier basic --small-backend onnx; then mineru-kit models download --tier basic --small-backend onnx --source modelscope; fi; mineru-kit models verify --tier basic --small-backend onnx"]
+    environment:
+      MINERU_HOME: /var/lib/mineru/.mineru
+      MODELSCOPE_CACHE: /var/lib/mineru/cache/modelscope
+      HF_HOME: /var/lib/mineru/cache/huggingface
+    volumes:
+      - ./docker-data/mineru:/var/lib/mineru
+    restart: "no"
+
+  api:
+    image: finreg-rag:local
+    build: .
+    env_file: ./docker/api.env
+    environment:
+      DATABASE_BACKEND: mysql
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: finreg_rag
+      VECTOR_BACKEND: milvus
+      MILVUS_URI: http://milvus:19530
+      MILVUS_COLLECTION: financial_chunks
+      EMBEDDING_PROVIDER: ollama
+      EMBEDDING_BASE_URL: http://ollama:11434
+      EMBEDDING_MODEL: shaw/dmeta-embedding-zh:latest
+      MINERU_ENABLED: "true"
+      MINERU_PYTHON: /usr/local/bin/python
+      MINERU_HOME: /var/lib/mineru/.mineru
+      MINERU_TEMP_DIR: /var/lib/mineru/tmp
+      MINERU_OUTPUT_DIR: /var/lib/mineru/project-output
+      RERANK_CACHE_DIR: /var/lib/reranker
+      HF_HOME: /var/lib/mineru/cache/huggingface
+      MODELSCOPE_CACHE: /var/lib/mineru/cache/modelscope
+      TEMP: /var/lib/mineru/tmp
+      TMP: /var/lib/mineru/tmp
+      TMPDIR: /var/lib/mineru/tmp
+    volumes:
+      - ./data:/app/data
+      - ./docker-data/mineru:/var/lib/mineru
+      - ./docker-data/reranker:/var/lib/reranker
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      milvus:
+        condition: service_healthy
+      ollama-init:
+        condition: service_completed_successfully
+      mineru-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 15s
+      timeout: 8s
+      retries: 10

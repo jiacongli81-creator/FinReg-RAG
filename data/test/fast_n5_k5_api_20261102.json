@@ -1,0 +1,914 @@
+{
+  "summary": {
+    "mode": "fast",
+    "sample_count": 100,
+    "success_count": 100,
+    "mean_ms": 406,
+    "median_ms": 403,
+    "max_ms": 475,
+    "under_2500_ms": 100,
+    "evidence_hits": 89
+  },
+  "results": [
+    {
+      "id": "qa-01",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 442,
+      "wall_ms": 446
+    },
+    {
+      "id": "qa-02",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 386,
+      "wall_ms": 390
+    },
+    {
+      "id": "qa-03",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 393,
+      "wall_ms": 396
+    },
+    {
+      "id": "qa-04",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 389,
+      "wall_ms": 392
+    },
+    {
+      "id": "qa-05",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 364,
+      "wall_ms": 367
+    },
+    {
+      "id": "qa-06",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 414,
+      "wall_ms": 417
+    },
+    {
+      "id": "qa-07",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 418,
+      "wall_ms": 421
+    },
+    {
+      "id": "qa-08",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 441,
+      "wall_ms": 444
+    },
+    {
+      "id": "qa-09",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 420,
+      "wall_ms": 424
+    },
+    {
+      "id": "qa-10",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 398,
+      "wall_ms": 401
+    },
+    {
+      "id": "qa-11",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 413,
+      "wall_ms": 416
+    },
+    {
+      "id": "qa-12",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 413,
+      "wall_ms": 416
+    },
+    {
+      "id": "qa-13",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 425,
+      "wall_ms": 428
+    },
+    {
+      "id": "qa-14",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 475,
+      "wall_ms": 478
+    },
+    {
+      "id": "qa-15",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 443,
+      "wall_ms": 446
+    },
+    {
+      "id": "qa-16",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 402,
+      "wall_ms": 405
+    },
+    {
+      "id": "qa-17",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 400,
+      "wall_ms": 402
+    },
+    {
+      "id": "qa-18",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 425,
+      "wall_ms": 428
+    },
+    {
+      "id": "qa-19",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 422,
+      "wall_ms": 425
+    },
+    {
+      "id": "qa-20",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 411,
+      "wall_ms": 413
+    },
+    {
+      "id": "qa-21",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 427,
+      "wall_ms": 430
+    },
+    {
+      "id": "qa-22",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 406,
+      "wall_ms": 409
+    },
+    {
+      "id": "qa-23",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 415,
+      "wall_ms": 418
+    },
+    {
+      "id": "qa-24",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 382,
+      "wall_ms": 384
+    },
+    {
+      "id": "qa-25",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 408,
+      "wall_ms": 411
+    },
+    {
+      "id": "qa-26",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 402,
+      "wall_ms": 405
+    },
+    {
+      "id": "qa-27",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 414,
+      "wall_ms": 417
+    },
+    {
+      "id": "qa-28",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 410,
+      "wall_ms": 413
+    },
+    {
+      "id": "qa-29",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 393,
+      "wall_ms": 396
+    },
+    {
+      "id": "qa-30",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 408,
+      "wall_ms": 411
+    },
+    {
+      "id": "qa-31",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 423,
+      "wall_ms": 426
+    },
+    {
+      "id": "qa-32",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 376,
+      "wall_ms": 379
+    },
+    {
+      "id": "qa-33",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 402,
+      "wall_ms": 406
+    },
+    {
+      "id": "qa-34",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 404,
+      "wall_ms": 408
+    },
+    {
+      "id": "qa-35",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 370,
+      "wall_ms": 373
+    },
+    {
+      "id": "qa-36",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 380,
+      "wall_ms": 384
+    },
+    {
+      "id": "qa-37",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 381,
+      "wall_ms": 384
+    },
+    {
+      "id": "qa-38",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 402,
+      "wall_ms": 405
+    },
+    {
+      "id": "qa-39",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 400,
+      "wall_ms": 404
+    },
+    {
+      "id": "qa-40",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 411,
+      "wall_ms": 414
+    },
+    {
+      "id": "qa-41",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 401,
+      "wall_ms": 404
+    },
+    {
+      "id": "qa-42",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 399,
+      "wall_ms": 402
+    },
+    {
+      "id": "qa-43",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 390,
+      "wall_ms": 393
+    },
+    {
+      "id": "qa-44",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 392,
+      "wall_ms": 396
+    },
+    {
+      "id": "qa-45",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 465,
+      "wall_ms": 468
+    },
+    {
+      "id": "qa-46",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 386,
+      "wall_ms": 390
+    },
+    {
+      "id": "qa-47",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 383,
+      "wall_ms": 386
+    },
+    {
+      "id": "qa-48",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 435,
+      "wall_ms": 438
+    },
+    {
+      "id": "qa-49",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 381,
+      "wall_ms": 384
+    },
+    {
+      "id": "qa-50",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 394,
+      "wall_ms": 396
+    },
+    {
+      "id": "qa-51",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 398,
+      "wall_ms": 401
+    },
+    {
+      "id": "qa-52",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 389,
+      "wall_ms": 392
+    },
+    {
+      "id": "qa-53",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 403,
+      "wall_ms": 406
+    },
+    {
+      "id": "qa-54",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 384,
+      "wall_ms": 386
+    },
+    {
+      "id": "qa-55",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 376,
+      "wall_ms": 380
+    },
+    {
+      "id": "qa-56",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 400,
+      "wall_ms": 403
+    },
+    {
+      "id": "qa-57",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 392,
+      "wall_ms": 395
+    },
+    {
+      "id": "qa-58",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 399,
+      "wall_ms": 402
+    },
+    {
+      "id": "qa-59",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 416,
+      "wall_ms": 419
+    },
+    {
+      "id": "qa-60",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 401,
+      "wall_ms": 404
+    },
+    {
+      "id": "qa-61",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 435,
+      "wall_ms": 438
+    },
+    {
+      "id": "qa-62",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 407,
+      "wall_ms": 420
+    },
+    {
+      "id": "qa-63",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 402,
+      "wall_ms": 405
+    },
+    {
+      "id": "qa-64",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 409,
+      "wall_ms": 412
+    },
+    {
+      "id": "qa-65",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 418,
+      "wall_ms": 421
+    },
+    {
+      "id": "qa-66",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 420,
+      "wall_ms": 423
+    },
+    {
+      "id": "qa-67",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 411,
+      "wall_ms": 414
+    },
+    {
+      "id": "qa-68",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 406,
+      "wall_ms": 409
+    },
+    {
+      "id": "qa-69",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 423,
+      "wall_ms": 426
+    },
+    {
+      "id": "qa-70",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 402,
+      "wall_ms": 405
+    },
+    {
+      "id": "qa-71",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 396,
+      "wall_ms": 399
+    },
+    {
+      "id": "qa-72",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 409,
+      "wall_ms": 412
+    },
+    {
+      "id": "qa-73",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 432,
+      "wall_ms": 436
+    },
+    {
+      "id": "qa-74",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 408,
+      "wall_ms": 411
+    },
+    {
+      "id": "qa-75",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 405,
+      "wall_ms": 408
+    },
+    {
+      "id": "qa-76",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 469,
+      "wall_ms": 472
+    },
+    {
+      "id": "qa-77",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": false,
+      "elapsed_ms": 388,
+      "wall_ms": 392
+    },
+    {
+      "id": "qa-78",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 409,
+      "wall_ms": 412
+    },
+    {
+      "id": "qa-79",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 378,
+      "wall_ms": 380
+    },
+    {
+      "id": "qa-80",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 384,
+      "wall_ms": 387
+    },
+    {
+      "id": "qa-81",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 423,
+      "wall_ms": 427
+    },
+    {
+      "id": "qa-82",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 407,
+      "wall_ms": 410
+    },
+    {
+      "id": "qa-83",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 429,
+      "wall_ms": 433
+    },
+    {
+      "id": "qa-84",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 388,
+      "wall_ms": 392
+    },
+    {
+      "id": "qa-85",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 418,
+      "wall_ms": 422
+    },
+    {
+      "id": "qa-86",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 411,
+      "wall_ms": 414
+    },
+    {
+      "id": "qa-87",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 394,
+      "wall_ms": 397
+    },
+    {
+      "id": "qa-88",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 381,
+      "wall_ms": 383
+    },
+    {
+      "id": "qa-89",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 393,
+      "wall_ms": 397
+    },
+    {
+      "id": "qa-90",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 419,
+      "wall_ms": 422
+    },
+    {
+      "id": "qa-91",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 385,
+      "wall_ms": 387
+    },
+    {
+      "id": "qa-92",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 395,
+      "wall_ms": 399
+    },
+    {
+      "id": "qa-93",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 393,
+      "wall_ms": 397
+    },
+    {
+      "id": "qa-94",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 387,
+      "wall_ms": 390
+    },
+    {
+      "id": "qa-95",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 418,
+      "wall_ms": 421
+    },
+    {
+      "id": "qa-96",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 391,
+      "wall_ms": 395
+    },
+    {
+      "id": "qa-97",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 403,
+      "wall_ms": 406
+    },
+    {
+      "id": "qa-98",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 410,
+      "wall_ms": 414
+    },
+    {
+      "id": "qa-99",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 396,
+      "wall_ms": 399
+    },
+    {
+      "id": "qa-100",
+      "status": 200,
+      "mode": "fast",
+      "source_count": 5,
+      "evidence_hit": true,
+      "elapsed_ms": 408,
+      "wall_ms": 411
+    }
+  ]
+}

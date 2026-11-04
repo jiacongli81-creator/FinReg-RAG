@@ -30,7 +30,11 @@ def rerank_candidates(question: str, candidates: list[tuple[float, object]]) -> 
             seen_content.add(content)
             unique.append((score, row))
     try:
-        scores = list(_model().rerank(question, [row["content"] for _, row in unique]))
+        scores = list(_model().rerank(
+            question,
+            [row["content"] for _, row in unique],
+            batch_size=settings.rerank_batch_size,
+        ))
     except Exception as exc:
         raise RuntimeError(f"重排模型 {settings.rerank_model} 运行失败: {exc}") from exc
     if len(scores) != len(unique):
