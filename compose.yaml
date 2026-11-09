@@ -39,6 +39,7 @@ services:
 
   ollama:
     image: ollama/ollama:latest
+    gpus: all
     volumes:
       - ./docker-data/ollama:/root/.ollama
     healthcheck:
@@ -100,6 +101,58 @@ services:
       - ./docker-data/reranker:/var/lib/reranker
     ports:
       - "127.0.0.1:8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      milvus:
+        condition: service_healthy
+      ollama-init:
+        condition: service_completed_successfully
+      mineru-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 15s
+      timeout: 8s
+      retries: 10
+
+  api-local:
+    image: finreg-rag:local
+    profiles: [local-llm]
+    env_file: ./docker/api.env
+    environment:
+      DATABASE_BACKEND: mysql
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: finreg_rag
+      VECTOR_BACKEND: milvus
+      MILVUS_URI: http://milvus:19530
+      MILVUS_COLLECTION: financial_chunks
+      EMBEDDING_PROVIDER: ollama
+      EMBEDDING_BASE_URL: http://ollama:11434
+      EMBEDDING_MODEL: shaw/dmeta-embedding-zh:latest
+      LLM_PROVIDER: openai_compatible
+      LLM_BASE_URL: http://ollama:11434/v1
+      LLM_API_KEY: ollama
+      LLM_MODEL: qwen2.5:7b-instruct
+      LLM_TIMEOUT_SECONDS: "120"
+      MINERU_ENABLED: "true"
+      MINERU_PYTHON: /usr/local/bin/python
+      MINERU_HOME: /var/lib/mineru/.mineru
+      MINERU_TEMP_DIR: /var/lib/mineru/tmp
+      MINERU_OUTPUT_DIR: /var/lib/mineru/project-output
+      RERANK_CACHE_DIR: /var/lib/reranker
+      HF_HOME: /var/lib/mineru/cache/huggingface
+      MODELSCOPE_CACHE: /var/lib/mineru/cache/modelscope
+      TEMP: /var/lib/mineru/tmp
+      TMP: /var/lib/mineru/tmp
+      TMPDIR: /var/lib/mineru/tmp
+    volumes:
+      - ./data:/app/data
+      - ./docker-data/mineru:/var/lib/mineru
+      - ./docker-data/reranker:/var/lib/reranker
+    ports:
+      - "127.0.0.1:8001:8000"
     depends_on:
       mysql:
         condition: service_healthy

@@ -39,6 +39,7 @@ class Settings:
     llm_base_url: str = os.getenv("LLM_BASE_URL", "")
     llm_api_key: str = os.getenv("LLM_API_KEY", "")
     llm_model: str = os.getenv("LLM_MODEL", "")
+    llm_timeout_seconds: int = int(os.getenv("LLM_TIMEOUT_SECONDS", "120"))
     embedding_provider: str = os.getenv("EMBEDDING_PROVIDER", "ollama")
     embedding_base_url: str = os.getenv("EMBEDDING_BASE_URL", "http://127.0.0.1:11434")
     embedding_model: str = os.getenv("EMBEDDING_MODEL", "shaw/dmeta-embedding-zh:latest")

@@ -11,7 +11,7 @@ from ..config import settings
 from ..db import get_chunks, save_history
 from .embeddings import cosine, embed
 from .keywords import rank_keywords
-from .llm import generate_answer, generate_fast_answer
+from .llm import generate_answer
 from .reranker import rerank_candidates
 from .vector_store import search_vectors
 
@@ -93,8 +93,7 @@ def _generate(state: dict) -> dict:
         {**document.metadata, "content": document.page_content}
         for document in state["documents"]
     ]
-    generator = generate_fast_answer if state["mode"] == "fast" else generate_answer
-    answer, confidence = generator(state["question"], sources)
+    answer, confidence = generate_answer(state["question"], sources)
     return {"question": state["question"], "answer": answer, "confidence": confidence, "sources": sources}
 
 

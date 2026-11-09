@@ -179,7 +179,7 @@ def ask(request: QueryRequest) -> QueryResponse:
     except RuntimeError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
     elapsed_ms = round((time.perf_counter() - started) * 1000)
-    provider = "local_extractive" if request.mode == "fast" else settings.llm_provider
+    provider = settings.llm_provider
     return QueryResponse(answer=answer, confidence=confidence, sources=sources, elapsed_ms=elapsed_ms,
                          llm_provider=provider, mode=request.mode, history_id=history_id)
 

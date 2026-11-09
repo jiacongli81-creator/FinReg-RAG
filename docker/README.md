@@ -2,6 +2,8 @@
 
 `compose.yaml` 启动 FastAPI、MySQL、Ollama 和 Milvus Standalone。Milvus 使用官方嵌入式 etcd 与本地存储模式，端口 `19530` 仅绑定本机。智能档仍使用现有交叉编码器和配置的回答模型。
 
+本机的 Ollama 服务已通过 Compose 的 `gpus: all` 使用 NVIDIA GPU。可运行 `docker compose exec ollama ollama ps` 查看已加载模型的 `PROCESSOR` 列；显示 `100% GPU` 表示模型推理在显卡上执行。此配置要求 Docker Desktop 的 Linux/WSL2 引擎能访问 NVIDIA 显卡。要在其他没有 GPU 的机器运行，需移除 `compose.yaml` 中 Ollama 的 `gpus: all`。
+
 ## D 盘存储
 
 项目放在 D 盘。`docker-data/` 保存 MySQL、Milvus、Ollama、MinerU 与重排模型的数据。Docker Desktop 的 **Disk image location** 也必须设在 D 盘，否则镜像层仍可能下载到 C 盘。本机目前将 Docker 的 `wsl/disk` 目录链接到 `D:\信雅达rag\docker-data\docker-desktop\disk`；换机器部署时需重新设置其磁盘位置。
@@ -20,6 +22,16 @@ docker compose ps
 ```
 
 首次构建会安装 MinerU，首次启动会下载其 basic ONNX 模型及 Ollama 嵌入模型，均持久化在 D 盘。页面为 `http://127.0.0.1:8000/test`；健康检查为 `http://127.0.0.1:8000/health`。
+
+## 云端与本地千问同时使用
+
+本机已下载 `qwen2.5:7b-instruct` 到 D 盘的 `docker-data/ollama`。保持 `docker/api.env` 中现有云端配置，主 API 使用云端模型；可选的 `api-local` 服务固定使用本地千问。先按上面的启动步骤构建主 API，再运行：
+
+```powershell
+docker compose --profile local-llm up -d --no-deps api-local
+```
+
+云端页面为 `http://127.0.0.1:8000/test`，本地千问页面为 `http://127.0.0.1:8001/test`。两个入口的快速档和智能档都会调用各自的回答模型；快速档跳过重排。首次本地请求需要等待模型加载；`docker compose exec ollama ollama ps` 可核实 `PROCESSOR` 为 `100% GPU`。关闭本地入口可运行 `docker compose --profile local-llm stop api-local`，不会删除模型文件。
 
 新建的 MySQL 是空库。如需将本项目的 SQLite 数据导入，仅在 **MySQL 目标库为空** 时执行：
 

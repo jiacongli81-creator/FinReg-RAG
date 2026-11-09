@@ -8,7 +8,6 @@ from pydantic import ValidationError
 
 from app.schemas import QueryRequest
 from app.services import retrieval
-from app.services.llm import generate_fast_answer
 
 
 def candidate(chunk_id: str) -> tuple[float, dict]:
@@ -75,20 +74,12 @@ class QueryModeTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             QueryRequest(question="test", mode="unknown")
 
-    def test_fast_answer_is_local_excerpt_with_citation(self):
-        sources = [{"content": "普通内容。商业银行应当保护存款人的合法权益。"}]
-        answer, confidence = generate_fast_answer("如何保护存款人权益", sources)
-        self.assertIn("商业银行应当保护存款人的合法权益。[1]", answer)
-        self.assertEqual(confidence, "medium")
-
-    def test_generation_routes_by_mode(self):
+    def test_both_modes_call_answer_model(self):
         state = {"question": "test", "documents": []}
-        with patch.object(retrieval, "generate_fast_answer", return_value=("fast", "low")) as fast:
-            with patch.object(retrieval, "generate_answer", return_value=("smart", "high")) as smart:
-                self.assertEqual(retrieval._generate({**state, "mode": "fast"})["answer"], "fast")
-                self.assertEqual(retrieval._generate({**state, "mode": "smart"})["answer"], "smart")
-        fast.assert_called_once()
-        smart.assert_called_once()
+        with patch.object(retrieval, "generate_answer", return_value=("answer", "high")) as model:
+            self.assertEqual(retrieval._generate({**state, "mode": "fast"})["answer"], "answer")
+            self.assertEqual(retrieval._generate({**state, "mode": "smart"})["answer"], "answer")
+        self.assertEqual(model.call_count, 2)
 
 
 if __name__ == "__main__":
